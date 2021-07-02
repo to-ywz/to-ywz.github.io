@@ -8,28 +8,11 @@
     <author>
       <name>秦殇</name>
     </author>
-    <updated>2021-07-01T12:05:30.283Z</updated>
+    <updated>2021-07-01T05:03:01.000Z</updated>
     <entry>
-        <id>https://to-ywz.github.io/2021/07/01/hello-world/</id>
-        <title>Hello World</title>
-        <link rel="alternate" href="https://to-ywz.github.io/2021/07/01/hello-world/"/>
-        <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
-&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo new &lt;span class=&#34;token string&#34;&gt;&#34;My New Post&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
-</content>
-        <updated>2021-07-01T12:05:30.283Z</updated>
-    </entry>
-    <entry>
-        <id>https://to-ywz.github.io/2021/07/01/blog/to-Build-shoka/</id>
+        <id>https://to-ywz.github.io/2021/07/01/blog/to-Build-shoka/to-Build-shoka/</id>
         <title>搭建 shoka 主题出现的问题</title>
-        <link rel="alternate" href="https://to-ywz.github.io/2021/07/01/blog/to-Build-shoka/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/2021/07/01/blog/to-Build-shoka/to-Build-shoka/"/>
         <content type="html">&lt;h2 id=&#34;hexo-更换-shoka-主题-出现的问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-更换-shoka-主题-出现的问题&#34;&gt;#&lt;/a&gt; hexo 更换 shoka 主题 出现的问题&lt;/h2&gt;
 &lt;p&gt;PS: 由于出现问题的时候没有及时截图，所以下面的文章里没有相关图片，十分抱歉&lt;/p&gt;
 &lt;h2 id=&#34;hexo-g-出现-yamlsafeload-is-remove&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-g-出现-yamlsafeload-is-remove&#34;&gt;#&lt;/a&gt; hexo g 出现 yaml.safeLoad () is remove&lt;/h2&gt;
@@ -785,9 +768,9 @@ func: &amp;amp;p=0x61fe00, p=4206612
         <updated>2021-03-11T03:45:20.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</id>
+        <id>https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/P20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</id>
         <title>P20有效的括号</title>
-        <link rel="alternate" href="https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/P20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/"/>
         <content type="html">&lt;h1 id=&#34;有效的括号&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#有效的括号&#34;&gt;#&lt;/a&gt; 有效的括号&lt;/h1&gt;
 &lt;h3 id=&#34;11-题目&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11-题目&#34;&gt;#&lt;/a&gt; 1.1 题目&lt;/h3&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://tva1.sinaimg.cn/large/005Q2GK3ly8gs1m1qly5ij30iu0yaq47.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;/p&gt;
@@ -810,9 +793,9 @@ func: &amp;amp;p=0x61fe00, p=4206612
         <updated>2021-02-24T08:17:55.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P14%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</id>
+        <id>https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P14%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/P14%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</id>
         <title>P14最长公共前缀</title>
-        <link rel="alternate" href="https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P14%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P14%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/P14%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/"/>
         <content type="html">&lt;h1 id=&#34;最长公共前缀&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最长公共前缀&#34;&gt;#&lt;/a&gt; 最长公共前缀&lt;/h1&gt;
 &lt;h5 id=&#34;这次没有流程图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#这次没有流程图&#34;&gt;#&lt;/a&gt; 这次没有流程图&lt;/h5&gt;
 &lt;h3 id=&#34;11-题目&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11-题目&#34;&gt;#&lt;/a&gt; 1.1 题目&lt;/h3&gt;
@@ -844,9 +827,9 @@ func: &amp;amp;p=0x61fe00, p=4206612
         <updated>2021-02-24T08:17:40.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P13%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/</id>
+        <id>https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P13%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/P13%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/</id>
         <title>P13罗马数字转整数</title>
-        <link rel="alternate" href="https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P13%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P13%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/P13%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/"/>
         <content type="html">&lt;h1 id=&#34;罗马数字转整数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#罗马数字转整数&#34;&gt;#&lt;/a&gt; 罗马数字转整数&lt;/h1&gt;
 &lt;h3 id=&#34;11-题目&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11-题目&#34;&gt;#&lt;/a&gt; 1.1 题目&lt;/h3&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://tva1.sinaimg.cn/large/005Q2GK3ly8gs1mxwu3iij30hw1bw76r.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;/p&gt;
@@ -906,9 +889,9 @@ func: &amp;amp;p=0x61fe00, p=4206612
         <updated>2021-02-24T08:17:24.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P9%E5%9B%9E%E6%96%87%E6%95%B0/</id>
+        <id>https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P9%E5%9B%9E%E6%96%87%E6%95%B0/P9%E5%9B%9E%E6%96%87%E6%95%B0/</id>
         <title>P9回文数</title>
-        <link rel="alternate" href="https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P9%E5%9B%9E%E6%96%87%E6%95%B0/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P9%E5%9B%9E%E6%96%87%E6%95%B0/P9%E5%9B%9E%E6%96%87%E6%95%B0/"/>
         <content type="html">&lt;h1 id=&#34;回文数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#回文数&#34;&gt;#&lt;/a&gt; 回文数&lt;/h1&gt;
 &lt;h3 id=&#34;11-题目&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#11-题目&#34;&gt;#&lt;/a&gt; 1.1 题目&lt;/h3&gt;
 &lt;p&gt;&lt;img data-src=&#34;Question.png&#34; alt=&#34;alt&#34; /&gt;&lt;/p&gt;
@@ -957,9 +940,9 @@ func: &amp;amp;p=0x61fe00, p=4206612
         <updated>2021-02-24T08:17:04.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P7%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</id>
+        <id>https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P7%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/P7%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</id>
         <title>P7整数反转</title>
-        <link rel="alternate" href="https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P7%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/2021/02/24/CS/Algorithm/Leetcode/P7%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/P7%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/"/>
         <content type="html">&lt;h1 id=&#34;整数反转&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#整数反转&#34;&gt;#&lt;/a&gt; 整数反转&lt;/h1&gt;
 &lt;h5 id=&#34;note-对于负数运算&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#note-对于负数运算&#34;&gt;#&lt;/a&gt; Note: 对于负数运算&lt;/h5&gt;
 &lt;blockquote&gt;
@@ -1088,9 +1071,9 @@ cond1(yes)-&amp;gt;op1(left)-&amp;gt;e&lt;/p&gt;
         <updated>2021-02-24T08:16:39.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/2021/02/23/CS/Algorithm/Leetcode/P1%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</id>
+        <id>https://to-ywz.github.io/2021/02/23/CS/Algorithm/Leetcode/P1%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/P1%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</id>
         <title>P1两数之和</title>
-        <link rel="alternate" href="https://to-ywz.github.io/2021/02/23/CS/Algorithm/Leetcode/P1%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/2021/02/23/CS/Algorithm/Leetcode/P1%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/P1%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
         <content type="html">&lt;h1 id=&#34;两数之和&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#两数之和&#34;&gt;#&lt;/a&gt; 两数之和&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;说明: 2.c 文件的解法会超时，之前是不会的，暴力 AC 就是不靠谱&lt;/p&gt;
@@ -1117,9 +1100,9 @@ cond1(yes)-&amp;gt;op1(left)-&amp;gt;e&lt;/p&gt;
         <updated>2021-02-23T10:38:45.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/2021/02/23/CS/Book/DeepLeaningOS/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F_3/</id>
+        <id>https://to-ywz.github.io/2021/02/23/CS/Book/DeepLeaningOS/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F_3/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F_3/</id>
         <title>深入理解计算机系统_3</title>
-        <link rel="alternate" href="https://to-ywz.github.io/2021/02/23/CS/Book/DeepLeaningOS/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F_3/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/2021/02/23/CS/Book/DeepLeaningOS/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F_3/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F_3/"/>
         <content type="html">&lt;h1 id=&#34;3-程序的机器表示&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-程序的机器表示&#34;&gt;#&lt;/a&gt; 3 程序的机器表示&lt;/h1&gt;
 &lt;h2 id=&#34;intel系列芯片发展历史&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#intel系列芯片发展历史&#34;&gt;#&lt;/a&gt; Intel 系列芯片发展历史&lt;/h2&gt;
 &lt;p&gt;-- 该部分可略过&lt;/p&gt;
