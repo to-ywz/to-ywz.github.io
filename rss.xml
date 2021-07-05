@@ -10,13 +10,13 @@
         </author>
         <description>如风一般悠长</description>
         <language>zh-CN</language>
-        <pubDate>Mon, 05 Jul 2021 07:35:29 +0800</pubDate>
-        <lastBuildDate>Mon, 05 Jul 2021 07:35:29 +0800</lastBuildDate>
+        <pubDate>Mon, 05 Jul 2021 09:21:14 +0800</pubDate>
+        <lastBuildDate>Mon, 05 Jul 2021 09:21:14 +0800</lastBuildDate>
         <item>
             <guid isPermalink="true">https://to-ywz.github.io/2021/07/05/blog/prism%E4%B8%8B%E7%89%B9%E6%9C%89%E6%B8%B2%E6%9F%93/</guid>
-            <title>prism</title>
+            <title>prism下特有渲染</title>
             <link>https://to-ywz.github.io/2021/07/05/blog/prism%E4%B8%8B%E7%89%B9%E6%9C%89%E6%B8%B2%E6%9F%93/</link>
-            <pubDate>Mon, 05 Jul 2021 07:35:29 +0800</pubDate>
+            <pubDate>Mon, 05 Jul 2021 09:21:14 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;代码块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码块&#34;&gt;#&lt;/a&gt; 代码块&lt;/h1&gt;
 &lt;p&gt;使用 markdown-it-prism 进行代码高亮，支持显示行号、行高亮 mark 、命令行提示符 command 、代码块标题。&lt;/p&gt;
 &lt;p&gt;基本格式： [language] [title] [url] [link text] [mark] [command]&lt;/p&gt;

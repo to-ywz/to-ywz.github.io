@@ -8,10 +8,10 @@
     <author>
       <name>秦殇</name>
     </author>
-    <updated>2021-07-04T23:35:29.904Z</updated>
+    <updated>2021-07-05T01:21:14.000Z</updated>
     <entry>
         <id>https://to-ywz.github.io/2021/07/05/blog/prism%E4%B8%8B%E7%89%B9%E6%9C%89%E6%B8%B2%E6%9F%93/</id>
-        <title>prism</title>
+        <title>prism下特有渲染</title>
         <link rel="alternate" href="https://to-ywz.github.io/2021/07/05/blog/prism%E4%B8%8B%E7%89%B9%E6%9C%89%E6%B8%B2%E6%9F%93/"/>
         <content type="html">&lt;h1 id=&#34;代码块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码块&#34;&gt;#&lt;/a&gt; 代码块&lt;/h1&gt;
 &lt;p&gt;使用 markdown-it-prism 进行代码高亮，支持显示行号、行高亮 mark 、命令行提示符 command 、代码块标题。&lt;/p&gt;
@@ -60,7 +60,7 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 </content>
-        <updated>2021-07-04T23:35:29.904Z</updated>
+        <updated>2021-07-05T01:21:14.000Z</updated>
     </entry>
     <entry>
         <id>https://to-ywz.github.io/2021/07/01/blog/to-Build-shoka/to-Build-shoka/</id>
