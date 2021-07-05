@@ -13,9 +13,9 @@
         <pubDate>Mon, 05 Jul 2021 14:17:28 +0800</pubDate>
         <lastBuildDate>Mon, 05 Jul 2021 14:17:28 +0800</lastBuildDate>
         <item>
-            <guid isPermalink="true">https://to-ywz.github.io/2021/07/05/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E9%80%89%E6%8B%A9%E9%A2%98/</guid>
+            <guid isPermalink="true">https://to-ywz.github.io/2021/07/05/CS/Compilation_principle/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E9%80%89%E6%8B%A9%E9%A2%98/</guid>
             <title>编译原理选择题</title>
-            <link>https://to-ywz.github.io/2021/07/05/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E9%80%89%E6%8B%A9%E9%A2%98/</link>
+            <link>https://to-ywz.github.io/2021/07/05/CS/Compilation_principle/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E9%80%89%E6%8B%A9%E9%A2%98/</link>
             <pubDate>Mon, 05 Jul 2021 14:17:28 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;编译原理选择题练习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译原理选择题练习&#34;&gt;#&lt;/a&gt; 编译原理选择题练习&lt;/h1&gt;
 &lt;ol&gt;
@@ -143,8 +143,8 @@
 &lt;li&gt;可能唯一，好可能不唯一&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;设有以下方法 GN: N→N’ N’ → D | N’D  D  →   0|1|2……|9  下列哪个句型中有最右推导&lt;span class=&#34;gap quiz&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;li class=&#34;quiz&#34;&gt;
+&lt;p&gt;设有以下方法 GN: N→N’ N’ → D | N’D  D →  0|1|2……|9  下列哪个句型中有最右推导&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;2D&lt;/li&gt;
 &lt;li&gt;D6D&lt;/li&gt;
@@ -235,8 +235,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;设 G 是一个给定的文法，S 是文法的开始符号，如果 S-&amp;gt;x (其中 x∈V*), 则称 x 是&lt;br /&gt;
-文法 G 的一个 &lt;span class=&#34;gap&#34;&gt;&lt;/span&gt; 。&lt;/p&gt;
+&lt;p&gt;设 G 是一个给定的文法，S 是文法的开始符号，如果 S-&amp;gt;x (其中 x∈V*), 则称 x 是文法 G 的一个 &lt;span class=&#34;gap&#34;&gt;&lt;/span&gt; 。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;候选式&lt;/li&gt;
 &lt;li class=&#34;correct&#34;&gt;句型   &lt;/li&gt;
@@ -263,19 +262,17 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;如果 L (M1)=L (M2), 则 M1 与 M2&lt;/p&gt;
-&lt;ul&gt;
+&lt;p&gt;如果 L (M1)=L (M2), 则 M1 与 M2&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
+&lt;ul class=&#34;options&#34;&gt;
 &lt;li class=&#34;correct&#34;&gt;等价            &lt;/li&gt;
 &lt;li&gt;都是二义的&lt;/li&gt;
 &lt;li&gt;都是无二义的&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;它们的状态数相等&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&#34;21&#34;&gt;
-&lt;li class=&#34;quiz&#34;&gt;文法 G：E→E+T|T  T→T*P|P   P→(E)|i 则句型 P+T+i 的句柄为 &lt;/li&gt;
+&lt;/li&gt;
+&lt;li class=&#34;quiz&#34;&gt;
+&lt;p&gt;文法 G：E→E+T|T  T→T*P|P   P→(E)|i 则句型 P+T+i 的句柄为&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;P+T&lt;/li&gt;
@@ -283,8 +280,8 @@
 &lt;li&gt;P+T+i&lt;/li&gt;
 &lt;li&gt;i&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&#34;22&#34;&gt;
-&lt;li class=&#34;quiz&#34;&gt;文法 G:S→S+T|T1   T→T*P|P    P→(S)|i   句型 P+T+i 的短语有 &lt;/li&gt;
+&lt;ol start=&#34;30&#34;&gt;
+&lt;li class=&#34;quiz&#34;&gt;文法 G:S→S+T|T1   T→T*P|P    P→(S)|i   句型 P+T+i 的短语有&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;i,P+T&lt;/li&gt;
@@ -292,7 +289,7 @@
 &lt;li&gt;P+T+i&lt;/li&gt;
 &lt;li&gt;P, P+T, i&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&#34;23&#34; class=&#34;options&#34;&gt;
+&lt;ol start=&#34;31&#34;&gt;
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;正则式的 “*” 读作&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
@@ -303,18 +300,16 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;LL (1) 文法的条件是：     &lt;/p&gt;
-&lt;ul&gt;
+&lt;p&gt;LL (1) 文法的条件是&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
+&lt;ul class=&#34;options&#34;&gt;
 &lt;li class=&#34;correct&#34;&gt;对形如 U→X1︱X2︱…︱Xn 的产生式，要求 SELECT（U→Xi）∩SELECT（U→Xj）＝, （i≠j）&lt;/li&gt;
 &lt;li&gt;对形如 U→X1︱X2︱…︱Xn 的产生式，若 Xiε, 要求 FIRST（Xi）∩FOLLOW（U）＝&lt;/li&gt;
 &lt;li&gt;A 和 B&lt;/li&gt;
 &lt;li&gt;都不是&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol start=&#34;25&#34;&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;在语法分析处理中，FIRST 集合、 FOLLOW 集合、 SELECT 集合均是 ()。&lt;/p&gt;
+&lt;p&gt;在语法分析处理中，FIRST 集合、 FOLLOW 集合、 SELECT 集合均是&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;非终极符集&lt;/li&gt;
 &lt;li class=&#34;correct&#34;&gt;终极符集     &lt;/li&gt;
@@ -323,7 +318,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;高级语言编译程序常用的语法分析方法中，递归下降分析法属于 {.quiz} 分析方法。&lt;/p&gt;
+&lt;p&gt;高级语言编译程序常用的语法分析方法中，递归下降分析法属于&lt;span class=&#34;quiz&#34;&gt;&lt;/span&gt; 分析方法。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;自左至右&lt;/li&gt;
 &lt;li class=&#34;correct&#34;&gt;自顶向下        &lt;/li&gt;
@@ -574,7 +569,7 @@ T→n        {T.val:= n.val}&lt;br /&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;优化可生成&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;的目标代码。&lt;/p&gt;
+&lt;p&gt;优化可生成 ———————— 的目标代码。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;运行时间较短&lt;/li&gt;
 &lt;li&gt;占用存储空间较小&lt;/li&gt;
@@ -583,8 +578,8 @@ T→n        {T.val:= n.val}&lt;br /&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;代码优化的目的是&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;li class=&#34;quiz&#34;&gt;
+&lt;p&gt;代码优化的目的是。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;节省时间&lt;/li&gt;
 &lt;li&gt;节省空间&lt;/li&gt;
