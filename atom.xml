@@ -558,7 +558,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;优化可生成&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;的目标代码。&lt;/p&gt;
+&lt;p&gt;优化可生成的目标代码。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;运行时间较短&lt;/li&gt;
 &lt;li&gt;占用存储空间较小&lt;/li&gt;
