@@ -538,9 +538,9 @@ B→b|SBB|ε
 &lt;p&gt;设文法为：S→SA|A A→a|b 则对句子 aba, 下面    是规范推导。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;S-&amp;gt;SA-&amp;gt;SAA-&amp;gt;AAA-&amp;gt;aAA-&amp;gt;abA-&amp;gt;aba&lt;/li&gt;
-&lt;li class=&#34;correct&#34;&gt;S-&amp;gt;SA-&amp;gt;SAA-&amp;gt;AAA-&amp;gt;AAa-&amp;gt;Aba-&amp;gt;aba &lt;/li&gt;
+&lt;li&gt;S-&amp;gt;SA-&amp;gt;SAA-&amp;gt;AAA-&amp;gt;AAa-&amp;gt;Aba-&amp;gt;aba&lt;/li&gt;
 &lt;li&gt;S-&amp;gt;SA-&amp;gt;SAA-&amp;gt;SAa-&amp;gt;Sba-&amp;gt;Aba-&amp;gt;aba&lt;/li&gt;
-&lt;li&gt;S-&amp;gt;SA-&amp;gt;Sa-&amp;gt;SAa-&amp;gt;Sba-&amp;gt;Aba-&amp;gt;aba&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;S-&amp;gt;SA-&amp;gt;Sa-&amp;gt;SAa-&amp;gt;Sba-&amp;gt;Aba-&amp;gt;aba    &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
