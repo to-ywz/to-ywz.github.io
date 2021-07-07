@@ -712,8 +712,8 @@ B→b|SBB|ε
 &lt;p&gt;正规式 M1 和 M2 等价是指&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;_。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;M1 和 M2 状态数相等&lt;/li&gt;
-&lt;li class=&#34;correct&#34;&gt;M1 和 M2 的有向弧条数相等  &lt;/li&gt;
-&lt;li&gt;M1 和 M2 所识别的语言集合相等&lt;/li&gt;
+&lt;li&gt;M1 和 M2 的有向弧条数相等&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;M1 和 M2 所识别的语言集合相等   &lt;/li&gt;
 &lt;li&gt;M1 和 M2 状态数和有向弧条数相等&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
