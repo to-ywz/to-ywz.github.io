@@ -500,13 +500,13 @@ B→b|SBB|ε
 -  6 个&lt;br /&gt;
  -  7 个&lt;br /&gt;
  -  9 个&lt;/p&gt;
-&lt;h1 id=&#34;本文作者-ruri-shimotsuki-優萌初華&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#本文作者-ruri-shimotsuki-優萌初華&#34;&gt;#&lt;/a&gt; 本文作者： Ruri Shimotsuki @優萌初華&lt;/h1&gt;
-&lt;h1 id=&#34;本文链接-httpsshokalostyumecomputer-sciencenotetheme-shoka-docspecial&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#本文链接-httpsshokalostyumecomputer-sciencenotetheme-shoka-docspecial&#34;&gt;#&lt;/a&gt; 本文链接： &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9zcGVjaWFsLw==&#34;&gt;https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/special/&lt;/span&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;版权声明-本站所有文章除特别声明外均采用-ccby-nc-sa-许可协议-转载请注明出处&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#版权声明-本站所有文章除特别声明外均采用-ccby-nc-sa-许可协议-转载请注明出处&#34;&gt;#&lt;/a&gt; 版权声明： 本站所有文章除特别声明外，均采用 (CC) BY-NC-SA 许可协议。转载请注明出处！&lt;/h1&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;有基类  &lt;code&gt;SHAPE&lt;/code&gt; ，派生类  &lt;code&gt;CIRCLE&lt;/code&gt; ，声明如下变量： &lt;/p&gt;
-&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;SHAPE shape1&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;p1&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;CIRCLE circle1&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;q1&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;下列哪些项是 “派生类对象替换基类对象”。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SHAPE shape1,*p1;
+CIRCLE circle1,*q1;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;下列哪些项是 “派生类对象替换基类对象”。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li class=&#34;correct&#34;&gt;&lt;code&gt;p1=&amp;amp;circle1;&lt;/code&gt; &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;q1=&amp;amp;shape1;&lt;/code&gt;&lt;/li&gt;
