@@ -923,7 +923,7 @@ B→b|SBB|ε
 &lt;li&gt;运行事件较短&lt;/li&gt;
 &lt;li&gt;占用存储空间较小&lt;/li&gt;
 &lt;li&gt;运行事件短但占用内存空间大&lt;/li&gt;
-&lt;li class=&#34;&#34; correct=&#34;&#34;&gt;运行时间短且占用存储空间小&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;运行时间短且占用存储空间小 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
