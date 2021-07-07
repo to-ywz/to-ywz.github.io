@@ -475,7 +475,7 @@
 &lt;li&gt;可能唯一，好可能不唯一&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
+&lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;设有以下方法&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;GN: N→N’ 
     N’ → D | N’D  
@@ -483,45 +483,32 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p class=&#34;options&#34;&gt;下列哪个句型中有最右推导&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。{.quiz}&lt;br /&gt;
+&lt;p class=&#34;options&#34;&gt;下列哪个句型中有最右推导&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;br /&gt;
 - 2D&lt;br /&gt;
 - D6D&lt;br /&gt;
 - N‘88       {.correct}&lt;br /&gt;
 - DND&lt;/p&gt;
 &lt;ol start=&#34;16&#34;&gt;
-&lt;li&gt;设有文法&lt;pre&gt;&lt;code&gt;G[S]：S→ABS|Aa|b    
+&lt;li class=&#34;quiz&#34;&gt;设有文法&lt;pre&gt;&lt;code&gt;G[S]：S→ABS|Aa|b    
 A→a      
 B→b|SBB|ε
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p class=&#34;options&#34;&gt;该文法的一个句子：abbaa 对应的语法树如图，试问根据该语法树，求得该句子的短语有&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;个。{.quiz}&lt;br /&gt;
+&lt;p class=&#34;options&#34;&gt;该文法的一个句子：abbaa 对应的语法树如图，试问根据该语法树，求得该句子的短语有&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;个。&lt;br /&gt;
 -  8 个   {.correct}&lt;br /&gt;
 -  6 个&lt;br /&gt;
  -  7 个&lt;br /&gt;
  -  9 个&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;有基类  &lt;code&gt;SHAPE&lt;/code&gt; ，派生类  &lt;code&gt;CIRCLE&lt;/code&gt; ，声明如下变量： &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SHAPE shape1,*p1;
-CIRCLE circle1,*q1;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;下列哪些项是 “派生类对象替换基类对象”。&lt;/p&gt;
-&lt;ul class=&#34;options&#34;&gt;
-&lt;li class=&#34;correct&#34;&gt;&lt;code&gt;p1=&amp;amp;circle1;&lt;/code&gt; &lt;/li&gt;
-&lt;li&gt;&lt;code&gt;q1=&amp;amp;shape1;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;shape1=circle1;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;circle1=shape1;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li class=&#34;options&#34;&gt;
-&lt;p&gt;设有文法 G [I]： I→I0  | I1  | I a  | Ic  | a  | b  | c 下列符号串中是该文法的句子的有.&lt;/p&gt;
+&lt;ol start=&#34;17&#34;&gt;
+&lt;li class=&#34;quiz options&#34;&gt;
+&lt;p&gt;设有文法 G [I]： I→I0  | I1  | I a  | Ic  | a  | b  | c 下列符号串中是该文法的句子的有 &lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;①ab0 
 ②a0c01 
 ③aaa 
 ④bc10
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可选项有:&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;. {.quiz}&lt;br /&gt;
+&lt;p&gt;可选项有:&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;.&lt;br /&gt;
 - ①&lt;br /&gt;
 - ②③④         {.correct}&lt;br /&gt;
 - ③④&lt;br /&gt;
@@ -600,7 +587,7 @@ CIRCLE circle1,*q1;
 &lt;li&gt;产生式&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
+&lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;文法&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;G[E]:   E-&amp;gt;T | E+T
         T-&amp;gt;F | T*F
@@ -612,7 +599,7 @@ CIRCLE circle1,*q1;
 ③ F   
 ④ F﹡(E ＋ T)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p class=&#34;quiz&#34;&gt;是下列符号串中的&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;是下列符号串中的&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;① 和 ③&lt;/li&gt;
 &lt;li class=&#34;correct&#34;&gt;② 和 ③    &lt;/li&gt;
@@ -929,7 +916,7 @@ CIRCLE circle1,*q1;
 &lt;li&gt;代码外提&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li class=&#34;quize&#34;&gt;
+&lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;优化可生成的目标代码。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;运行事件较短&lt;/li&gt;
