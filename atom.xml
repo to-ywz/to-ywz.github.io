@@ -496,25 +496,27 @@ B→b|SBB|ε
 &lt;li&gt;9 个&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li class=&#34;quiz options&#34;&gt;
+&lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;设有文法 G [I]： I→I0  | I1  | I a  | Ic  | a  | b  | c 下列符号串中是该文法的句子的有 &lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;①ab0 
 ②a0c01 
 ③aaa 
 ④bc10
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可选项有:&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;.&lt;br /&gt;
-- ①&lt;br /&gt;
-- ②③④         {.correct}&lt;br /&gt;
-- ③④&lt;br /&gt;
-- ①②③④&lt;/p&gt;
+&lt;p&gt;可选项有:&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;ul class=&#34;options&#34;&gt;
+&lt;li&gt;①&lt;/li&gt;
+&lt;li&gt;②③④&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;③④          &lt;/li&gt;
+&lt;li&gt;①②③④&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;文法 G：S→xSx|y 所识别的语言是&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;xyx&lt;/li&gt;
-&lt;li class=&#34;correct&#34;&gt;(xyx)*     &lt;/li&gt;
-&lt;li&gt;xnyxn (n0)&lt;/li&gt;
+&lt;li&gt;(xyx)*&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;xnyxn (n&amp;gt;=0)      &lt;/li&gt;
 &lt;li&gt;x*y+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -910,10 +912,9 @@ B→b|SBB|ε
 &lt;li&gt;代码外提&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;优化可生成的目标代码。&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;优化。行事件较短&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
-&lt;li&gt;运行事件较短&lt;/li&gt;
 &lt;li&gt;占用存储空间较小&lt;/li&gt;
 &lt;li&gt;运行事件短但占用内存空间大&lt;/li&gt;
 &lt;li class=&#34;correct&#34;&gt;运行时间短且占用存储空间小 &lt;/li&gt;
