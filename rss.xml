@@ -546,7 +546,7 @@ B→b|SBB|ε
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;如果文法 G 是无二义性的，则它的任何句子 a &lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;如果文法 G 是无二义性的，则它的任何句子 &lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li class=&#34;correct&#34;&gt;最左推导和最右推导对应的语法树必定相同&lt;/li&gt;
 &lt;li&gt;最左推导和最右推导对应的语法树可能不同&lt;/li&gt;
@@ -555,7 +555,7 @@ B→b|SBB|ε
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;在编译中产生语法树是为了&lt;/p&gt;
+&lt;p&gt;在编译中产生语法树是为了&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li class=&#34;correct&#34;&gt;语法分析     &lt;/li&gt;
 &lt;li&gt;语义分析&lt;/li&gt;
@@ -859,10 +859,10 @@ B→b|SBB|ε
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;数组 &lt;code&gt;A[1..20,1..10]&lt;/code&gt;  的首地址偏移量为 0, 按行存储，每个元素占一个字节，存储器按字编址，则 &lt;code&gt;A[i,j]&lt;/code&gt;  的偏移地址为&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;__。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
-&lt;li class=&#34;correct&#34;&gt;(i-1)×10+(j-1) &lt;/li&gt;
-&lt;li&gt;(i-1)×20+(j-1)&lt;/li&gt;
-&lt;li&gt;(i-1)+ (j-1)×10&lt;/li&gt;
-&lt;li&gt;(i-1)+ (j-1)×20&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;&lt;code&gt;(i-1)×10+(j-1)&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(i-1)×20+(j-1)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(i-1)+ (j-1)×10&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(i-1)+ (j-1)×20&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
