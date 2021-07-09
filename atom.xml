@@ -912,8 +912,8 @@ B→b|SBB|ε
 &lt;li&gt;代码外提&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;优化。行事件较短&lt;/p&gt;
+&lt;li class=&#34;quiz&#34;&gt;
+&lt;p&gt;优化&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;行事件较短。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;占用存储空间较小&lt;/li&gt;
 &lt;li&gt;运行事件短但占用内存空间大&lt;/li&gt;
@@ -921,7 +921,7 @@ B→b|SBB|ε
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;代码优化的目的是。&lt;/p&gt;
+&lt;p&gt;代码优化的目的是&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;节省时间&lt;/li&gt;
 &lt;li&gt;节省空间&lt;/li&gt;
