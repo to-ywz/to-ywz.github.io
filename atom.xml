@@ -470,8 +470,8 @@
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;设有以下方法&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;GN: N→N’ 
-    N’ → D | N’D  
+&lt;pre&gt;&lt;code&gt;GN: N→N’
+    N’ → D | N’D
     D →  0|1|2……|9
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;下列哪个句型中有最右推导&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
@@ -484,8 +484,8 @@
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;设有文法&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;G[S]：S→ABS|Aa|b    
-A→a      
+&lt;pre&gt;&lt;code&gt;G[S]：S→ABS|Aa|b
+A→a
 B→b|SBB|ε
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;该文法的一个句子：abbaa 对应的语法树如图，试问根据该语法树，求得该句子的短语有&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;个。&lt;/p&gt;
@@ -498,9 +498,9 @@ B→b|SBB|ε
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;设有文法 G [I]： I→I0  | I1  | I a  | Ic  | a  | b  | c 下列符号串中是该文法的句子的有 &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;①ab0 
-②a0c01 
-③aaa 
+&lt;pre&gt;&lt;code&gt;①ab0
+②a0c01
+③aaa
 ④bc10
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;可选项有:&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;.&lt;/p&gt;
@@ -530,7 +530,7 @@ B→b|SBB|ε
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;设文法为：S→SA|A A→a|b 则对句子 aba, 下面    是规范推导。&lt;/p&gt;
+&lt;p&gt;设文法为：S→SA|A A→a|b 则对句子 aba, 下面 &lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;是规范推导。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;S-&amp;gt;SA-&amp;gt;SAA-&amp;gt;AAA-&amp;gt;aAA-&amp;gt;abA-&amp;gt;aba&lt;/li&gt;
 &lt;li&gt;S-&amp;gt;SA-&amp;gt;SAA-&amp;gt;AAA-&amp;gt;AAa-&amp;gt;Aba-&amp;gt;aba&lt;/li&gt;
@@ -558,12 +558,11 @@ B→b|SBB|ε
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;一个句型中的最左&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;称为该句型的句柄。&lt;/p&gt;
-&lt;ul&gt;
+&lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;短语&lt;/li&gt;
 &lt;li class=&#34;correct&#34;&gt;简单短语     &lt;/li&gt;
 &lt;li&gt;素短语&lt;/li&gt;
-&lt;li class=&#34;options&#34;&gt;终结符号&lt;br /&gt;
-&lt;/li&gt;
+&lt;li&gt;终结符号&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
@@ -590,9 +589,9 @@ B→b|SBB|ε
         T-&amp;gt;F | T*F
         F-&amp;gt;a | (E)
 该文法句型 E ＋ F ﹡(E ＋ T) 的简单短语
-①（E ＋ T）   
-② E ＋ T   
-③ F   
+①（E ＋ T）
+② E ＋ T
+③ F
 ④ F﹡(E ＋ T)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;是下列符号串中的&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
@@ -645,7 +644,7 @@ B→b|SBB|ε
 &lt;li&gt;并且&lt;/li&gt;
 &lt;li&gt;或者&lt;/li&gt;
 &lt;li&gt;连接&lt;/li&gt;
-&lt;li&gt;闭包     {.correct}	&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;闭包    &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
@@ -668,12 +667,11 @@ B→b|SBB|ε
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;高级语言编译程序常用的语法分析方法中，递归下降分析法属于&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt; 分析方法。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;自左至右&lt;/li&gt;
-&lt;li class=&#34;correct&#34;&gt;自顶向下        &lt;/li&gt;
-&lt;li&gt;自底向上&lt;/li&gt;
-&lt;li class=&#34;options&#34;&gt;自右向左&lt;br /&gt;
-&lt;/li&gt;
+&lt;ul class=&#34;options&#34;&gt;
+&lt;li&gt;&lt;code&gt;自左至右&lt;/code&gt;&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;&lt;code&gt;自顶向下&lt;/code&gt;         &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;自底向上&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;自右向左&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
@@ -714,12 +712,11 @@ B→b|SBB|ε
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;在状态转换图中，结点代表&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt; 用圆圈表示。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;输入缓冲区&lt;/li&gt;
-&lt;li&gt;向前搜索&lt;/li&gt;
-&lt;li class=&#34;correct&#34;&gt;状态       &lt;/li&gt;
-&lt;li class=&#34;options&#34;&gt;字符串&lt;br /&gt;
-&lt;/li&gt;
+&lt;ul class=&#34;options&#34;&gt;
+&lt;li&gt;&lt;code&gt;输入缓冲区&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;向前搜索&lt;/code&gt;&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;&lt;code&gt;状态&lt;/code&gt;        &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;字符串&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
@@ -800,7 +797,7 @@ B→b|SBB|ε
 &lt;li&gt;LALR 文法&lt;/li&gt;
 &lt;li&gt;LR (0) 文法&lt;/li&gt;
 &lt;li&gt;LR (1) 文法&lt;/li&gt;
-&lt;li&gt;SLR (1) 文法       {.correct}	&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;SLR (1) 文法      &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
@@ -841,12 +838,11 @@ B→b|SBB|ε
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
 &lt;p&gt;有文法 G 及其语法制导翻译如下所示：则分析句子 1∧2∧3#4 其值为&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
-&lt;ul&gt;
+&lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;10&lt;/li&gt;
 &lt;li&gt;34&lt;/li&gt;
 &lt;li class=&#34;correct&#34;&gt;14  &lt;/li&gt;
-&lt;li class=&#34;options&#34;&gt;54&lt;br /&gt;
-&lt;/li&gt;
+&lt;li&gt;54&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz&#34;&gt;
