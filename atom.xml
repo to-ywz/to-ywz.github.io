@@ -299,7 +299,7 @@
 &lt;p&gt;活前缀是指 &lt;span class=&#34;gap&#34;&gt;规范句型&lt;/span&gt;  的一个前缀，这种前缀不含 &lt;span class=&#34;gap&#34;&gt;句柄&lt;/span&gt; 之后的任何符号。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;LR 语法分析技术的 LR (0) 项目中，根据分隔符所在位置及分隔符后符号的类别，我们称 A→α.[n] 称为&lt;span class=&#34;gap&#34;&gt;归约&lt;/span&gt; 项目 ；对文法开始符号 S΄ , 称 S΄→α.[n] 为 &lt;span class=&#34;gap&#34;&gt;接授&lt;/span&gt;  项目；称 A→α.aβ[n]（a 为终结符）为 &lt;span class=&#34;gap&#34;&gt;移进&lt;/span&gt;  项目。&lt;/p&gt;
+&lt;p&gt;LR 语法分析技术的 LR (0) 项目中，根据分隔符所在位置及分隔符后符号的类别，我们称 A→α.[n] 称为&lt;span class=&#34;gap&#34;&gt;归约&lt;/span&gt; 项目 ；对文法开始符号 S΄ , 称 S΄→α.[n] 为 &lt;span class=&#34;gap&#34;&gt;接受&lt;/span&gt;  项目；称 A→α.aβ[n]（a 为终结符）为 &lt;span class=&#34;gap&#34;&gt;移进&lt;/span&gt;  项目。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz fill&#34;&gt;
 &lt;p&gt;假定一个 LR (0) 规范族中含有的项目集 (状态) I , I={X→α.bβ[n] , A→γ.[m] , B→δ.[k]} , 则该项目集中含有 &lt;span class=&#34;gap&#34;&gt;移进 - 归约&lt;/span&gt; 冲突和 &lt;span class=&#34;gap&#34;&gt;归约 - 归约&lt;/span&gt; 冲突。&lt;/p&gt;
