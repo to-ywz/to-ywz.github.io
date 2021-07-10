@@ -8,7 +8,26 @@
     <author>
       <name>秦殇</name>
     </author>
-    <updated>2021-07-10T00:52:27.000Z</updated>
+    <updated>2021-07-10T05:33:52.000Z</updated>
+    <entry>
+        <id>https://to-ywz.github.io/CS/Embedded/%E7%A1%AC%E4%BB%B6%E5%A4%A7%E5%85%A8_%E9%9F%A6%E4%B8%9C%E5%B1%B1/%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8FSTM32MP157/</id>
+        <title>第一个程序STM32MP157</title>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/%E7%A1%AC%E4%BB%B6%E5%A4%A7%E5%85%A8_%E9%9F%A6%E4%B8%9C%E5%B1%B1/%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8FSTM32MP157/"/>
+        <content type="html">&lt;h1 id=&#34;第一个程序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第一个程序&#34;&gt;#&lt;/a&gt; 第一个程序&lt;/h1&gt;
+&lt;p&gt;与 hello world 类似，嵌入式第一个程序为点亮 LED, 在 STM 32MP157 上点亮 LED.&lt;/p&gt;
+&lt;h2 id=&#34;如何点亮一个-led&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#如何点亮一个-led&#34;&gt;#&lt;/a&gt; 如何点亮一个 LED&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;看原理图，找到相关引脚&lt;/li&gt;
+&lt;li&gt;看主芯片的数据手册，如何配置控制引脚&lt;/li&gt;
+&lt;li&gt;写程序&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;/h3&gt;
+</content>
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
+        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/study-note/" />
+        <category term="STM32" scheme="https://to-ywz.github.io/tags/STM32/" />
+        <updated>2021-07-10T05:33:52.000Z</updated>
+    </entry>
     <entry>
         <id>https://to-ywz.github.io/CS/Embedded/%E7%A1%AC%E4%BB%B6%E5%A4%A7%E5%85%A8_%E9%9F%A6%E4%B8%9C%E5%B1%B1/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</id>
         <title>嵌入式概念及硬件组成</title>
@@ -92,7 +111,7 @@ ps: 图片来源于韦东山硬件大全视频&lt;/p&gt;
 &lt;p&gt;从外设把程序复制到内存&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;支持那么多的启动方式，SD 卡、SPI FLASH、USB DISK，怎么选择？&lt;/p&gt;
+&lt;p&gt;支持那么多的启动方式，SD 卡、SPI FLASH、USB DISK, 怎么选择？&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;通过跳线，选择某个设备&lt;/li&gt;
 &lt;li&gt;通过跳线，选择一个设备列表，按列表顺序逐个尝试&lt;/li&gt;
@@ -103,7 +122,7 @@ ps: 图片来源于韦东山硬件大全视频&lt;/p&gt;
 &lt;p&gt;内存那么大，把程序从 SD 卡等设备，复制到内存哪个位置？复制多长？&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;烧写在 SD 卡等设备上的程序，含有一个头部信息，里面指定了内存地址和长度；&lt;/li&gt;
-&lt;li&gt;不给客户选择，程序被复制到内存固定的位置，长度也固定。&lt;/li&gt;
+&lt;li&gt;不给客户选择，程序被复制到内存固定的位置，长度也固定&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -119,6 +138,56 @@ ps: 图片来源于韦东山硬件大全视频&lt;/p&gt;
 &lt;p&gt;执行新程序&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;哈佛架构-和-冯诺依曼架构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#哈佛架构-和-冯诺依曼架构&#34;&gt;#&lt;/a&gt; 哈佛架构 和 冯诺依曼架构&lt;/h2&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://tva4.sinaimg.cn/large/005Q2GK3ly8gsbt5ov4qfj30og0ejdg6.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;br /&gt;
+CPU 架构可以分为哈弗架构与冯诺伊曼架构&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;哈弗架构中指令与数据分开存放，CPU 可以同时读入指令、读写数据&lt;/li&gt;
+&lt;li&gt;冯诺伊曼架构中指令、数据混合存放，CPU 依次读取指令、读写数据，不可同时操作指令和数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;改进的哈弗结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#改进的哈弗结构&#34;&gt;#&lt;/a&gt; 改进的哈弗结构&lt;/h3&gt;
+&lt;p&gt;RM 公司的芯片，ARM7 及之前的芯片是冯诺伊曼架构，ARM7 之后使用 “改进的哈弗架构”&lt;br /&gt;
+“改进的哈弗结构” 如下所示:&lt;br /&gt;
+&lt;img data-src=&#34;https://tva2.sinaimg.cn/large/005Q2GK3ly8gsbt61tfbbj30fw0ejmxh.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;br /&gt;
+ “改进的哈弗架构” 里，指令和数据在外部存储器中混合存放；CPU 运行时，从指令 cache 中获得指令，从数据 cache 中读写数据&lt;/p&gt;
+&lt;h2 id=&#34;cisc-和-risc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cisc-和-risc&#34;&gt;#&lt;/a&gt; CISC 和 RISC&lt;/h2&gt;
+&lt;p&gt;CISC (Complex Instruction Set Computers, 复杂指令集计算集) 和 RISC (Reduced Instruction Set Computers, 精减指令集计算集) 是两大类主流的 CPU 指令集类型&lt;br /&gt;
+其中 CISC 以 Intel、AMD 的 X86 CPU 为代表&lt;br /&gt;
+而 RISC 以 ARM、IBM Power 为代表&lt;br /&gt;
+开源的 RISC-V 也是 RISC 指令集，RISC 的设计初衷针对 CISC CPU 复杂的弊端，选择一些可以在单个 CPU 周期完成的指令，以降低 CPU 的复杂度，将复杂性交给编译器&lt;/p&gt;
+&lt;p&gt;在此，总结一下 CISC 和 RISC 的主要区别：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;指令集&lt;/th&gt;
+&lt;th&gt;CISC&lt;/th&gt;
+&lt;th&gt;RISC&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;指令能力&lt;/td&gt;
+&lt;td&gt;指令能力强，单多数指令使用率低却增加了 CPU 的复杂度，指令是可变长格式；&lt;/td&gt;
+&lt;td&gt;指令大部分为单周期指令，指令长度固定.RISC 内存只有 &lt;code&gt;load&lt;/code&gt;  和 &lt;code&gt;store&lt;/code&gt;  才做，数据运算由 CPU 完成&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;寻址方式&lt;/td&gt;
+&lt;td&gt;支持多种寻址方式&lt;/td&gt;
+&lt;td&gt;支持的寻址方式少&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;实现方式&lt;/td&gt;
+&lt;td&gt;通过微程序控制技术实现&lt;/td&gt;
+&lt;td&gt;增加了通用寄存器，硬布线逻辑控制为主，采用流水线方式执行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;研发周期&lt;/td&gt;
+&lt;td&gt;CISC 的研制周期长&lt;/td&gt;
+&lt;td&gt;RISC 硬件简单，需要优化编译器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;PS: ARM 公司的芯片都使用 RISC 指令集，对内存只有 load/store 操作，数据的处理是在 CPU 寄存器上进行&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;概念巩固测试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#概念巩固测试&#34;&gt;#&lt;/a&gt; 概念巩固测试&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li class=&#34;quiz&#34;&gt;
@@ -1050,8 +1119,8 @@ B→b|SBB|ε
 &lt;p&gt;基本块内的优化为&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;。&lt;/p&gt;
 &lt;ul class=&#34;options&#34;&gt;
 &lt;li&gt;代码外提，删除归纳变量&lt;/li&gt;
-&lt;li&gt;删除多余运算，删除无用赋值&lt;/li&gt;
-&lt;li class=&#34;correct&#34;&gt;强度削弱，代码外提   &lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;删除多余运算，删除无用赋值 &lt;/li&gt;
+&lt;li&gt;强度削弱，代码外提&lt;/li&gt;
 &lt;li&gt;循环展开，循环合并&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -3252,28 +3321,5 @@ OPItem 为三目运算符编译结果&lt;br /&gt;
         <category term="CS书籍笔记" scheme="https://to-ywz.github.io/categories/CS%E4%B9%A6%E7%B1%8D%E7%AC%94%E8%AE%B0/" />
         <category term="操作系统,汇编,学习笔记,C" scheme="https://to-ywz.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%B1%87%E7%BC%96-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-C/" />
         <updated>2021-02-23T10:38:45.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://to-ywz.github.io/CS/Embedded/%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%8B%E4%B8%B2%E5%8F%A3%E7%A7%BB%E6%A4%8D%E4%B9%B1%E7%A0%81/</id>
-        <title>标准库下串口移植乱码</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/%E6%A0%87%E5%87%86%E5%BA%93%E4%B8%8B%E4%B8%B2%E5%8F%A3%E7%A7%BB%E6%A4%8D%E4%B9%B1%E7%A0%81/"/>
-        <content type="html">&lt;h1 id=&#34;标准库下串口移植乱码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#标准库下串口移植乱码&#34;&gt;#&lt;/a&gt; 标准库下串口移植乱码&lt;/h1&gt;
-&lt;p&gt;为了改这个 bug，我花了一天的时间……  只能怪自己，没学好时钟这一块的库函数和宏定义&lt;br /&gt;
-野火的 STM32F407 的标准库里 默认 使用 25M 的外部晶振&lt;br /&gt;
-&lt;img data-src=&#34;https://tva2.sinaimg.cn/large/005Q2GK3ly8gs76a0gffsj30y106c764.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;而我的是 8M 的外部晶振，所以自行写了一个宏，(就很憨批)&lt;br /&gt;
-&lt;img data-src=&#34;https://tva3.sinaimg.cn/large/005Q2GK3ly8gs76fecx3rj30x006iq4u.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;然后 串口 就好使了，&lt;br /&gt;
-&lt;img data-src=&#34;https://tva2.sinaimg.cn/large/005Q2GK3ly8gs76a2jv7vj30rp0m0abv.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;怎么看自己的开发版晶震是多少&lt;br /&gt;
-&lt;img data-src=&#34;https://img2020.cnblogs.com/blog/1584580/202009/1584580-20200928063405164-641528496.png&#34; alt=&#34;alt&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;如果没有写可以去查一下晶振型号&lt;br /&gt;
-真就自己太菜了，第一时间没有考虑到 时钟 (无能狂怒.jpg)&lt;/p&gt;
-&lt;p&gt;电赛不易，诸君共勉！&lt;/p&gt;
-</content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
-        <category term="STM32" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/" />
-        <category term="STM32" scheme="https://to-ywz.github.io/tags/STM32/" />
-        <updated>2020-09-27T22:40:05.000Z</updated>
     </entry>
 </feed>
