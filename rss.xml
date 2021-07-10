@@ -77,7 +77,8 @@ RAM 就是专门用于存储 这些易变，需要读写的变量的，但是由
 CPU 不可能与他们直连，一般通过寻址的方式来和各个芯片交互&lt;br /&gt;
 然而 CPU 不可能什么都亲力亲为，所以就有了 内存控制器 来帮助 CPU 管理分发地址&lt;/p&gt;
 &lt;h3 id=&#34;嵌入式设备最简硬件组成图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式设备最简硬件组成图&#34;&gt;#&lt;/a&gt; 嵌入式设备最简硬件组成图&lt;/h3&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://tva4.sinaimg.cn/large/005Q2GK3ly8gsbp71xwsyj30p70mt79p.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;br /&gt;
+&lt;p&gt;这是最简单的 嵌入式设备的模板&lt;br /&gt;
+&lt;img data-src=&#34;https://tva4.sinaimg.cn/large/005Q2GK3ly8gsbp71xwsyj30p70mt79p.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;br /&gt;
 ps: 图片来源于韦东山硬件大全视频&lt;/p&gt;
 &lt;h2 id=&#34;嵌入式系统启动流程概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式系统启动流程概述&#34;&gt;#&lt;/a&gt; 嵌入式系统启动流程概述&lt;/h2&gt;
 &lt;p&gt;主芯片内部有 ROM, ROM 程序协助从非 XIP 设备启动.&lt;br /&gt;
