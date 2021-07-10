@@ -8,7 +8,162 @@
     <author>
       <name>秦殇</name>
     </author>
-    <updated>2021-07-06T01:09:53.000Z</updated>
+    <updated>2021-07-10T00:52:27.000Z</updated>
+    <entry>
+        <id>https://to-ywz.github.io/CS/Embedded/%E7%A1%AC%E4%BB%B6%E5%A4%A7%E5%85%A8_%E9%9F%A6%E4%B8%9C%E5%B1%B1/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</id>
+        <title>嵌入式概念及硬件组成</title>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/%E7%A1%AC%E4%BB%B6%E5%A4%A7%E5%85%A8_%E9%9F%A6%E4%B8%9C%E5%B1%B1/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/"/>
+        <content type="html">&lt;h1 id=&#34;嵌入式概念及硬件组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式概念及硬件组成&#34;&gt;#&lt;/a&gt; 嵌入式概念及硬件组成&lt;/h1&gt;
+&lt;h2 id=&#34;处理器的区分mcu_mpu_ap&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#处理器的区分mcu_mpu_ap&#34;&gt;#&lt;/a&gt; 处理器的区分 MCU_MPU_AP&lt;/h2&gt;
+&lt;h3 id=&#34;mpu&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mpu&#34;&gt;#&lt;/a&gt; MPU&lt;/h3&gt;
+&lt;p&gt;目前主流计算机的架构为: CPU + RAM + Stronger&lt;br /&gt;
+ 对于微型计算机的 CPU 也被称为 MPU&lt;br /&gt;
+8086, 80186, 80286 等早期生成的 CPU 芯片都是 MPU&lt;br /&gt;
+MPU 是一个较为老的概念，现在个人电脑上的芯片被称为 CPU&lt;/p&gt;
+&lt;h3 id=&#34;mcu&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mcu&#34;&gt;#&lt;/a&gt; MCU&lt;/h3&gt;
+&lt;p&gt;MPU 成长路线的另一个分支为 MCU&lt;br /&gt;
+MCU: 集 CPU+RAM+FLASH (存储器，FLASH 最为常简)+ 其他模块 为一体的芯片&lt;br /&gt;
+ MCU 的内存 RAM 一般都在 KB 级别，FLASH 一般在 KB ~ MB 级别，资源较少&lt;br /&gt;
+ MCU 可以运行 裸机 或 RTOS, 但是功能基本专一化&lt;/p&gt;
+&lt;h3 id=&#34;ap&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ap&#34;&gt;#&lt;/a&gt; AP&lt;/h3&gt;
+&lt;p&gt;AP (Application processor) 应用处理器一般被视为 MCU 的超级加倍&lt;br /&gt;
+ AP 内部一般会有 CPU+RAM+FLSH+DSP+GPU+LCD, 当内存不够了可以外接极大的 DDR, 存储空间不够可以外接极大的 FLASH&lt;br /&gt;
+AP 可以运行不同版本的操作系统，例如 Linux,IOS,Windows ..., 功能更加通用化&lt;br /&gt;
+跟 MCU 进行比较，Application Processors 有以下不同:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;集成了更多的模块:&lt;br /&gt;
+Application Processors 内部集成了更多的模块，比如用于数据处理的 DSP、用于图形显示的 GPU, 甚至有多个处理器.&lt;br /&gt;
+ 在手机电路板中，可用空间非常小，Application Processors 还需要搭配内存芯片才可以使用.&lt;br /&gt;
+ 于是发展出了一种名为 package-on-package (PoP) 的工艺：在电路板上先焊接 Application Processors, 在 Application Processors 上面再焊接内存芯片，即 2 个芯片叠在一起.&lt;/li&gt;
+&lt;li&gt;运行的操作系统不同:&lt;br /&gt;
+MCU 上一般不运行操作系统，或是运行一些资源耗费较小的小型实时操作系统 (RTOS).&lt;br /&gt;
+MCU 一般用来处理实时性要求高的事情，处理一些比较简单的事情.&lt;br /&gt;
+Application Processors 基本上都会运行比较复杂的操作系统 (比如 Linux), 在操作系统上运行多个 APP.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上面又引入一个概念 “片上系统”(SoC, System on Chip), SoC 的本意是在一个芯片上就可以搭建完整的系统.&lt;br /&gt;
+ 但是这个概念在日常使用中比较宽泛: MCU 芯片也可以称为 SoC, Application Processors 也可以称为 SoC, 即使它们还必须外接内存 / Flash 等外设才可以运行.&lt;br /&gt;
+ 在以前的文档中涉及 SoC 时，意指比较复杂的系统；这时候 MCU 不属于 SoC, 因为 MCU 比较简单。但是时代在发展，MCU 也越来越复杂了，所以把 MCU 也当作 SoC 也是可以的.&lt;/p&gt;
+&lt;h3 id=&#34;三者之间的的关系&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三者之间的的关系&#34;&gt;#&lt;/a&gt; 三者之间的的关系&lt;/h3&gt;
+&lt;p&gt;MCU 和 AP 是 MPU 分支成长成不同 处理器&lt;br /&gt;
+&lt;img data-src=&#34;https://tva1.sinaimg.cn/large/005Q2GK3ly8gsbm8ubqp0j30xj0clabs.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;br /&gt;
+&lt;strong&gt;PS: 现在有些公司把和 MCU 相对应的，可以运行 Linux 的处理器 (AP) 也可以称为 MPU, 总之无是 MPU 还是 AP 都是 MCU 的对立面的处理器&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;嵌入式硬件组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式硬件组成&#34;&gt;#&lt;/a&gt; 嵌入式硬件组成&lt;/h2&gt;
+&lt;p&gt;一句话引出嵌入式操作系统: &lt;mark&gt;支持 多种设备启动&lt;/mark&gt;&lt;br /&gt;
+补充知识:&lt;br /&gt;
+XIP: eXecute In Place, 本地执行。可以不用将代码拷贝到内存，而直接在代码的存储空间运行.&lt;/p&gt;
+&lt;h3 id=&#34;系统从哪开始执行程序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#系统从哪开始执行程序&#34;&gt;#&lt;/a&gt; 系统从哪开始执行程序？&lt;/h3&gt;
+&lt;h4 id=&#34;系统上电一定会执行程序那么系统从哪里开始执行程序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#系统上电一定会执行程序那么系统从哪里开始执行程序&#34;&gt;#&lt;/a&gt; 系统上电一定会执行程序，那么系统从哪里开始执行程序？&lt;/h4&gt;
+&lt;p&gt;一般理解为：系统从哪启动就从哪执行.&lt;br /&gt;
+ 如果系统从 SPI FLASH 启动，SPI 设备不是  &lt;code&gt;XIP&lt;/code&gt;  设备 CPU 无法直接访问&lt;/p&gt;
+&lt;h4 id=&#34;cpu-如何执行-spi-flash-上的代码-cpu-上电后第一个程序的第一条指令在哪里&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cpu-如何执行-spi-flash-上的代码-cpu-上电后第一个程序的第一条指令在哪里&#34;&gt;#&lt;/a&gt; CPU 如何执行 SPI FLASH 上的代码？CPU 上电后第一个程序的第一条指令在哪里？&lt;/h4&gt;
+&lt;p&gt;上电后 CPU 只能和 XIP 设备沟通，还需要有存储功能，那么毫无疑问就是 片内 ROM&lt;br /&gt;
+ROM 中的程序会进行必要的初始化，比如设置时钟、设置内存；再从 &amp;quot;非 XIP 设备&amp;quot; 中把程序读到内存；最后启动这上程序&lt;/p&gt;
+&lt;h4 id=&#34;可读可写的变量存储在哪&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#可读可写的变量存储在哪&#34;&gt;#&lt;/a&gt; 可读可写的变量存储在哪？&lt;/h4&gt;
+&lt;p&gt;上面说过 嵌入式操作系统是支持多种设备启动的，ROM 的 功能会非常强大，一般有由 C 语言来实现&lt;br /&gt;
+ C 语言对变量的操作，必然是由读和写构成的，但是 ROM 是 Read Only Memory, 无法进行写入&lt;br /&gt;
+如果 ROM 可写，极有可能会导致系统被破坏。那么，这些可读写的变量又该存储在哪呢？&lt;br /&gt;
+ 前面提到过 AP 中会有 RAM, 而 RAM 是 Random Access Memory, 随机访问存储器.&lt;br /&gt;
+RAM 就是专门用于存储 这些易变，需要读写的变量的，但是由于成本过于高昂，所以 RAM 基本很小&lt;br /&gt;
+随着我们功能越来越复杂，需要内存也就越来越大，这时候就会外置 DDR 内存，当然 DDR 属于 DRAM, 片内 RAM 一般为 SRAM. 二者速度和工作方式还是有较大差别&lt;/p&gt;
+&lt;h4 id=&#34;cpu-如何管理-这么多控制器呢&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cpu-如何管理-这么多控制器呢&#34;&gt;#&lt;/a&gt; CPU 如何管理 这么多控制器呢？&lt;/h4&gt;
+&lt;p&gt;无论是什么外置接口，都会有相应的控制器，例如: SPI FLASH 会有 SPI 控制器，LCD 会有 LCD 控制器，DDR 会有 DDR 控制器 ...&lt;br /&gt;
+CPU 不可能与他们直连，一般通过寻址的方式来和各个芯片交互&lt;br /&gt;
+然而 CPU 不可能什么都亲力亲为，所以就有了 内存控制器 来帮助 CPU 管理分发地址&lt;/p&gt;
+&lt;h3 id=&#34;嵌入式设备最简硬件组成图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式设备最简硬件组成图&#34;&gt;#&lt;/a&gt; 嵌入式设备最简硬件组成图&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://tva4.sinaimg.cn/large/005Q2GK3ly8gsbp71xwsyj30p70mt79p.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;br /&gt;
+ps: 图片来源于韦东山硬件大全视频&lt;/p&gt;
+&lt;h2 id=&#34;嵌入式系统启动流程概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式系统启动流程概述&#34;&gt;#&lt;/a&gt; 嵌入式系统启动流程概述&lt;/h2&gt;
+&lt;p&gt;主芯片内部有 ROM, ROM 程序协助从非 XIP 设备启动.&lt;br /&gt;
+ 以 SD 卡启动为例.&lt;br /&gt;
+ 我们知道 CPU 只能运行 XIP 设备中的程序，ROM 程序做什么？&lt;br /&gt;
+ 显然: ROM 需要把 SD 卡上的程序读到内存里 (片内 RAM 或是片外的 DDR)&lt;/p&gt;
+&lt;h3 id=&#34;rom-要做的事情&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rom-要做的事情&#34;&gt;#&lt;/a&gt; ROM 要做的事情&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;初始化硬件&lt;/li&gt;
+&lt;li&gt;初始化时钟，提高 CPU、外设速度&lt;/li&gt;
+&lt;li&gt;初始化内存：DDR 需要初始化才能使用&lt;/li&gt;
+&lt;li&gt;初始化其他硬件，比如看门狗、SD 卡等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;从外设把程序复制到内存&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;支持那么多的启动方式，SD 卡、SPI FLASH、USB DISK，怎么选择？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过跳线，选择某个设备&lt;/li&gt;
+&lt;li&gt;通过跳线，选择一个设备列表，按列表顺序逐个尝试&lt;/li&gt;
+&lt;li&gt;不让客户选择，按固定顺序逐个尝试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;内存那么大，把程序从 SD 卡等设备，复制到内存哪个位置？复制多长？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;烧写在 SD 卡等设备上的程序，含有一个头部信息，里面指定了内存地址和长度；&lt;/li&gt;
+&lt;li&gt;不给客户选择，程序被复制到内存固定的位置，长度也固定。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;程序在 SD 卡上怎么存？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;原始二进制 (raw bin),&lt;/li&gt;
+&lt;li&gt;作为一个文件保存在分区&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;执行新程序&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;概念巩固测试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#概念巩固测试&#34;&gt;#&lt;/a&gt; 概念巩固测试&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li class=&#34;quiz&#34;&gt;
+&lt;p&gt;现代主流计算机的三大主件是&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;ul class=&#34;options&#34;&gt;
+&lt;li class=&#34;correct&#34;&gt;CPU、内存条、硬盘 &lt;/li&gt;
+&lt;li&gt;CPU、内存条、显卡&lt;/li&gt;
+&lt;li&gt;CPU、硬盘、显卡&lt;/li&gt;
+&lt;li&gt;硬盘、显卡、内存条&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li class=&#34;quiz&#34;&gt;
+&lt;p&gt;微型计算机 CPU 常常叫做什么&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;ul class=&#34;options&#34;&gt;
+&lt;li&gt;MCU&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;MPU&lt;/li&gt;
+&lt;li&gt;CMU&lt;/li&gt;
+&lt;li&gt;CMP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;ul class=&#34;options&#34;&gt;
+&lt;li&gt;:MPU (Microprocessor Unit) 微处理器，微机中的中央处理器（CPU）称为微处理器（MPU）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li class=&#34;quiz&#34;&gt;
+&lt;p&gt;MCU 又可以叫什么&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;ul class=&#34;options&#34;&gt;
+&lt;li&gt;AP&lt;/li&gt;
+&lt;li&gt;CPU&lt;/li&gt;
+&lt;li class=&#34;correct&#34;&gt;单片机 &lt;/li&gt;
+&lt;li&gt;微型计算机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;ul class=&#34;options&#34;&gt;
+&lt;li&gt;: 微控制单元 (Microcontroller Unit; MCU) , 又称单片微型计算机 (Single Chip Microcomputer ) 或者单片机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
+        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/study-note/" />
+        <category term="STM32" scheme="https://to-ywz.github.io/tags/STM32/" />
+        <updated>2021-07-10T00:52:27.000Z</updated>
+    </entry>
     <entry>
         <id>https://to-ywz.github.io/CS/Compilation_principle/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%A4%E6%96%AD%E9%A2%98/</id>
         <title>编译原理判断题</title>
@@ -3115,103 +3270,9 @@ OPItem 为三目运算符编译结果&lt;br /&gt;
 真就自己太菜了，第一时间没有考虑到 时钟 (无能狂怒.jpg)&lt;/p&gt;
 &lt;p&gt;电赛不易，诸君共勉！&lt;/p&gt;
 </content>
-        <category term="STM32" scheme="https://to-ywz.github.io/categories/STM32/" />
-        <category term="STM32,嵌入式" scheme="https://to-ywz.github.io/tags/STM32-%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
+        <category term="STM32" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/" />
+        <category term="STM32" scheme="https://to-ywz.github.io/tags/STM32/" />
         <updated>2020-09-27T22:40:05.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://to-ywz.github.io/CS/Algorithm/Leetcode/P38%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97/</id>
-        <title>P38外观数列</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Algorithm/Leetcode/P38%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97/"/>
-        <content type="html">&lt;h1 id=&#34;p38-外观数列&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#p38-外观数列&#34;&gt;#&lt;/a&gt; P38 外观数列&lt;/h1&gt;
-&lt;h2 id=&#34;题目&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#题目&#34;&gt;#&lt;/a&gt; 题目&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;给定一个正整数 n（1 ≤ n ≤ 30），输出外观数列的第 n 项。
-
-注意：整数序列中的每一项将表示为一个字符串。
-
-「外观数列」是一个整数序列，从数字 1 开始，序列中的每一项都是对前一项的描述。前五项如下：
-
-1. 1
-2. 11
-3. 21
-4. 1211
-5. 111221
-第一项是数字 1
-
-描述前一项，这个数是 1 即 “一个 1 ”，记作 11
-
-描述前一项，这个数是 11 即 “两个 1 ” ，记作 21
-
-描述前一项，这个数是 21 即 “一个 2 一个 1 ” ，记作 1211
-
-描述前一项，这个数是 1211 即 “一个 1 一个 2 两个 1 ” ，记作 111221
-
-示例 1:
-
-输入: 1
-输出: &amp;quot;1&amp;quot;
-解释：这是一个基本样例。
-示例 2:
-
-输入: 4
-输出: &amp;quot;1211&amp;quot;
-解释：当 n = 3 时，序列是 &amp;quot;21&amp;quot;，其中我们有 &amp;quot;2&amp;quot; 和 &amp;quot;1&amp;quot; 两组，&amp;quot;2&amp;quot; 可以读作 &amp;quot;12&amp;quot;，也就是出现频次 = 1 而 值 = 2；类似 &amp;quot;1&amp;quot; 可以读作 &amp;quot;11&amp;quot;。所以答案是 &amp;quot;12&amp;quot; 和 &amp;quot;11&amp;quot; 组合在一起，也就是 &amp;quot;1211&amp;quot;。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;思路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思路&#34;&gt;#&lt;/a&gt; 思路&lt;/h2&gt;
-&lt;p&gt;这道题目是真的让人头大，读题读的让人头大&lt;br /&gt;
-所谓的外观数列就是&lt;br /&gt;
-初始项是 “1”，&lt;br /&gt;
-第二项是 第一项的读数的结果 1 个 1 即 “11”&lt;br /&gt;
- 第三项 是第二项读数的结果 2 个 1 即 “21”&lt;br /&gt;
- 以此类推&lt;br /&gt;
-看懂题目就清楚了，其实就是让咱们，一项一项的往后推&lt;br /&gt;
-这道题最正常的解法因该是递归，不过我一直看不懂这玩意，所以用的 两层 for 循环&lt;br /&gt;
-比较惨的就是 C 语言 没有 vector，有点不爽，只能动态开辟个 5000 大小的数组，这个大小可以算出来的&lt;br /&gt;
- 50 项嘛，我第一次开 1000，炸开了，最后一项长度好像是 4463 多 .&lt;/p&gt;
-&lt;h3 id=&#34;代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码&#34;&gt;#&lt;/a&gt; 代码&lt;/h3&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;countAndSay&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; n&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; n&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;1&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; n&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;11&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;str &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;calloc&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;5000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;temp &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;calloc&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;5000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 初始项&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    str&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;1&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    str&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;1&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    str&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; i&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;// 索引&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; index &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; count &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; j &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;\0&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;j&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; j&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;str&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;j&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;j &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 只要相同就 ++&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                count&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 不同存储&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                temp&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;index&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;count &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;0&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                temp&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;index&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;j&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                count &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;// 转存回 str&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token function&#34;&gt;strncpy&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;str&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; temp&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; index&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token function&#34;&gt;memset&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;temp&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;str&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;// 可以不值 0, 因为 len (f (n-1)) &amp;lt;= len (f (n))&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; str&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;第二种解法比较狗，不过我觉得 O（1）算法才能真正投入现实&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;char *countAndSay2(int n)
-&amp;#123;
-    const char *arr[] = &amp;#123;
-    &amp;quot;&amp;quot;,
-    &amp;quot;1&amp;quot;,
-    &amp;quot;11&amp;quot;,
-    &amp;quot;21&amp;quot;,
-    &amp;quot;1211&amp;quot;,
-    &amp;quot;111221&amp;quot;,
-    &amp;quot;312211&amp;quot;,
-    &amp;quot;13112221&amp;quot;,
-    &amp;quot;1113213211&amp;quot;,
-    &amp;quot;31131211131221&amp;quot;,
-    &amp;quot;13211311123113112211&amp;quot;,
-    &amp;quot;11131221133112132113212221&amp;quot;,
-    &amp;quot;3113112221232112111312211312113211&amp;quot;,
-    &amp;quot;1321132132111213122112311311222113111221131221&amp;quot;,
-    &amp;quot;11131221131211131231121113112221121321132132211331222113112211&amp;quot;,
-    &amp;quot;311311222113111231131112132112311321322112111312211312111322212311322113212221&amp;quot;,
-    &amp;quot;132113213221133112132113311211131221121321131211132221123113112221131112311332111213211322211312113211&amp;quot;,
-    &amp;quot;11131221131211132221232112111312212321123113112221121113122113111231133221121321132132211331121321231231121113122113322113111221131221&amp;quot;,
-    &amp;quot;31131122211311123113321112131221123113112211121312211213211321322112311311222113311213212322211211131221131211132221232112111312111213111213211231131122212322211331222113112211&amp;quot;,
-    &amp;quot;1321132132211331121321231231121113112221121321132122311211131122211211131221131211132221121321132132212321121113121112133221123113112221131112311332111213122112311311123112111331121113122112132113213211121332212311322113212221&amp;quot;,
-    &amp;quot;11131221131211132221232112111312111213111213211231132132211211131221131211221321123113213221123113112221131112311332211211131221131211132211121312211231131112311211232221121321132132211331121321231231121113112221121321133112132112312321123113112221121113122113121113123112112322111213211322211312113211&amp;quot;,
-    &amp;quot;311311222113111231133211121312211231131112311211133112111312211213211312111322211231131122211311122122111312211213211312111322211213211321322113311213212322211231131122211311123113223112111311222112132113311213211221121332211211131221131211132221232112111312111213111213211231132132211211131221232112111312211213111213122112132113213221123113112221131112311311121321122112132231121113122113322113111221131221&amp;quot;,
-    &amp;quot;132113213221133112132123123112111311222112132113311213211231232112311311222112111312211311123113322112132113213221133122112231131122211211131221131112311332211211131221131211132221232112111312111213322112132113213221133112132113221321123113213221121113122123211211131221222112112322211231131122211311123113321112131221123113111231121113311211131221121321131211132221123113112211121312211231131122211211133112111311222112111312211312111322211213211321322113311213211331121113122122211211132213211231131122212322211331222113112211&amp;quot;,
-    &amp;quot;111312211312111322212321121113121112131112132112311321322112111312212321121113122112131112131221121321132132211231131122211331121321232221121113122113121113222123112221221321132132211231131122211331121321232221123113112221131112311332111213122112311311123112112322211211131221131211132221232112111312211322111312211213211312111322211231131122111213122112311311221132211221121332211213211321322113311213212312311211131122211213211331121321123123211231131122211211131221131112311332211213211321223112111311222112132113213221123123211231132132211231131122211311123113322112111312211312111322212321121113122123211231131122113221123113221113122112132113213211121332212311322113212221&amp;quot;,
-    &amp;quot;3113112221131112311332111213122112311311123112111331121113122112132113121113222112311311221112131221123113112221121113311211131122211211131221131211132221121321132132212321121113121112133221123113112221131112311332111213213211221113122113121113222112132113213221232112111312111213322112132113213221133112132123123112111311222112132113311213211221121332211231131122211311123113321112131221123113112221132231131122211211131221131112311332211213211321223112111311222112132113212221132221222112112322211211131221131211132221232112111312111213111213211231132132211211131221232112111312211213111213122112132113213221123113112221133112132123222112111312211312112213211231132132211211131221131211132221121311121312211213211312111322211213211321322113311213212322211231131122211311123113321112131221123113112211121312211213211321222113222112132113223113112221121113122113121113123112112322111213211322211312113211&amp;quot;,
-    &amp;quot;132113213221133112132123123112111311222112132113311213211231232112311311222112111312211311123113322112132113212231121113112221121321132132211231232112311321322112311311222113111231133221121113122113121113221112131221123113111231121123222112132113213221133112132123123112111312111312212231131122211311123113322112111312211312111322111213122112311311123112112322211211131221131211132221232112111312111213111213211231132132211211131221232112111312212221121123222112132113213221133112132123123112111311222112132113213221132213211321322112311311222113311213212322211211131221131211221321123113213221121113122113121132211332113221122112133221123113112221131112311332111213122112311311123112111331121113122112132113121113222112311311221112131221123113112221121113311211131122211211131221131211132221121321132132212321121113121112133221123113112221131112212211131221121321131211132221123113112221131112311332211211133112111311222112111312211311123113322112111312211312111322212321121113121112133221121321132132211331121321231231121113112221121321132122311211131122211211131221131211322113322112111312211322132113213221123113112221131112311311121321122112132231121113122113322113111221131221&amp;quot;,
-    &amp;quot;1113122113121113222123211211131211121311121321123113213221121113122123211211131221121311121312211213211321322112311311222113311213212322211211131221131211221321123113213221121113122113121113222112131112131221121321131211132221121321132132211331121321232221123113112221131112311322311211131122211213211331121321122112133221121113122113121113222123211211131211121311121321123113111231131122112213211321322113311213212322211231131122211311123113223112111311222112132113311213211221121332211231131122211311123113321112131221123113111231121113311211131221121321131211132221123113112211121312211231131122113221122112133221121113122113121113222123211211131211121311121321123113213221121113122113121113222113221113122113121113222112132113213221232112111312111213322112311311222113111221221113122112132113121113222112311311222113111221132221231221132221222112112322211213211321322113311213212312311211131122211213211331121321123123211231131122211211131221131112311332211213211321223112111311222112132113213221123123211231132132211231131122211311123113322112111312211312111322111213122112311311123112112322211213211321322113312211223113112221121113122113111231133221121321132132211331121321232221123123211231132132211231131122211331121321232221123113112221131112311332111213122112311311123112112322211211131221131211132221232112111312111213111213211231132132211211131221131211221321123113213221123113112221131112211322212322211231131122211322111312211312111322211213211321322113311213211331121113122122211211132213211231131122212322211331222113112211&amp;quot;,
-    &amp;quot;31131122211311123113321112131221123113111231121113311211131221121321131211132221123113112211121312211231131122211211133112111311222112111312211312111322211213211321322123211211131211121332211231131122211311122122111312211213211312111322211231131122211311123113322112111331121113112221121113122113111231133221121113122113121113222123211211131211121332211213211321322113311213211322132112311321322112111312212321121113122122211211232221123113112221131112311332111213122112311311123112111331121113122112132113311213211321222122111312211312111322212321121113121112133221121321132132211331121321132213211231132132211211131221232112111312212221121123222112132113213221133112132123123112111311222112132113311213211231232112311311222112111312211311123113322112132113212231121113112221121321132122211322212221121123222112311311222113111231133211121312211231131112311211133112111312211213211312111322211231131122211311123113322113223113112221131112311332211211131221131211132211121312211231131112311211232221121321132132211331221122311311222112111312211311123113322112132113213221133122211332111213112221133211322112211213322112111312211312111322212321121113121112131112132112311321322112111312212321121113122112131112131221121321132132211231131122211331121321232221121113122113121122132112311321322112111312211312111322211213111213122112132113121113222112132113213221133112132123222112311311222113111231132231121113112221121321133112132112211213322112111312211312111322212311222122132113213221123113112221133112132123222112111312211312111322212321121113121112133221121311121312211213211312111322211213211321322123211211131211121332211213211321322113311213212312311211131122211213211331121321122112133221123113112221131112311332111213122112311311123112111331121113122112132113121113222112311311222113111221221113122112132113121113222112132113213221133122211332111213322112132113213221132231131122211311123113322112111312211312111322212321121113122123211231131122113221123113221113122112132113213211121332212311322113212221&amp;quot;,
-    &amp;quot;13211321322113311213212312311211131122211213211331121321123123211231131122211211131221131112311332211213211321223112111311222112132113213221123123211231132132211231131122211311123113322112111312211312111322111213122112311311123112112322211213211321322113312211223113112221121113122113111231133221121321132132211331121321232221123123211231132132211231131122211331121321232221123113112221131112311332111213122112311311123112112322211211131221131211132221232112111312211322111312211213211312111322211231131122111213122112311311221132211221121332211213211321322113311213212312311211131122211213211331121321123123211231131122211211131221232112111312211312113211223113112221131112311332111213122112311311123112112322211211131221131211132221232112111312211322111312211213211312111322211231131122111213122112311311221132211221121332211211131221131211132221232112111312111213111213211231132132211211131221232112111312211213111213122112132113213221123113112221133112132123222112111312211312112213211231132132211211131221131211322113321132211221121332211213211321322113311213212312311211131122211213211331121321123123211231131122211211131221131112311332211213211321322113311213212322211322132113213221133112132123222112311311222113111231132231121113112221121321133112132112211213322112111312211312111322212311222122132113213221123113112221133112132123222112111312211312111322212311322123123112111321322123122113222122211211232221123113112221131112311332111213122112311311123112111331121113122112132113121113222112311311221112131221123113112221121113311211131122211211131221131211132221121321132132212321121113121112133221123113112221131112212211131221121321131211132221123113112221131112311332211211133112111311222112111312211311123113322112111312211312111322212321121113121112133221121321132132211331121321132213211231132132211211131221232112111312212221121123222112311311222113111231133211121321321122111312211312111322211213211321322123211211131211121332211231131122211311123113321112131221123113111231121123222112111331121113112221121113122113111231133221121113122113121113221112131221123113111231121123222112111312211312111322212321121113121112131112132112311321322112111312212321121113122122211211232221121321132132211331121321231231121113112221121321133112132112312321123113112221121113122113111231133221121321132132211331221122311311222112111312211311123113322112111312211312111322212311322123123112112322211211131221131211132221132213211321322113311213212322211231131122211311123113321112131221123113112211121312211213211321222113222112132113223113112221121113122113121113123112112322111213211322211312113211&amp;quot;,
-    &amp;quot;11131221131211132221232112111312111213111213211231132132211211131221232112111312211213111213122112132113213221123113112221133112132123222112111312211312112213211231132132211211131221131211132221121311121312211213211312111322211213211321322113311213212322211231131122211311123113223112111311222112132113311213211221121332211211131221131211132221231122212213211321322112311311222113311213212322211211131221131211132221232112111312111213322112131112131221121321131211132221121321132132212321121113121112133221121321132132211331121321231231121113112221121321133112132112211213322112311311222113111231133211121312211231131122211322311311222112111312211311123113322112132113212231121113112221121321132122211322212221121123222112111312211312111322212321121113121112131112132112311321322112111312212321121113122112131112131221121321132132211231131122111213122112311311222113111221131221221321132132211331121321231231121113112221121321133112132112211213322112311311222113111231133211121312211231131122211322311311222112111312211311123113322112132113212231121113112221121321132122211322212221121123222112311311222113111231133211121312211231131112311211133112111312211213211312111322211231131122111213122112311311222112111331121113112221121113122113121113222112132113213221232112111312111213322112311311222113111221221113122112132113121113222112311311222113111221132221231221132221222112112322211211131221131211132221232112111312111213111213211231132132211211131221232112111312211213111213122112132113213221123113112221133112132123222112111312211312111322212321121113121112133221132211131221131211132221232112111312111213322112132113213221133112132113221321123113213221121113122123211211131221222112112322211231131122211311123113321112132132112211131221131211132221121321132132212321121113121112133221123113112221131112311332111213211322111213111213211231131211132211121311222113321132211221121332211213211321322113311213212312311211131122211213211331121321123123211231131122211211131221131112311332211213211321223112111311222112132113213221123123211231132132211231131122211311123113322112111312211312111322111213122112311311123112112322211213211321322113312211223113112221121113122113111231133221121321132132211331121321232221123123211231132132211231131122211331121321232221123113112221131112311332111213122112311311123112112322211211131221131211132221232112111312211322111312211213211312111322211231131122111213122112311311221132211221121332211213211321322113311213212312311211131211131221223113112221131112311332211211131221131211132211121312211231131112311211232221121321132132211331121321231231121113112221121321133112132112211213322112312321123113213221123113112221133112132123222112311311222113111231132231121113112221121321133112132112211213322112311311222113111231133211121312211231131112311211133112111312211213211312111322211231131122111213122112311311221132211221121332211211131221131211132221232112111312111213111213211231132132211211131221232112111312211213111213122112132113213221123113112221133112132123222112111312211312111322212311222122132113213221123113112221133112132123222112311311222113111231133211121321132211121311121321122112133221123113112221131112311332211322111312211312111322212321121113121112133221121321132132211331121321231231121113112221121321132122311211131122211211131221131211322113322112111312211322132113213221123113112221131112311311121321122112132231121113122113322113111221131221&amp;quot;,
-    &amp;quot;3113112221131112311332111213122112311311123112111331121113122112132113121113222112311311221112131221123113112221121113311211131122211211131221131211132221121321132132212321121113121112133221123113112221131112212211131221121321131211132221123113112221131112311332211211133112111311222112111312211311123113322112111312211312111322212321121113121112133221121321132132211331121321132213211231132132211211131221232112111312212221121123222112311311222113111231133211121321321122111312211312111322211213211321322123211211131211121332211231131122211311123113321112131221123113111231121123222112111331121113112221121113122113111231133221121113122113121113221112131221123113111231121123222112111312211312111322212321121113121112131112132112311321322112111312212321121113122122211211232221121321132132211331121321231231121113112221121321132132211322132113213221123113112221133112132123222112111312211312112213211231132132211211131221131211322113321132211221121332211231131122211311123113321112131221123113111231121113311211131221121321131211132221123113112211121312211231131122211211133112111311222112111312211312111322211213211321223112111311222112132113213221133122211311221122111312211312111322212321121113121112131112132112311321322112111312212321121113122122211211232221121321132132211331121321231231121113112221121321132132211322132113213221123113112221133112132123222112111312211312112213211231132132211211131221131211322113321132211221121332211213211321322113311213212312311211131122211213211331121321123123211231131122211211131221131112311332211213211321223112111311222112132113213221123123211231132132211231131122211311123113322112111312211312111322111213122112311311123112112322211213211321322113312211223113112221121113122113111231133221121321132132211331222113321112131122211332113221122112133221123113112221131112311332111213122112311311123112111331121113122112132113121113222112311311221112131221123113112221121113311211131122211211131221131211132221121321132132212321121113121112133221123113112221131112311332111213122112311311123112112322211322311311222113111231133211121312211231131112311211232221121113122113121113222123211211131221132211131221121321131211132221123113112211121312211231131122113221122112133221121321132132211331121321231231121113121113122122311311222113111231133221121113122113121113221112131221123113111231121123222112132113213221133112132123123112111312211322311211133112111312211213211311123113223112111321322123122113222122211211232221121113122113121113222123211211131211121311121321123113213221121113122123211211131221121311121312211213211321322112311311222113311213212322211211131221131211221321123113213221121113122113121113222112131112131221121321131211132221121321132132211331121321232221123113112221131112311322311211131122211213211331121321122112133221121113122113121113222123112221221321132132211231131122211331121321232221121113122113121113222123211211131211121332211213111213122112132113121113222112132113213221232112111312111213322112132113213221133112132123123112111311222112132113311213211221121332211231131122211311123113321112131221123113112221132231131122211211131221131112311332211213211321223112111311222112132113212221132221222112112322211211131221131211132221232112111312111213111213211231131112311311221122132113213221133112132123222112311311222113111231132231121113112221121321133112132112211213322112111312211312111322212321121113121112131112132112311321322112111312212321121113122122211211232221121311121312211213211312111322211213211321322123211211131211121332211213211321322113311213211322132112311321322112111312212321121113122122211211232221121321132132211331121321231231121113112221121321133112132112312321123113112221121113122113111231133221121321132122311211131122211213211321222113222122211211232221123113112221131112311332111213122112311311123112111331121113122112132113121113222112311311221112131221123113112221121113311211131122211211131221131211132221121321132132212321121113121112133221123113112221131112311332111213213211221113122113121113222112132113213221232112111312111213322112132113213221133112132123123112111312211322311211133112111312212221121123222112132113213221133112132123222113223113112221131112311332111213122112311311123112112322211211131221131211132221232112111312111213111213211231132132211211131221131211221321123113213221123113112221131112211322212322211231131122211322111312211312111322211213211321322113311213211331121113122122211211132213211231131122212322211331222113112211&amp;quot;&amp;#125;;
-    
-    return (char *)arr[n];
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-        <category term="Algorithm" scheme="https://to-ywz.github.io/categories/Algorithm/" />
-        <category term="LeetCode" scheme="https://to-ywz.github.io/categories/Algorithm/leetcode/" />
-        <category term="C,Algorithm,LeetCode" scheme="https://to-ywz.github.io/tags/C-Algorithm-LeetCode/" />
-        <updated>2020-09-13T08:14:30.000Z</updated>
     </entry>
 </feed>
