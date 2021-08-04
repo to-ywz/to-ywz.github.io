@@ -16,6 +16,9 @@
             <guid isPermalink="true">https://to-ywz.github.io/CS/Embedded/STM32/%E6%96%B0%E5%BB%BAHAL%E5%BA%93%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
             <title>新建HAL库工程的方法</title>
             <link>https://to-ywz.github.io/CS/Embedded/STM32/%E6%96%B0%E5%BB%BAHAL%E5%BA%93%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+            <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
+            <category term="STM32" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/" />
+            <category term="STM32" scheme="https://to-ywz.github.io/tags/STM32/" />
             <pubDate>Wed, 04 Aug 2021 07:37:39 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;新建hal库工程的方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#新建hal库工程的方法&#34;&gt;#&lt;/a&gt; 新建 HAL 库工程的方法&lt;/h1&gt;
 &lt;p&gt;由于有小姐姐反反复复的问 CubeMX 如何新建工程，网上的教程版本又太老，故在此记录一下&lt;br /&gt;
