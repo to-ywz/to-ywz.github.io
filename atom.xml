@@ -13,9 +13,13 @@
         <id>https://to-ywz.github.io/CS/VSCode/VSCode%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%A2%84%E8%AE%BE%E5%8F%98%E9%87%8F/</id>
         <title>VSCode配置文件预设变量</title>
         <link rel="alternate" href="https://to-ywz.github.io/CS/VSCode/VSCode%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%A2%84%E8%AE%BE%E5%8F%98%E9%87%8F/"/>
-        <content type="html">&lt;p&gt;VSCode 文件中的配置文件有一些预设好的变量，以便用户配置工作区或者全局设置的 &lt;code&gt;josn&lt;/code&gt;  文件&lt;br /&gt;
-这些变量以  &lt;code&gt;$&amp;#123;变量名&amp;#125;&lt;/code&gt;  的格式解析&lt;br /&gt;
-变量列表如下&lt;/p&gt;
+        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h1&gt;
+&lt;p&gt;作为我的第一生产里的编辑器，我还是记不住相关的配置预设变量.&lt;br /&gt;
+ 所以写篇博客记录一下&lt;/p&gt;
+&lt;p&gt;VSCode 文件中的配置文件有一些预设好的变量，以便用户配置工作区或者全局设置的 &lt;code&gt;josn&lt;/code&gt;  文件&lt;/p&gt;
+&lt;h1 id=&#34;解析方式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解析方式&#34;&gt;#&lt;/a&gt; 解析方式&lt;/h1&gt;
+&lt;p&gt;这些变量以  &lt;code&gt;$&amp;#123;变量名&amp;#125;&lt;/code&gt;  的格式解析&lt;/p&gt;
+&lt;h1 id=&#34;相关表格&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关表格&#34;&gt;#&lt;/a&gt; 相关表格&lt;/h1&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
