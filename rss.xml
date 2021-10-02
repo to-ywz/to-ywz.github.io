@@ -14,14 +14,13 @@
         <lastBuildDate>Fri, 01 Oct 2021 13:27:27 +0800</lastBuildDate>
         <item>
             <guid isPermalink="true">https://to-ywz.github.io/CS/Embedded/%E5%8D%8F%E8%AE%AE/IIC/</guid>
-            <title>TMS320F28379学习之旅:CCS工程的建立</title>
+            <title>IIC 协议备忘</title>
             <link>https://to-ywz.github.io/CS/Embedded/%E5%8D%8F%E8%AE%AE/IIC/</link>
             <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
             <category term="IIC" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/IIC/" />
             <category term="协议" scheme="https://to-ywz.github.io/tags/%E5%8D%8F%E8%AE%AE/" />
             <pubDate>Fri, 01 Oct 2021 13:27:27 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;iic&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#iic&#34;&gt;#&lt;/a&gt; IIC&lt;/h1&gt;
-&lt;h2 id=&#34;起源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#起源&#34;&gt;#&lt;/a&gt; 起源&lt;/h2&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;起源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#起源&#34;&gt;#&lt;/a&gt; 起源&lt;/h2&gt;
 &lt;p&gt;I2C 支持设备之间短距离通信，用于处理器和外设之间，只需要两根线来完成信息交互. I2C 出现于飞利浦公司，开始只允许 100kHz, 7-bit 标准地址。直到 1992 年，I2C 第一个公共规范，增加了 400kHz 的快速模式和 10-bit 扩展地址.&lt;br /&gt;
  在 I2C 的基础上，1995 年 Intel 提出了 SMBus 用于低速设备通信，SMBus 把时钟频率限制在 &lt;strong&gt;10KHz~100KHz&lt;/strong&gt;, 但目前的 I2C 可以支持 0KHz~5MHz 的外设:&lt;/p&gt;
 &lt;ul&gt;
@@ -321,9 +320,9 @@ arr 存储在 为一个内存标签，和 main 标签作用类似 (.comm 是声�
  我们使用  &lt;code&gt;malloc&lt;/code&gt;  函数开辟出的空间是连续的所以对于 柔性数组来说，不管前面补没补齐，都从上一个数据类型结束初开始计算，算是一个 c99 的特性吧.&lt;br /&gt;
  具体原因我以后在琢磨琢磨.&lt;/p&gt;
 &lt;h2 id=&#34;冒泡排序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#冒泡排序&#34;&gt;#&lt;/a&gt; 冒泡排序&lt;/h2&gt;
-&lt;p&gt;冒泡排序的实现难度较低，我之前写过一遍介绍冒泡排序及其优化的文章，感兴趣的可以去看看&lt;a href=&#34;&#34;&gt;传送门&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;冒泡排序的实现难度较低，我之前写过一遍介绍冒泡排序及其优化的文章，感兴趣的可以去看看&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZGFrZXItY29kZS9wLzEwMjk2NzMwLmh0bWw=&#34;&gt;传送门&lt;/span&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;memmove-实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#memmove-实现&#34;&gt;#&lt;/a&gt; memmove 实现&lt;/h2&gt;
-&lt;p&gt;这就是面完每两个小时的丙甲，刚问过这就直接装上了，都是缘分啊。感兴趣可以去看看&lt;a href=&#34;&#34;&gt;传送门&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;这就是面完每两个小时的丙甲，刚问过这就直接装上了，都是缘分啊。感兴趣可以去看看&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90by15d3oudG9wL0NTLyVFNiVCMSU4MiVFOCU4MSU4Qy8lRTklOUQlQTIlRTglQUYlOTUlRTklOTQlQTYlRTklOUIlODYtJUU0JUI4JTk5JUU3JTk0JUIyJUU3JUE3JTkxJUU2JThBJTgwLw==&#34;&gt;传送门&lt;/span&gt;.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
  ]]></description>
@@ -357,7 +356,7 @@ arr 存储在 为一个内存标签，和 main 标签作用类似 (.comm 是声�
 &lt;h3 id=&#34;如何使用-c-实现-c-的重载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#如何使用-c-实现-c-的重载&#34;&gt;#&lt;/a&gt; 如何使用 C 实现 C++ 的重载&lt;/h3&gt;
 &lt;p&gt;这个就很有意思，C++ 的重载机制无非就是在编译的时候重命名函数名。所以我才用函数  &lt;code&gt;##&lt;/code&gt;  运算符和可变参数的方式简单的实现了一下函数重载.&lt;br /&gt;
  面试官和我说，也可以使用 void* 指针作为参数实现，但是 void* 只能实现一个参数的重载，多参数重载就无法实现.&lt;br /&gt;
- 这一块我还得继续琢磨琢磨。我之前的 重载实现文章可以到这去看看. &lt;a href=&#34;&#34;&gt;传送门&lt;/a&gt;&lt;br /&gt;
+ 这一块我还得继续琢磨琢磨。我之前的 重载实现文章可以到这去看看. &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90by15d3oudG9wL0NTL0MlRTglQUYlQUQlRTglQTglODAvQyVFOCVBRiVBRCVFOCVBOCU4MCVFNSU4NyVCRCVFNiU5NSVCMCVFOSU4NyU4RCVFOCVCRCVCRC8=&#34;&gt;传送门&lt;/span&gt;&lt;br /&gt;
 或者看这篇研究&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2xvY2tsZXNzaW5jLmNvbS9hcnRpY2xlcy9vdmVybG9hZGluZy8=&#34;&gt;传送门&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&#34;数据成员&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数据成员&#34;&gt;#&lt;/a&gt; 数据成员&lt;/h3&gt;
 &lt;p&gt;分为三类：私有、公有、保护.&lt;br /&gt;
@@ -471,22 +470,24 @@ TCP 的建立需要经过三次对话，大致情节模拟一下:&lt;/p&gt;
 TCP 的可靠性依赖于  &lt;code&gt;seq&lt;/code&gt;  序列号来实现。通过  &lt;code&gt;sqe&lt;/code&gt;  序号的来实现可靠重传，从而避免连接复用的时候无法分别出  &lt;code&gt;seq&lt;/code&gt;  是延时或者是 旧链接的  &lt;code&gt;seq&lt;/code&gt; , 因此需要三次握手来确定双方的  &lt;code&gt;ISN&lt;/code&gt;  ( &lt;code&gt;ISN&lt;/code&gt;  是初始的 &lt;code&gt;seq&lt;/code&gt;  序列号)&lt;/p&gt;
 &lt;p&gt;再挖细一点，还是上面那个依据&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;TCP 的可靠性是依靠  &lt;code&gt;swq&lt;/code&gt;  实现的.(seq 全程为  &lt;code&gt;sequence numbers&lt;/code&gt; )&lt;br /&gt;
- TCP 协议在被制定的时候就有一个基本设定，通过 TCP 发出的每一个包，都有一个 &lt;code&gt;sequence numbers&lt;/code&gt; .  &lt;code&gt;sequence numbers&lt;/code&gt;  为有序值，所以所有的包都可以被确认收到.&lt;br /&gt;
+&lt;p&gt;TCP 的可靠性是依靠  &lt;code&gt;swq&lt;/code&gt;  实现的.(seq 全程为  &lt;code&gt;sequence numbers&lt;/code&gt; )&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;TCP 协议在被制定的时候就有一个基本设定，通过 TCP 发出的每一个包，都有一个 &lt;code&gt;sequence numbers&lt;/code&gt; .  &lt;code&gt;sequence numbers&lt;/code&gt;  为有序值，所以所有的包都可以被确认收到.&lt;br /&gt;
  确认机制是累计的，对于一个  &lt;code&gt;sequence numbers x&lt;/code&gt;  的确认，这代表 x 系列号之前的包都是被确认的。当然，不包括 x.&lt;br /&gt;
 TCP 协议没有限制一个重复的连接被重复使用的。这时候，就有了 上面所说的问题：这条连接突然断开重连后，TCP 怎么样识别之前旧链接重发的包？&lt;br /&gt;
  这就是需要上面所提到  &lt;code&gt;ISN&lt;/code&gt;  校对的价值了.&lt;br /&gt;
  每当生成一个新的连接的时候，都会有一个初始序列号 (Initial Sequence Number ISN) 生成器会生成一个新的 32 位的 ISN.&lt;br /&gt;
  这个生成器会使用一个 32 位的时钟，大约 每 4µs 进行一次 inc, 所以 ISN 会在大约 4.55 小时循环一次。一般来说，在网络中并不会比最大分段寿命 (Maximum Segment Lifetime (MSL)), 默认使用 2 分钟长.  &lt;code&gt;MSL&lt;/code&gt;  远比 4.55 小时要多的多，所以可以认定 ISN 唯一&lt;br /&gt;
 发送方与接收方都会有自己的 ISN (下面的例子中就是 X 与 Y) 来做双方互发通信，具体的描述如下:&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;A --&amp;gt; B  SYN my sequence number is X&lt;/li&gt;
 &lt;li&gt;A &amp;lt;-- B  ACK your sequence number is X&lt;/li&gt;
 &lt;li&gt;A &amp;lt;-- B  SYN my sequence number is Y&lt;/li&gt;
-&lt;li&gt;A --&amp;gt; B  ACK your sequence number is Y&lt;br /&gt;
-2 与 3 都是 B 发送给 A, 因此可以合并在一起，因此成为 three way (or three message) handshake (其实翻译为三步握手，或者是三次通信握手更为准确)&lt;/li&gt;
+&lt;li&gt;A --&amp;gt; B  ACK your sequence number is Y&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;2 与 3 都是 B 发送给 A, 因此可以合并在一起，因此成为 three way (or three message) handshake (其实翻译为三步握手，或者是三次通信握手更为准确)&lt;/p&gt;
 &lt;p&gt;三次握手 (A three way handshake) 是必须的，因为  &lt;code&gt;sequence numbers&lt;/code&gt;  没有绑定到整个网络的全局时钟 (全部统一使用一个时钟，就可以确定这个包是不是延迟到的) 以及 TCPs 可能有不同的机制来选择 ISN (初始序列号).&lt;br /&gt;
  接收方接收到第一个  &lt;code&gt;SYN&lt;/code&gt;  时，没有办法知道这个  &lt;code&gt;SYN&lt;/code&gt;  是是否延迟了很久了，除非他有办法记住在这条连接中，最后接收到的那个  &lt;code&gt;sequence numbers&lt;/code&gt;  (然而这不总是可行的)&lt;br /&gt;
  这句话的意思是：一个  &lt;code&gt;seq&lt;/code&gt;  过来了，跟现在记住的  &lt;code&gt;seq&lt;/code&gt;  不一样，我怎么知道他是上条延迟的，还是上上条延迟的呢？&lt;br /&gt;
@@ -495,11 +496,11 @@ TCP 协议没有限制一个重复的连接被重复使用的。这时候，就�
 &lt;blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;A --&amp;gt; B  SYN my sequence number is X&lt;/li&gt;
-&lt;li&gt;A &amp;lt;-- B  ACK your sequence number is X  SYN my sequence number is Y&lt;br /&gt;
- 只有 B 确认了收到了 A 的  &lt;code&gt;seq&lt;/code&gt; ,  A 无法认收到 B 的。也就是说，只有 A 送给 B 的包都是可靠的，而 B 送给 A 的则不是，所以这不是靠的连接.&lt;br /&gt;
- 这种情况如果只需要 A 发送给 B , B 无需回，则可以不做三次次握手.&lt;/li&gt;
+&lt;li&gt;A &amp;lt;-- B  ACK your sequence number is X  SYN my sequence number is Y&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;只有 B 确认了收到了 A 的  &lt;code&gt;seq&lt;/code&gt; ,  A 无法认收到 B 的。也就是说，只有 A 送给 B 的包都是可靠的，而 B 送给 A 的则不是，所以这不是靠的连接.&lt;br /&gt;
+ 这种情况如果只需要 A 发送给 B , B 无需回，则可以不做三次次握手.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TCP 的包头结构&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
