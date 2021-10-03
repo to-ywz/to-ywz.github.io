@@ -704,10 +704,11 @@ TCP 协议没有限制一个重复的连接被重复使用的。这时候，就�
         </item>
         <item>
             <guid isPermalink="true">https://to-ywz.github.io/CS/Algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/</guid>
-            <title>单链表</title>
+            <title>链表(一)——单链表</title>
             <link>https://to-ywz.github.io/CS/Algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/</link>
             <category term="数据结构" scheme="https://to-ywz.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
             <category term="链表" scheme="https://to-ywz.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/" />
+            <category term="链表" scheme="https://to-ywz.github.io/tags/%E9%93%BE%E8%A1%A8/" />
             <pubDate>Sat, 25 Sep 2021 10:57:33 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#概述&#34;&gt;#&lt;/a&gt; 概述&lt;/h1&gt;
 &lt;p&gt;计算机中的线性结构有两种方法实现，第一种就是喜闻乐见的数组形式。第二种则是链式结构.&lt;br /&gt;
