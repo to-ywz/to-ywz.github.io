@@ -46,6 +46,223 @@
         <updated>2021-10-03T09:14:16.000Z</updated>
     </entry>
     <entry>
+        <id>https://to-ywz.github.io/CS/Linux/linux%E5%AD%A6%E4%B9%A0/</id>
+        <title>linux学习</title>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/Linux/linux%E5%AD%A6%E4%B9%A0/"/>
+        <content type="html">&lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+&lt;h1 id=&#34;linux-基础知识&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux-基础知识&#34;&gt;#&lt;/a&gt; Linux 基础知识&lt;/h1&gt;
+&lt;h2 id=&#34;what-is-命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#what-is-命令&#34;&gt;#&lt;/a&gt; what is 命令&lt;/h2&gt;
+&lt;p&gt;所谓的命令就是在环境变量下的一堆可执行文件，所谓的  &lt;code&gt;ls&lt;/code&gt; ,  &lt;code&gt;cd&lt;/code&gt; ,  &lt;code&gt;pwd&lt;/code&gt; ,  &lt;code&gt;which&lt;/code&gt;  等命令其实就是系统自带的可执行文件&lt;/p&gt;
+&lt;p&gt;其实我们所写的源文件在便也后也是可执行文件，但是问什么只能在当前路径执行呢？&lt;/p&gt;
+&lt;p&gt;这里就涉及到了一个比较熟悉而又陌生的名词: &lt;strong&gt;环境变量.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;什么是环境变量呢？所谓的环境变量就是可执行文件所在的文件夹路径的集合&lt;/p&gt;
+&lt;p&gt;例如 linux 中在命令行中输入  &lt;code&gt;echo $PATH&lt;/code&gt;  就可以输出 Linux 可执行文件的路径集合&lt;br /&gt;
+如图:&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/202110041022574.png&#34; alt=&#34;PATH&#34; /&gt;&lt;br /&gt;
+ &lt;code&gt;$PATH&lt;/code&gt;  是中断使用的路径变量，使用  &lt;code&gt;:&lt;/code&gt;  来分隔，表示 Shell 将会在这些路径下寻找命令程序，在其中我们 可以看到  &lt;code&gt;/bin&lt;/code&gt;  目录.&lt;br /&gt;
+ 即  &lt;code&gt;$PATH&lt;/code&gt;  内置了这些路径环境变量，而命令的本质大都是在文件系统中的一些应用程序.&lt;/p&gt;
+&lt;h2 id=&#34;常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令&#34;&gt;#&lt;/a&gt; 常用命令&lt;/h2&gt;
+&lt;h3 id=&#34;cd&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cd&#34;&gt;#&lt;/a&gt; cd&lt;/h3&gt;
+&lt;h4 id=&#34;命令格式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#命令格式&#34;&gt;#&lt;/a&gt; 命令格式:&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;path&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;功能&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能&#34;&gt;#&lt;/a&gt; 功能&lt;/h4&gt;
+&lt;p&gt;上面的  &lt;code&gt;path&lt;/code&gt;  为目录名称。路径可以是 相对路径 或者 绝对路径；也可以不填写，默认返回到用户目录&lt;br /&gt;
+相对路径为，当前终端打开的位置&lt;br /&gt;
+如图:&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211004210553.png&#34; alt=&#34;相对路径&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;例子&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#例子&#34;&gt;#&lt;/a&gt; 例子&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /home/user/Desktop &lt;span class=&#34;token comment&#34;&gt;# 进入桌面&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; Desktop            &lt;span class=&#34;token comment&#34;&gt;# 效果和上面一致&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt;                    &lt;span class=&#34;token comment&#34;&gt;# 返回当前用户目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;效果如下:&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211004210837.png&#34; alt=&#34;cd基本用法&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;特殊命令表示&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特殊命令表示&#34;&gt;#&lt;/a&gt; 特殊命令表示&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;~&lt;/code&gt; :  表示当前为用户的 &lt;code&gt;home&lt;/code&gt;  目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.&lt;/code&gt; :  表示当前目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;..&lt;/code&gt; : 当前目录的上一级目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/&lt;/code&gt; :  表示根目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-&lt;/code&gt; :  非目录，返回上次所在目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;mkdir&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mkdir&#34;&gt;#&lt;/a&gt; mkdir&lt;/h3&gt;
+&lt;h4 id=&#34;命令格式-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#命令格式-2&#34;&gt;#&lt;/a&gt; 命令格式&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;-p&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; 目录名&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;功能-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-2&#34;&gt;#&lt;/a&gt; 功能&lt;/h4&gt;
+&lt;p&gt;目录名：要创建的目录路径.&lt;br /&gt;
+ &lt;code&gt;-p&lt;/code&gt;  :  可缺省，使用时表示，当路径名不存在时，创建当前目录包含上级的目录&lt;/p&gt;
+&lt;h4 id=&#34;例子-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#例子-2&#34;&gt;#&lt;/a&gt; 例子&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; Desktop/Test&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; Desktop&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; Desktop/Test_A/CC/DD&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; Desktop&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; Desktop/Test_A/CC/DD&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211005093153.png&#34; alt=&#34;mkdir&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;touch&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#touch&#34;&gt;#&lt;/a&gt; touch&lt;/h3&gt;
+&lt;h4 id=&#34;命令格式-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#命令格式-3&#34;&gt;#&lt;/a&gt; 命令格式&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;touch&lt;/span&gt; fileName&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;功能-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-3&#34;&gt;#&lt;/a&gt; 功能&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;touch&lt;/code&gt;  命令可以创建不存在的文件，或者  &lt;code&gt;touch&lt;/code&gt;  通过参数修改目录或文件的日期时间&lt;br /&gt;
+例如&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;touch&lt;/span&gt; main.c&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;ls&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ls&#34;&gt;#&lt;/a&gt; ls&lt;/h3&gt;
+&lt;h4 id=&#34;命令格式-4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#命令格式-4&#34;&gt;#&lt;/a&gt; 命令格式&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;option&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;Folder&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;功能-4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-4&#34;&gt;#&lt;/a&gt; 功能&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt;  是  &lt;code&gt;list&lt;/code&gt;  的缩写，用于显示指定目录下的内容 (文件及其子文件), 内容包括文件大小，修改日期等详细参数&lt;br /&gt;
+ &lt;code&gt;Folder&lt;/code&gt; : 目录，缺省时默认显示当前目录下内容&lt;br /&gt;
+ &lt;code&gt;option&lt;/code&gt; : 可缺省，使用会改变，显示方式，显示内容，具体参数如下&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-a: 显示文件及其目录 (ls 内定将文件名或目录名以 &lt;code&gt;.&lt;/code&gt;  开头的文件视为隐藏，不会列出)&lt;/li&gt;
+&lt;li&gt;-l: 列出除文件名，文件形态，权限，拥有者，文件大小等详细参数&lt;/li&gt;
+&lt;li&gt;-t: 按顺序显示文件&lt;/li&gt;
+&lt;li&gt;-A: 与  &lt;code&gt;-a&lt;/code&gt;  相同，但是不会列出 &lt;code&gt;.&lt;/code&gt; (当前目录) 和  &lt;code&gt;..&lt;/code&gt; (父目录)&lt;/li&gt;
+&lt;li&gt;-R: 若目录下有文件，则一起显示，即诋毁显示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;例子-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#例子-3&#34;&gt;#&lt;/a&gt; 例子&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; -a&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; -A&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; -l -t&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; -l -R -t   &lt;span class=&#34;token comment&#34;&gt;# 可多个参数累加&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211005111606.png&#34; alt=&#34;single_parameter&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211005111359.png&#34; alt=&#34;多参数&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;补充说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#补充说明&#34;&gt;#&lt;/a&gt; 补充说明&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt; &lt;code&gt;ls -l&lt;/code&gt;  各个字段有着各自的含义&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;第一字段：文件属性&lt;br /&gt;
+文件属性以共 10 字符，第一个字符表示文件类型， &lt;code&gt;-&lt;/code&gt;  表示普通文件； &lt;code&gt;d&lt;/code&gt;  表示目录.&lt;br /&gt;
+ 后面的 9 个字符 3 个为一组，分别表示：文件拥有者的权限，文件所属拥有的权限，其他用户的权限。&lt;br /&gt;
+ &lt;code&gt;r&lt;/code&gt;  表示读， &lt;code&gt;w&lt;/code&gt;  表示写， &lt;code&gt;x&lt;/code&gt;  表示执行&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第二字段：链接占用的节点 / 子目录个数&lt;br /&gt;
+主要取决该文件的类型。如果是文件的话，则表示该文件所具有的硬连接数。某个文件的第二字段如果等于 1 的话，代表没有其他指向该文件的硬连接.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第三、四字段：拥有者和文件所在组&lt;br /&gt;
+ Linux 为多用户系统，每个文件都有自己的拥有者。一般来说只有文件的拥有者才有 第一字段后九个字符所赋予的操作权。当然作为上帝用户的 root 拥有修改所有文件的权限&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第五字段：文件所占用的空间 (字节)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第六字段：最近访问 (修改) 时间&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第七字段：文件 / 文件夹名称&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Linux 的链接方式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在 Linux 中链接的方式分为两种，分别是硬链接和软链接 (符号链接).&lt;br /&gt;
+ 软连接，类似于 Windows 操作系统的快捷方式.&lt;br /&gt;
+ 硬链接，则是将文件复制一份，同时连带自动更新.&lt;br /&gt;
+ 当我们修改了硬链接文件的内容，源文件也会被修改。当为某个文件创建硬链接时，第二字段的值便会加 1.&lt;br /&gt;
+ 可以使用 ln 命令创建软链接和硬链接&lt;/p&gt;
+&lt;h3 id=&#34;cat&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cat&#34;&gt;#&lt;/a&gt; cat&lt;/h3&gt;
+&lt;h4 id=&#34;命令格式-5&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#命令格式-5&#34;&gt;#&lt;/a&gt; 命令格式&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;cat&lt;/span&gt; fileName&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;功能-5&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-5&#34;&gt;#&lt;/a&gt; 功能&lt;/h4&gt;
+&lt;p&gt;cat 命令是 concatenate 的简写，译为串联。即它可以把两个内容串联起来，我们通常使用它在终端下输出文&lt;br /&gt;
+件的内容进行查看&lt;/p&gt;
+&lt;h4 id=&#34;例子-4&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#例子-4&#34;&gt;#&lt;/a&gt; 例子&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;cat&lt;/span&gt; main.c&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211005164236.png&#34; alt=&#34;cat&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;echo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#echo&#34;&gt;#&lt;/a&gt; echo&lt;/h3&gt;
+&lt;h4 id=&#34;命令格式-6&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#命令格式-6&#34;&gt;#&lt;/a&gt; 命令格式&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;string&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; string&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;token variable&#34;&gt;$variable&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;功能-6&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-6&#34;&gt;#&lt;/a&gt; 功能&lt;/h4&gt;
+&lt;p&gt;在终端中输出一段文字，或打印终端变量。在输出 字符串的时候  &lt;code&gt;echo &amp;quot;string&amp;quot;&lt;/code&gt;  和  &lt;code&gt;echo string&lt;/code&gt;  效果一致&lt;/p&gt;
+&lt;h4 id=&#34;例子-5&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#例子-5&#34;&gt;#&lt;/a&gt; 例子&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;嘿嘿嘿&#34;&lt;/span&gt;   &lt;span class=&#34;token comment&#34;&gt;# 输出字符串&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; 嘿嘿嘿     &lt;span class=&#34;token comment&#34;&gt;# 输出字符串&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;token environment constant&#34;&gt;$PATH&lt;/span&gt;      &lt;span class=&#34;token comment&#34;&gt;# 输出环境变量&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;&lt;span class=&#34;token environment constant&#34;&gt;$PATH&lt;/span&gt;&#34;&lt;/span&gt;    &lt;span class=&#34;token comment&#34;&gt;# 输出环境变量&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211005171118.png&#34; alt=&#34;shell&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;重定向输出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#重定向输出&#34;&gt;#&lt;/a&gt; 重定向输出&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;echo&lt;/code&gt;  命令输出的结果无一例外都是在终端显示，在一些时候我们还是需要将输出结果保存在文件中方便我们对问题进行分析.&lt;br /&gt;
+ 如果在 Windows 上写过 BAT 脚本，那么就会很自然的想到重定向出到文件的控制符  &lt;code&gt;&amp;gt;&lt;/code&gt;  和  &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; ,  &lt;code&gt;&amp;gt;&lt;/code&gt;  会把输出的消息覆盖， &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;  会追加到源文件的末尾&lt;br /&gt;
+格式如下&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; cc &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; log.txt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; DD &lt;span class=&#34;token operator&#34;&gt;&gt;&gt;&lt;/span&gt; log.txt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;echo&lt;/span&gt; CCCC &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; log.txt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;如图:&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211005173036.png&#34; alt=&#34;重定向&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;rmdir&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rmdir&#34;&gt;#&lt;/a&gt; rmdir&lt;/h3&gt;
+&lt;h4 id=&#34;命令格式-7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#命令格式-7&#34;&gt;#&lt;/a&gt; 命令格式&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rmdir&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;-p&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; 文件名&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;功能-7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-7&#34;&gt;#&lt;/a&gt; 功能&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;rmdir&lt;/code&gt;  命令是 remove directory 的简写，它的功能是删除空的目录.&lt;br /&gt;
+ &lt;code&gt;-p&lt;/code&gt; : 可缺省。如果使用，可以用来递归删除目录，即当删除当前目录时，其删除后父目录也为空则会连同父目录一起删除，可递归&lt;/p&gt;
+&lt;h4 id=&#34;例子-6&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#例子-6&#34;&gt;#&lt;/a&gt; 例子&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rmdir&lt;/span&gt; Test_A&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rmdir&lt;/span&gt; -p Test_A/CC/DD/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211005173946.png&#34; alt=&#34;rmdir&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;rm&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rm&#34;&gt;#&lt;/a&gt; rm&lt;/h3&gt;
+&lt;h4 id=&#34;命令格式-8&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#命令格式-8&#34;&gt;#&lt;/a&gt; 命令格式&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rm&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;-option&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; file, file2, file3, &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;. / FolderName&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;功能-8&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-8&#34;&gt;#&lt;/a&gt; 功能&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;rm&lt;/code&gt;  命令是 remove 的简写，它的功能是删除一个或多个文件或目录.&lt;br /&gt;
+ 被  &lt;code&gt;rm&lt;/code&gt;  命令删除的文件不会被放入回收站，直接永久删除。所谓的删库跑路这个梗中的命令就职这个.&lt;br /&gt;
+ &lt;code&gt;-option&lt;/code&gt; :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-i&lt;/code&gt; : 删除文件或文件夹前逐一确认&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-r&lt;/code&gt; : 将删除目录及其子目录或文件一并删除&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-f&lt;/code&gt; : 忽略不存在的文件，直接删除，不进行询问&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;例子-7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#例子-7&#34;&gt;#&lt;/a&gt; 例子&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rm&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;.c&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rm&lt;/span&gt; -i &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;.c&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;rm&lt;/span&gt; -rf CC&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211005174955.png&#34; alt=&#34;rm&#34; /&gt;&lt;br /&gt;
+ 测试时一定要小心，不要误删&lt;/p&gt;
+&lt;h3 id=&#34;man&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#man&#34;&gt;#&lt;/a&gt; man&lt;/h3&gt;
+&lt;h4 id=&#34;命令格式-9&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#命令格式-9&#34;&gt;#&lt;/a&gt; 命令格式&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;man&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;要查询的内容&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;功能-9&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-9&#34;&gt;#&lt;/a&gt; 功能&lt;/h4&gt;
+&lt;p&gt;用于查询之类用法。我们可以记不住任何指令的参数，但是不能不熟悉这个  &lt;code&gt;man&lt;/code&gt; &lt;br /&gt;
+ &lt;code&gt;man man&lt;/code&gt;  可以查看  &lt;code&gt;man&lt;/code&gt;  自己的使用方法&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211005175656.png&#34; alt=&#34;man&#34; /&gt;&lt;br /&gt;
+ 可以查询到的内容就在框内&lt;/p&gt;
+&lt;h2 id=&#34;软件包管理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#软件包管理&#34;&gt;#&lt;/a&gt; 软件包管理&lt;/h2&gt;
+&lt;h3 id=&#34;deb-包-dpkg和apt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#deb-包-dpkg和apt&#34;&gt;#&lt;/a&gt;  &lt;code&gt;deb&lt;/code&gt;  包、 &lt;code&gt;dpkg&lt;/code&gt;  和 &lt;code&gt;apt&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;在 Debian 和 Ubuntu 等 Linux 发行版本中，通常使用  &lt;code&gt;deb&lt;/code&gt;  形式的软件包.&lt;br /&gt;
+ 若下载了 deb 软件包，可使用如下命令进行安装，其中 xxxx.deb 为要安装的软件包的名字&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; dpkg -i xxxx.deb&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;命令中的  &lt;code&gt;dpkg&lt;/code&gt;  (Debian Packager) 是 Debian 专门开发的包管理工具，它可以用来安装、更新和移除软件，安装时它需要使用  &lt;code&gt;deb&lt;/code&gt;  类型的软件包.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dpkg&lt;/code&gt;  是一个底层的包管理工具，主要用于对已下载到本地和已经安装的软件包进行管理.&lt;br /&gt;
+ 在它之上的  &lt;code&gt;apt&lt;/code&gt;  (Advanced Package Tool) 包管理工具，其功能则更加丰富和方便使用，使用  &lt;code&gt;apt&lt;/code&gt;  能够自动从互联网的软件仓&lt;br /&gt;
+库中搜索、安装、升级、卸载软件，它会咨询软件仓库，并能安装软件时的模块及依赖问题.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install 软件名
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;简单来说， &lt;code&gt;deb&lt;/code&gt;  是软件包， &lt;code&gt;dpkg&lt;/code&gt;  是安装工具， &lt;code&gt;apt&lt;/code&gt;  是自动安装工具.&lt;/p&gt;
+&lt;h3 id=&#34;apt-工具的使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#apt-工具的使用&#34;&gt;#&lt;/a&gt; apt 工具的使用&lt;/h3&gt;
+&lt;p&gt;Ubuntu 的管理工具包为  &lt;code&gt;apt&lt;/code&gt;  工具， &lt;code&gt;apt&lt;/code&gt;  工具包含如下内容:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;apt-get   工具：负责软件包的安装，卸载，更新&lt;/li&gt;
+&lt;li&gt;apt-cache 工具：查询软件包相关信息&lt;/li&gt;
+&lt;li&gt;apt-config 工具：用于适配所有 apt 工具的使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;安装软件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装软件&#34;&gt;#&lt;/a&gt; 安装软件&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install 软件包名&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;卸载软件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#卸载软件&#34;&gt;#&lt;/a&gt; 卸载软件&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get remove 软件包名&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;直接使用-apt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#直接使用-apt&#34;&gt;#&lt;/a&gt; 直接使用 apt&lt;/h4&gt;
+&lt;p&gt;前面说过  &lt;code&gt;apt&lt;/code&gt;  有很多功能，但是我们很少使用，所以官方推出了  &lt;code&gt;apt&lt;/code&gt;  命令.&lt;br /&gt;
+ 使用  &lt;code&gt;apt&lt;/code&gt;  集众家之所长，而且在安装和卸载 软件时会有进度条显示&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;apt install&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;安装指定的软件包&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;apt remove&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;卸载指定的软件包&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;apt update&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;更新源列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;apt search&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;根据关键字搜索对应的软件包&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;apt show&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;显示软件包的相关信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;apt list&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;根据名称列出所有软件包&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;编辑器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编辑器&#34;&gt;#&lt;/a&gt; 编辑器&lt;/h2&gt;
+&lt;h3 id=&#34;gedit&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gedit&#34;&gt;#&lt;/a&gt; gedit&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;gedit&lt;/code&gt;  是在 Ubuntu 系统下的地位就如同 Windows 系统下的记事本软件，它的功能不算强大，但因为是系统自&lt;br /&gt;
+带的，说不上什么时候我们就会图方便使用它用来轻度编辑和记录一些内容，这要比  &lt;code&gt;Vi&lt;/code&gt;  或者  &lt;code&gt;Vim&lt;/code&gt;  上手更为容易&lt;/p&gt;
+&lt;h3 id=&#34;vscode&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vscode&#34;&gt;#&lt;/a&gt; vscode&lt;/h3&gt;
+&lt;p&gt;这个时 微软公司推出 轻量级编辑器，堪称微软最大的良心之作，居家旅程必备神器.&lt;/p&gt;
+&lt;h3 id=&#34;vim&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vim&#34;&gt;#&lt;/a&gt; vim&lt;/h3&gt;
+&lt;p&gt;这是 在 linux 最久远的编辑器，可以放弃鼠标来实现各种快速编码.&lt;br /&gt;
+ 在这里就不详细列举相关命令了，感兴趣的可以点击这里自行查看&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9saW51eC5jbi9hcnRpY2xlLTgxNDQtMS5odG1s&#34;&gt;传送门&lt;/span&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+</content>
+        <updated>2021-10-03T09:09:33.000Z</updated>
+    </entry>
+    <entry>
         <id>https://to-ywz.github.io/CS/Embedded/%E5%8D%8F%E8%AE%AE/IIC/</id>
         <title>IIC 协议备忘</title>
         <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/%E5%8D%8F%E8%AE%AE/IIC/"/>
@@ -3093,77 +3310,5 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
         <category term="C" scheme="https://to-ywz.github.io/categories/c/" />
         <category term="学习笔记,C" scheme="https://to-ywz.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-C/" />
         <updated>2021-07-03T05:02:54.018Z</updated>
-    </entry>
-    <entry>
-        <id>https://to-ywz.github.io/blog/to-Build-shoka/to-Build-shoka/</id>
-        <title>搭建 shoka 主题出现的问题</title>
-        <link rel="alternate" href="https://to-ywz.github.io/blog/to-Build-shoka/to-Build-shoka/"/>
-        <content type="html">&lt;h2 id=&#34;hexo-更换-shoka-主题-出现的问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-更换-shoka-主题-出现的问题&#34;&gt;#&lt;/a&gt; hexo 更换 shoka 主题 出现的问题&lt;/h2&gt;
-&lt;p&gt;PS: 由于出现问题的时候没有及时截图，所以下面的文章里没有相关图片，十分抱歉&lt;/p&gt;
-&lt;h2 id=&#34;hexo-g-出现-yamlsafeload-is-remove&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-g-出现-yamlsafeload-is-remove&#34;&gt;#&lt;/a&gt; hexo g 出现 yaml.safeLoad () is remove&lt;/h2&gt;
-&lt;p&gt;错误信息大概是这样的，主要是第一句&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh-&#34;&gt;err: Error: Function yaml.safeLoad is removed in js-yaml 4. Use yaml.load instead, which is now safe by default.
-at Object.safeLoad (D:Github_Hexo\hexo\node_modules\js-yaml\index.js:10:11)
-at Hexo. (D:Github_Hexo\hexo\themes\shoka\scripts\generaters\config.js:41:41)
-at Hexo.tryCatcher (D:Github_Hexo\hexo\node_modules\bluebird\js\release\util.js:16:23)
-at Hexo. (D:Github_Hexo\hexo\node_modules\bluebird\js\release\method.js:15:34)
-at D:Github_Hexo\hexo\node_modules\hexo\lib\extend\filter.js:67:52
-at tryCatcher (D:Github_Hexo\hexo\node_modules\bluebird\js\release\util.js:16:23)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这玩意挺坑人的，查了半天文档才知道  &lt;code&gt;yaml.safeLoad&lt;/code&gt;  已经弃用，得用 &lt;code&gt;yaml.load&lt;/code&gt;  代替&lt;br /&gt;
-可苦了我这个搞嵌入式的&lt;br /&gt;
-去  &lt;code&gt;theme\shoka\scripts\generaters\config.js&lt;/code&gt;  文件的 第 41 行 将  &lt;code&gt;yaml.safeLoad&lt;/code&gt;  修改为  &lt;code&gt;yaml.load&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;hexo-g-出现-template-render-error&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-g-出现-template-render-error&#34;&gt;#&lt;/a&gt; hexo g 出现 Template render error&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;ps: 果然和我想的一样这篇博客 hexo g 就出错，诸位自行把 &lt;mark&gt;全角符号修改为半角符号&lt;/mark&gt;即可&lt;/strong&gt;&lt;br /&gt;
-我被这个问题折磨了一天，怎么说呢出现这个问题的原因有很多，我是通过新建博客一步步排查，查出来的...&lt;br /&gt;
- 可能只适用于我自己和当前博客主题&lt;br /&gt;
-我这边出现这个问题的原因是两个&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;文章中可能出现了 &lt;code&gt;｛｛``｝｝&lt;/code&gt; ,  &lt;code&gt;｛％&lt;/code&gt;   &lt;code&gt;％｝&lt;/code&gt; 这种 hexo 无法转义的字符，核心原因就是 hexo 转义时候发生的错误，｛％ ％｝ ｛｛｝｝ 是 yaml 的一个语法&lt;br /&gt;
-网上都是这么说的，让后你自己一查发现没有。这都是假象，你用 git 的 bash 去查找的时候会发现一个极其怪异的现象&lt;br /&gt;
-所有图片都被翻译成了  &lt;code&gt;｛｛&lt;/code&gt;   &lt;code&gt;｝｝&lt;/code&gt;   &lt;code&gt;｛％&lt;/code&gt;   &lt;code&gt;％｝&lt;/code&gt; , 而且还不是一对的..., 我没有太大的兴趣去琢磨为什么，所以就只是简单的对图片用了外链接&lt;br /&gt;
- git bash 查找 这几个符号的命令如下&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh-&#34;&gt;grep -r &#39;｛｛&#39; source
-grep -r &#39;｝｝&#39; source
-grep -r &#39;｛％&#39; source
-grep -r &#39;％｝&#39; source
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;对应的 js 未安装也会导致这个问题&lt;br /&gt;
-当我改完了这个 bug 之后，我发觉还是没有解决，重新新建本地博客后，发现一开统计点击量就会 error 然后去补装了 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1zeW1ib2xzLWNvdW50LXRpbWU=&#34;&gt;hexo-symbols-count-time&lt;/span&gt;&lt;br /&gt;
- 也可以复制这个直接安装  &lt;code&gt;npm install hexo-symbols-count-time&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;hexo-d-发布到-github时出现-openssl-433-或-time-out-433&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-d-发布到-github时出现-openssl-433-或-time-out-433&#34;&gt;#&lt;/a&gt; hexo d 发布到 GitHub 时出现 openssl 433 或 time out 433&lt;/h2&gt;
-&lt;p&gt;这里我电脑上是因为，运行了小猫咪所以出现这个问题。诸位如果使用其他 VPN 需要自行修改端口&lt;br /&gt;
-如果使用小猫咪，没有修改过端口的话，直接复制可用 (不要着急 cv)&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh-&#34;&gt;git config --global http.proxy 127.0.0.1:7890
-git config --global https.proxy 127.0.0.1:7890
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;配置完毕后，建议先  &lt;code&gt;hexo clean&lt;/code&gt;  之后再执行  &lt;code&gt;hexo g -d&lt;/code&gt; &lt;br /&gt;
- 如果你配置过代理，那么请先取消后再尝试一次，取消命令如下&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh-&#34;&gt;git config --global --unset http.proxy  #取消git的http代理配置
-git config --global --unset https.proxy #取消git的https代理配置
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在取消之前或者配置之前先最好先查看一下代理配置相关信息，命令如下&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-sh-&#34;&gt;git config --global http.proxy  #查看git的http代理配置
-git config --global https.proxy #查看git的https代理配置
-git config --global -l #查看git的所有配置
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;hexo-部署-github-pages-自定义域名失效的问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-部署-github-pages-自定义域名失效的问题&#34;&gt;#&lt;/a&gt; Hexo 部署 Github Pages 自定义域名失效的问题&lt;/h2&gt;
-&lt;p&gt;之前在这写博客少，也不想动脑子解决问题，所以每一次手动添加 CNAME. 现在忍不了，动手改了改&lt;br /&gt;
-找到 hexo 博客根目录下的 source 文件.(注意，不是主题的 source 文件).&lt;br /&gt;
- 当 hexo 生成静态页面时，根目录下的 source 文件夹中的内容，就会在生成的网页根目录中&lt;br /&gt;
-你可以在部署到 github 后，在仓库中查看，此时本地根目录下 source 文件夹的内容就在仓库的根目下.&lt;br /&gt;
- 从此之后，再也不需要手动上传 CNAME 了&lt;/p&gt;
-&lt;h2 id=&#34;写在最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#写在最后&#34;&gt;#&lt;/a&gt; 写在最后&lt;/h2&gt;
-&lt;p&gt;上面的问题都是基于我自己的主题和环境配置，测试出来的问题&lt;br /&gt;
-以后遇到什么问题也会在这里继续跟新的&lt;br /&gt;
-如果没到帮到各位表示十分抱歉 (#_&amp;lt;-)&lt;br /&gt;
- 能帮到大家就更好啦（＾∀＾●）ﾉｼ&lt;/p&gt;
-</content>
-        <category term="blog" scheme="https://to-ywz.github.io/categories/blog/" />
-        <category term="blog" scheme="https://to-ywz.github.io/tags/blog/" />
-        <updated>2021-07-01T05:03:01.000Z</updated>
     </entry>
 </feed>
