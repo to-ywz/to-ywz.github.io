@@ -255,8 +255,8 @@
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="求职" scheme="https://to-ywz.github.io/categories/%E6%B1%82%E8%81%8C/" />
-        <category term="面试" scheme="https://to-ywz.github.io/categories/%E6%B1%82%E8%81%8C/%E9%9D%A2%E8%AF%95/" />
+        <category term="求职" scheme="https://to-ywz.github.io/categories/job/" />
+        <category term="面试" scheme="https://to-ywz.github.io/categories/job/%E9%9D%A2%E8%AF%95/" />
         <updated>2021-10-11T08:02:51.000Z</updated>
     </entry>
     <entry>
@@ -513,9 +513,9 @@
         <updated>2021-10-03T09:09:33.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Embedded/%E5%8D%8F%E8%AE%AE/IIC/</id>
+        <id>https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%8D%8F%E8%AE%AE/IIC/</id>
         <title>IIC 协议备忘</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/%E5%8D%8F%E8%AE%AE/IIC/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%8D%8F%E8%AE%AE/IIC/"/>
         <content type="html">&lt;h2 id=&#34;起源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#起源&#34;&gt;#&lt;/a&gt; 起源&lt;/h2&gt;
 &lt;p&gt;I2C 支持设备之间短距离通信，用于处理器和外设之间，只需要两根线来完成信息交互. I2C 出现于飞利浦公司，开始只允许 100kHz, 7-bit 标准地址。直到 1992 年，I2C 第一个公共规范，增加了 400kHz 的快速模式和 10-bit 扩展地址.&lt;br /&gt;
  在 I2C 的基础上，1995 年 Intel 提出了 SMBus 用于低速设备通信，SMBus 把时钟频率限制在 &lt;strong&gt;10KHz~100KHz&lt;/strong&gt;, 但目前的 I2C 可以支持 0KHz~5MHz 的外设:&lt;/p&gt;
@@ -624,15 +624,15 @@ SCL 产生上升沿后，在 SDA 上对电平进行采样，转化为数据&lt;b
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
-        <category term="IIC" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/IIC/" />
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+        <category term="IIC" scheme="https://to-ywz.github.io/categories/Embedded/IIC/" />
         <category term="协议" scheme="https://to-ywz.github.io/tags/%E5%8D%8F%E8%AE%AE/" />
         <updated>2021-10-01T05:27:27.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/title/</id>
+        <id>https://to-ywz.github.io/CS/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/</id>
         <title>C语言深度剖析</title>
-        <link rel="alternate" href="https://to-ywz.github.io/title/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/"/>
         <content type="html">&lt;h1 id=&#34;关键字&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键字&#34;&gt;#&lt;/a&gt; 关键字&lt;/h1&gt;
 &lt;h2 id=&#34;关键字数量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键字数量&#34;&gt;#&lt;/a&gt; 关键字数量&lt;/h2&gt;
 &lt;p&gt;C89 因该是 32 个，C99 多出了 5 个，多出的 5 个如下&lt;/p&gt;
@@ -859,69 +859,17 @@ c 语言是一个精简高效的语言，所以我们变量名也要简洁有力
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4 id=&#34;含义标识命名规则&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#含义标识命名规则&#34;&gt;#&lt;/a&gt; 含义标识命名规则&lt;/h4&gt;
-&lt;p&gt;变量命名使用名词性词组，函数命名使用动词性词组。&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;变量名&lt;/th&gt;
-&lt;th&gt;目标词&lt;/th&gt;
-&lt;th&gt;动词 (的过去分词)&lt;/th&gt;
-&lt;th&gt;状语&lt;/th&gt;
-&lt;th&gt;目的地&lt;/th&gt;
-&lt;th&gt;含义&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;DataGotFromSD&lt;/td&gt;
-&lt;td&gt;Data&lt;/td&gt;
-&lt;td&gt;Got&lt;/td&gt;
-&lt;td&gt;From&lt;/td&gt;
-&lt;td&gt;SD&lt;/td&gt;
-&lt;td&gt;从 SD 中取得的数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DataDeletedFromSD&lt;/td&gt;
-&lt;td&gt;Data&lt;/td&gt;
-&lt;td&gt;Deleted&lt;/td&gt;
-&lt;td&gt;From&lt;/td&gt;
-&lt;td&gt;SD&lt;/td&gt;
-&lt;td&gt;从 SD 中删除的数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;PS: 变量含义标识符构成：目标词 + 动词 (的过去分词)+ [状语] + [目的地];&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;变量名&lt;/th&gt;
-&lt;th&gt;目标词&lt;/th&gt;
-&lt;th&gt;动词 (的过去分词)&lt;/th&gt;
-&lt;th&gt;状语&lt;/th&gt;
-&lt;th&gt;目的地&lt;/th&gt;
-&lt;th&gt;含义&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;GetDataFromSD&lt;/td&gt;
-&lt;td&gt;Get&lt;/td&gt;
-&lt;td&gt;Data&lt;/td&gt;
-&lt;td&gt;From&lt;/td&gt;
-&lt;td&gt;SD&lt;/td&gt;
-&lt;td&gt;从 SD 中取得数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DeleteDataFromSD&lt;/td&gt;
-&lt;td&gt;Delete&lt;/td&gt;
-&lt;td&gt;Data&lt;/td&gt;
-&lt;td&gt;From&lt;/td&gt;
-&lt;td&gt;SD&lt;/td&gt;
-&lt;td&gt;从 SD 中删除数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;PS: 函数含义标识符构成：动词 (一般现时)+ 目标词 +[状语]+[目的地];&lt;/p&gt;
+&lt;p&gt;变量命名使用名词性词组，函数命名使用动词性词组。&lt;br /&gt;
+| 变量名 | 目标词 | 动词 (的过去分词) | 状语 | 目的地 | 含义 |&lt;br /&gt;
+| ------ | ------ | ---------------- | ---- | ------ | ---- ||&lt;br /&gt;
+| DataGotFromSD     | Data   | Got              | From | SD     | 从 SD 中取得的数据 |&lt;br /&gt;
+| DataDeletedFromSD | Data   | Deleted          | From | SD     | 从 SD 中删除的数据 |&lt;br /&gt;
+PS: 变量含义标识符构成：目标词 + 动词 (的过去分词)+ [状语] + [目的地];&lt;/p&gt;
+&lt;p&gt;| 变量名 | 目标词 | 动词 (的过去分词) | 状语 | 目的地 | 含义 |&lt;br /&gt;
+| ------ | ------ | ---------------- | ---- | ------ | ---- ||&lt;br /&gt;
+| GetDataFromSD    | Get    | Data             | From | SD     | 从 SD 中取得数据 |&lt;br /&gt;
+| DeleteDataFromSD | Delete | Data             | From | SD     | 从 SD 中删除数据 |&lt;br /&gt;
+PS: 函数含义标识符构成：动词 (一般现时)+ 目标词 +[状语]+[目的地];&lt;/p&gt;
 &lt;h4 id=&#34;其他命名规则&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他命名规则&#34;&gt;#&lt;/a&gt; 其他命名规则&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;程序中不得出现仅靠大小写区分的相似的标识符&lt;/li&gt;
@@ -1056,8 +1004,8 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一&lt;/p&gt;
 </content>
-        <category term="C" scheme="https://to-ywz.github.io/categories/c/" />
-        <category term="学习与思考" scheme="https://to-ywz.github.io/categories/c/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%80%9D%E8%80%83/" />
+        <category term="C" scheme="https://to-ywz.github.io/categories/C/" />
+        <category term="学习与思考" scheme="https://to-ywz.github.io/categories/C/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%80%9D%E8%80%83/" />
         <category term="学习笔记,C" scheme="https://to-ywz.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-C/" />
         <updated>2021-09-28T12:44:54.722Z</updated>
     </entry>
@@ -1190,8 +1138,8 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;my_memmove&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; dst&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; src&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;size_t&lt;/span&gt; n&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tmp_d &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;dst&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tmp_s &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;src&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;tmp_d &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; tmp_s &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; tmp_s&lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt;n &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; tmp_d&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 内存重叠&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      tmp_d &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; tmp_d&lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt;n&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      tmp_s &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; tmp_s&lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt;n&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;n&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 先将回被重叠的地方存入目的地址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tmp_d&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tmp_s&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;n&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;          &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tmp_d&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tmp_s&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; dst&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="求职" scheme="https://to-ywz.github.io/categories/%E6%B1%82%E8%81%8C/" />
-        <category term="面试" scheme="https://to-ywz.github.io/categories/%E6%B1%82%E8%81%8C/%E9%9D%A2%E8%AF%95/" />
+        <category term="求职" scheme="https://to-ywz.github.io/categories/job/" />
+        <category term="面试" scheme="https://to-ywz.github.io/categories/job/%E9%9D%A2%E8%AF%95/" />
         <category term="面试" scheme="https://to-ywz.github.io/tags/%E9%9D%A2%E8%AF%95/" />
         <updated>2021-09-27T01:44:37.000Z</updated>
     </entry>
@@ -1254,8 +1202,8 @@ arr 存储在 为一个内存标签，和 main 标签作用类似 (.comm 是声�
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="求职" scheme="https://to-ywz.github.io/categories/%E6%B1%82%E8%81%8C/" />
-        <category term="笔试" scheme="https://to-ywz.github.io/categories/%E6%B1%82%E8%81%8C/%E7%AC%94%E8%AF%95/" />
+        <category term="求职" scheme="https://to-ywz.github.io/categories/job/" />
+        <category term="笔试" scheme="https://to-ywz.github.io/categories/job/%E7%AC%94%E8%AF%95/" />
         <category term="笔试" scheme="https://to-ywz.github.io/tags/%E7%AC%94%E8%AF%95/" />
         <updated>2021-09-26T10:52:27.000Z</updated>
     </entry>
@@ -1551,15 +1499,15 @@ TCP 协议没有限制一个重复的连接被重复使用的。这时候，就�
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="求职" scheme="https://to-ywz.github.io/categories/%E6%B1%82%E8%81%8C/" />
-        <category term="面试" scheme="https://to-ywz.github.io/categories/%E6%B1%82%E8%81%8C/%E9%9D%A2%E8%AF%95/" />
+        <category term="求职" scheme="https://to-ywz.github.io/categories/job/" />
+        <category term="面试" scheme="https://to-ywz.github.io/categories/job/%E9%9D%A2%E8%AF%95/" />
         <category term="面试" scheme="https://to-ywz.github.io/tags/%E9%9D%A2%E8%AF%95/" />
         <updated>2021-09-26T10:52:27.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/</id>
+        <id>https://to-ywz.github.io/CS/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/</id>
         <title>链表(二)——双向链表</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/"/>
         <content type="html">&lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 &lt;h1 id=&#34;简介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h1&gt;
@@ -1661,15 +1609,15 @@ TCP 协议没有限制一个重复的连接被重复使用的。这时候，就�
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;MyLinkedList &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    MyLinkedList &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;head &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; obj&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;next&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;head&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;%d &#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; head&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;val&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        head &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; head&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;next&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;putchar&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;\n&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;GET_INDEX&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token number&#34;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    MyLinkedList &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;obj &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;myLinkedListCreate&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListAddAtHead&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListDeleteAtIndex&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListAddAtHead&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListAddAtHead&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListAddAtHead&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListAddAtHead&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListAddAtTail&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;This is index %d value %d\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; GET_INDEX&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;myLinkedListGet&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; GET_INDEX&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListDeleteAtIndex&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListDeleteAtIndex&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListFree&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;============================================================\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Test finis\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;40&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="数据结构" scheme="https://to-ywz.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
-        <category term="链表" scheme="https://to-ywz.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/" />
+        <category term="数据结构" scheme="https://to-ywz.github.io/categories/data-structure/" />
+        <category term="链表" scheme="https://to-ywz.github.io/categories/data-structure/%E9%93%BE%E8%A1%A8/" />
         <category term="链表" scheme="https://to-ywz.github.io/tags/%E9%93%BE%E8%A1%A8/" />
         <updated>2021-09-25T23:24:06.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/</id>
+        <id>https://to-ywz.github.io/CS/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/</id>
         <title>链表(一)——单链表</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/"/>
         <content type="html">&lt;h1 id=&#34;概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#概述&#34;&gt;#&lt;/a&gt; 概述&lt;/h1&gt;
 &lt;p&gt;计算机中的线性结构有两种方法实现，第一种就是喜闻乐见的数组形式。第二种则是链式结构.&lt;br /&gt;
  与数组相比链式结构可以使用碎片的内存块来实现存储。常简逻辑形式如下:&lt;br /&gt;
@@ -1758,15 +1706,15 @@ ps: 图中的节点指向了自己然后被  &lt;code&gt;free&lt;/code&gt;  掉�
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; index &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; val &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    MyLinkedList &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;obj &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;myLinkedListCreate&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; i &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; i&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token function&#34;&gt;myLinkedListAddAtHead&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; param_1 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;myLinkedListGet&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; index&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;The index %d value is %d\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; index&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; param_1&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;=====================head insert============================\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListAddAtHead&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; val&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;====================end insert=============================\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    val &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListAddAtTail&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; val&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;====================index insert=============================\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    val &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    index &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListAddAtIndex&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; index&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; val&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;====================delete=============================\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    index &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListDeleteAtIndex&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; index&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printfList&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;myLinkedListFree&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="数据结构" scheme="https://to-ywz.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
-        <category term="链表" scheme="https://to-ywz.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/" />
+        <category term="数据结构" scheme="https://to-ywz.github.io/categories/data-structure/" />
+        <category term="链表" scheme="https://to-ywz.github.io/categories/data-structure/%E9%93%BE%E8%A1%A8/" />
         <category term="链表" scheme="https://to-ywz.github.io/tags/%E9%93%BE%E8%A1%A8/" />
         <updated>2021-09-25T02:57:33.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Embedded/Keil%E5%88%87%E6%8D%A2%E8%87%B3ARMCC-V6/</id>
+        <id>https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/Keil%E5%88%87%E6%8D%A2%E8%87%B3ARMCC-V6/</id>
         <title>Keil切换至ARMCC-V6</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/Keil%E5%88%87%E6%8D%A2%E8%87%B3ARMCC-V6/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/Keil%E5%88%87%E6%8D%A2%E8%87%B3ARMCC-V6/"/>
         <content type="html">&lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 &lt;h1 id=&#34;arm-compiler-6&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#arm-compiler-6&#34;&gt;#&lt;/a&gt; ARM Compiler 6&lt;/h1&gt;
@@ -1809,15 +1757,15 @@ AC6:&lt;img data-src=&#34;https://tva2.sinaimg.cn/large/005Q2GK3ly8gthq440e6sj30
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
-        <category term="keil" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/keil/" />
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+        <category term="keil" scheme="https://to-ywz.github.io/categories/Embedded/keil/" />
         <category term="ARMCCV6" scheme="https://to-ywz.github.io/tags/ARMCCV6/" />
         <updated>2021-08-15T08:19:12.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Embedded/DSP/TMS320F28379%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85-CCS%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%BB%BA%E7%AB%8B/</id>
+        <id>https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/DSP/TMS320F28379%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85-CCS%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%BB%BA%E7%AB%8B/</id>
         <title>TMS320F28379学习之旅:CCS工程的建立</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/DSP/TMS320F28379%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85-CCS%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%BB%BA%E7%AB%8B/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/DSP/TMS320F28379%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85-CCS%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%BB%BA%E7%AB%8B/"/>
         <content type="html">&lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 &lt;h1 id=&#34;写在前面&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#写在前面&#34;&gt;#&lt;/a&gt; 写在前面&lt;/h1&gt;
@@ -1908,15 +1856,15 @@ boards 文件夹是 TI 的 LaunchPad 的历程&lt;br /&gt;
  以上是我个人观点，如有不正，望大佬斧正&lt;/h2&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
-        <category term="TMS320F28379D" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/TMS320F28379D/" />
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+        <category term="TMS320F28379D" scheme="https://to-ywz.github.io/categories/Embedded/TMS320F28379D/" />
         <category term="DSP" scheme="https://to-ywz.github.io/tags/DSP/" />
         <updated>2021-08-11T05:27:27.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Embedded/STM32/STM32TIM%E7%BC%96%E7%A0%81%E5%99%A8%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</id>
+        <id>https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/STM32TIM%E7%BC%96%E7%A0%81%E5%99%A8%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</id>
         <title>STM32TIM编码器模式配置</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/STM32/STM32TIM%E7%BC%96%E7%A0%81%E5%99%A8%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/STM32TIM%E7%BC%96%E7%A0%81%E5%99%A8%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/"/>
         <content type="html">&lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 &lt;h1 id=&#34;stm32-hal库-编码器模式配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#stm32-hal库-编码器模式配置&#34;&gt;#&lt;/a&gt; STM32 HAL 库 编码器模式配置&lt;/h1&gt;
@@ -1995,9 +1943,9 @@ boards 文件夹是 TI 的 LaunchPad 的历程&lt;br /&gt;
         <updated>2021-08-09T11:43:23.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Embedded/STM32/RT-Thread-Nano%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5/</id>
+        <id>https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/RT-Thread-Nano%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5/</id>
         <title>RT-Thread 线程间同步</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/STM32/RT-Thread-Nano%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/RT-Thread-Nano%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5/"/>
         <content type="html">&lt;h2 id=&#34;前情&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前情&#34;&gt;#&lt;/a&gt; 前情&lt;/h2&gt;
 &lt;p&gt;PS: 以下内容参考 RT-Thread 标准版本文档&lt;br /&gt;
  RTOS 的加入大大的减少了时序冲突，也带来了新的问题.&lt;br /&gt;
@@ -2285,16 +2233,16 @@ RTT 官方的例子很不错。我就直接搬过来啦&lt;br /&gt;
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
-        <category term="STM32" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/" />
-        <category term="RTOS" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/RTOS/" />
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+        <category term="STM32" scheme="https://to-ywz.github.io/categories/Embedded/STM32/" />
+        <category term="RTOS" scheme="https://to-ywz.github.io/categories/Embedded/STM32/RTOS/" />
         <category term="RTOS" scheme="https://to-ywz.github.io/tags/RTOS/" />
         <updated>2021-08-07T08:42:32.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Embedded/STM32/RT-Thread-Nano-%E7%A7%BB%E6%A4%8D/</id>
+        <id>https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/RT-Thread-Nano-%E7%A7%BB%E6%A4%8D/</id>
         <title>RT-Thread Nano 移植</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/STM32/RT-Thread-Nano-%E7%A7%BB%E6%A4%8D/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/RT-Thread-Nano-%E7%A7%BB%E6%A4%8D/"/>
         <content type="html">&lt;p&gt;电赛延期了，开学就没时间打了，写点博客记录一下调试过的模块，移植过的源码&lt;/p&gt;
 &lt;h2 id=&#34;在-cubemx-上移植-nano&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#在-cubemx-上移植-nano&#34;&gt;#&lt;/a&gt; 在 CubeMX 上移植 Nano&lt;/h2&gt;
 &lt;h3 id=&#34;在-cubemx-上-添加-realthread-软件包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#在-cubemx-上-添加-realthread-软件包&#34;&gt;#&lt;/a&gt; 在 CubeMX 上 添加 RealThread 软件包&lt;/h3&gt;
@@ -2347,16 +2295,16 @@ PS: 如果没有左半边的的界面点击一下粉红色框起的地方点击&
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
-        <category term="STM32" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/" />
-        <category term="RTOS" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/RTOS/" />
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+        <category term="STM32" scheme="https://to-ywz.github.io/categories/Embedded/STM32/" />
+        <category term="RTOS" scheme="https://to-ywz.github.io/categories/Embedded/STM32/RTOS/" />
         <category term="RTOS" scheme="https://to-ywz.github.io/tags/RTOS/" />
         <updated>2021-08-03T23:38:15.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Embedded/STM32/%E6%96%B0%E5%BB%BAHAL%E5%BA%93%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+        <id>https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/%E6%96%B0%E5%BB%BAHAL%E5%BA%93%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95/</id>
         <title>新建HAL库工程的方法</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/STM32/%E6%96%B0%E5%BB%BAHAL%E5%BA%93%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/%E6%96%B0%E5%BB%BAHAL%E5%BA%93%E5%B7%A5%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95/"/>
         <content type="html">&lt;h1 id=&#34;新建hal库工程的方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#新建hal库工程的方法&#34;&gt;#&lt;/a&gt; 新建 HAL 库工程的方法&lt;/h1&gt;
 &lt;p&gt;由于有小姐姐反反复复的问 CubeMX 如何新建工程，网上的教程版本又太老，故在此记录一下&lt;br /&gt;
 下面以 STM32F407ZGT6 为例子&lt;/p&gt;
@@ -2407,8 +2355,8 @@ PS: 如果没有左半边的的界面点击一下粉红色框起的地方点击&
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
-        <category term="STM32" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32/" />
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+        <category term="STM32" scheme="https://to-ywz.github.io/categories/Embedded/STM32/" />
         <category term="STM32" scheme="https://to-ywz.github.io/tags/STM32/" />
         <updated>2021-08-03T23:37:39.000Z</updated>
     </entry>
@@ -3061,15 +3009,15 @@ GDB 不会让被调试程序来处理这个信号。&lt;br /&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 </content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
-        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/study-note/" />
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/Embedded/study-note/" />
         <category term="GDB" scheme="https://to-ywz.github.io/tags/GDB/" />
         <updated>2021-07-24T05:33:52.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Embedded/%E7%A1%AC%E4%BB%B6%E5%A4%A7%E5%85%A8_%E9%9F%A6%E4%B8%9C%E5%B1%B1/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</id>
+        <id>https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E9%9F%A6%E4%B8%9C%E5%B1%B1%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</id>
         <title>嵌入式概念及硬件组成</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Embedded/%E7%A1%AC%E4%BB%B6%E5%A4%A7%E5%85%A8_%E9%9F%A6%E4%B8%9C%E5%B1%B1/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E9%9F%A6%E4%B8%9C%E5%B1%B1%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/"/>
         <content type="html">&lt;h1 id=&#34;嵌入式概念及硬件组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式概念及硬件组成&#34;&gt;#&lt;/a&gt; 嵌入式概念及硬件组成&lt;/h1&gt;
 &lt;h2 id=&#34;处理器的区分mcu_mpu_ap&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#处理器的区分mcu_mpu_ap&#34;&gt;#&lt;/a&gt; 处理器的区分 MCU_MPU_AP&lt;/h2&gt;
 &lt;h3 id=&#34;mpu&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mpu&#34;&gt;#&lt;/a&gt; MPU&lt;/h3&gt;
@@ -3267,15 +3215,15 @@ CPU 架构可以分为哈弗架构与冯诺伊曼架构&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 </content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" />
-        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/study-note/" />
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/Embedded/study-note/" />
         <category term="STM32" scheme="https://to-ywz.github.io/tags/STM32/" />
         <updated>2021-07-10T00:52:27.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Compilation_principle/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%A4%E6%96%AD%E9%A2%98/</id>
+        <id>https://to-ywz.github.io/CS/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%A4%E6%96%AD%E9%A2%98/</id>
         <title>编译原理判断题</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Compilation_principle/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%A4%E6%96%AD%E9%A2%98/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%88%A4%E6%96%AD%E9%A2%98/"/>
         <content type="html">&lt;h1 id=&#34;编译原理判断题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译原理判断题&#34;&gt;#&lt;/a&gt; 编译原理判断题&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li class=&#34;quiz false&#34;&gt;
@@ -3437,14 +3385,14 @@ CPU 架构可以分为哈弗架构与冯诺伊曼架构&lt;/p&gt;
 &lt;/ol&gt;
 </content>
         <category term="学习笔记" scheme="https://to-ywz.github.io/categories/study-note/" />
-        <category term="编译原理" scheme="https://to-ywz.github.io/categories/study-note/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
+        <category term="编译原理" scheme="https://to-ywz.github.io/categories/study-note/compilation-principle/" />
         <category term="编译原理" scheme="https://to-ywz.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
         <updated>2021-07-06T01:09:53.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/CS/Compilation_principle/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A1%AB%E7%A9%BA%E9%A2%98/</id>
+        <id>https://to-ywz.github.io/CS/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A1%AB%E7%A9%BA%E9%A2%98/</id>
         <title>编译原理填空题</title>
-        <link rel="alternate" href="https://to-ywz.github.io/CS/Compilation_principle/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A1%AB%E7%A9%BA%E9%A2%98/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/CS/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A1%AB%E7%A9%BA%E9%A2%98/"/>
         <content type="html">&lt;h1 id=&#34;编译原理填空题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译原理填空题&#34;&gt;#&lt;/a&gt; 编译原理填空题&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li class=&#34;quiz fill&#34;&gt;
@@ -3597,7 +3545,7 @@ CPU 架构可以分为哈弗架构与冯诺伊曼架构&lt;/p&gt;
 &lt;/ol&gt;
 </content>
         <category term="学习笔记" scheme="https://to-ywz.github.io/categories/study-note/" />
-        <category term="编译原理" scheme="https://to-ywz.github.io/categories/study-note/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
+        <category term="编译原理" scheme="https://to-ywz.github.io/categories/study-note/compilation-principle/" />
         <category term="编译原理" scheme="https://to-ywz.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
         <updated>2021-07-05T08:13:43.000Z</updated>
     </entry>
