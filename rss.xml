@@ -636,7 +636,7 @@ SCL 产生上升沿后，在 SDA 上对电平进行采样，转化为数据&lt;b
             <guid isPermalink="true">https://to-ywz.github.io/computer-science/C/C%E8%AF%AD%E8%A8%80%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/</guid>
             <title>C语言深度剖析</title>
             <link>https://to-ywz.github.io/computer-science/C/C%E8%AF%AD%E8%A8%80%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/</link>
-            <category term="c" scheme="https://to-ywz.github.io/categories/c/" />
+            <category term="C语言" scheme="https://to-ywz.github.io/categories/C/" />
             <category term="学习笔记,C" scheme="https://to-ywz.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-C/" />
             <pubDate>Tue, 28 Sep 2021 20:44:54 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;关键字&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键字&#34;&gt;#&lt;/a&gt; 关键字&lt;/h1&gt;
