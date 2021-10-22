@@ -630,9 +630,9 @@ SCL 产生上升沿后，在 SDA 上对电平进行采样，转化为数据&lt;b
         <updated>2021-10-01T05:27:27.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/computer-science/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/</id>
+        <id>https://to-ywz.github.io/computer-science/C/C%E8%AF%AD%E8%A8%80%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/</id>
         <title>C语言深度剖析</title>
-        <link rel="alternate" href="https://to-ywz.github.io/computer-science/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/computer-science/C/C%E8%AF%AD%E8%A8%80%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/"/>
         <content type="html">&lt;h1 id=&#34;关键字&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键字&#34;&gt;#&lt;/a&gt; 关键字&lt;/h1&gt;
 &lt;h2 id=&#34;关键字数量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关键字数量&#34;&gt;#&lt;/a&gt; 关键字数量&lt;/h2&gt;
 &lt;p&gt;C89 因该是 32 个，C99 多出了 5 个，多出的 5 个如下&lt;/p&gt;
