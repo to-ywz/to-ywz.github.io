@@ -647,9 +647,9 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://to-ywz.github.io/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid>
+            <guid isPermalink="true">https://to-ywz.github.io/Embedded/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid>
             <title>Ubuntu20.04安装中文输入法</title>
-            <link>https://to-ywz.github.io/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link>
+            <link>https://to-ywz.github.io/Embedded/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link>
             <pubDate>Sun, 03 Oct 2021 17:14:16 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;写在前面&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#写在前面&#34;&gt;#&lt;/a&gt; 写在前面&lt;/h1&gt;
 &lt;p&gt;因为个人不喜欢搜狗输入法，windows 用的也是微软自带的输入法，比较不喜花里胡哨的输入法界面。故选择了谷歌输入法&lt;/p&gt;
@@ -683,9 +683,9 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://to-ywz.github.io/Linux/linux%E5%AD%A6%E4%B9%A0/</guid>
+            <guid isPermalink="true">https://to-ywz.github.io/Embedded/Linux/linux%E5%AD%A6%E4%B9%A0/</guid>
             <title>linux学习</title>
-            <link>https://to-ywz.github.io/Linux/linux%E5%AD%A6%E4%B9%A0/</link>
+            <link>https://to-ywz.github.io/Embedded/Linux/linux%E5%AD%A6%E4%B9%A0/</link>
             <pubDate>Sun, 03 Oct 2021 17:09:33 +0800</pubDate>
             <description><![CDATA[ &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
@@ -900,9 +900,9 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://to-ywz.github.io/communication-protocol/IIC/</guid>
+            <guid isPermalink="true">https://to-ywz.github.io/Embedded/communication-protocol/IIC/</guid>
             <title>IIC 协议备忘</title>
-            <link>https://to-ywz.github.io/communication-protocol/IIC/</link>
+            <link>https://to-ywz.github.io/Embedded/communication-protocol/IIC/</link>
             <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
             <category term="通信协议" scheme="https://to-ywz.github.io/categories/Embedded/communication-protocol/" />
             <category term="协议" scheme="https://to-ywz.github.io/tags/%E5%8D%8F%E8%AE%AE/" />
@@ -1512,9 +1512,9 @@ TCP 协议没有限制一个重复的连接被重复使用的。这时候，就�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://to-ywz.github.io/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/</guid>
+            <guid isPermalink="true">https://to-ywz.github.io/computer-science/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/</guid>
             <title>链表(二)——双向链表</title>
-            <link>https://to-ywz.github.io/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/</link>
+            <link>https://to-ywz.github.io/computer-science/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/</link>
             <category term="数据结构" scheme="https://to-ywz.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
             <category term="链表" scheme="https://to-ywz.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/" />
             <category term="链表" scheme="https://to-ywz.github.io/tags/%E9%93%BE%E8%A1%A8/" />
@@ -1622,9 +1622,9 @@ TCP 协议没有限制一个重复的连接被重复使用的。这时候，就�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://to-ywz.github.io/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/</guid>
+            <guid isPermalink="true">https://to-ywz.github.io/computer-science/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/</guid>
             <title>链表(一)——单链表</title>
-            <link>https://to-ywz.github.io/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/</link>
+            <link>https://to-ywz.github.io/computer-science/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/</link>
             <category term="数据结构" scheme="https://to-ywz.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
             <category term="链表" scheme="https://to-ywz.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/" />
             <category term="链表" scheme="https://to-ywz.github.io/tags/%E9%93%BE%E8%A1%A8/" />
@@ -2368,9 +2368,9 @@ PS: 如果没有左半边的的界面点击一下粉红色框起的地方点击&
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://to-ywz.github.io/Linux/GDB%E5%AD%A6%E4%B9%A0/</guid>
+            <guid isPermalink="true">https://to-ywz.github.io/Embedded/Linux/GDB%E5%AD%A6%E4%B9%A0/</guid>
             <title>GDB学习</title>
-            <link>https://to-ywz.github.io/Linux/GDB%E5%AD%A6%E4%B9%A0/</link>
+            <link>https://to-ywz.github.io/Embedded/Linux/GDB%E5%AD%A6%E4%B9%A0/</link>
             <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
             <category term="学习笔记" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
             <category term="GDB" scheme="https://to-ywz.github.io/tags/GDB/" />
@@ -3022,9 +3022,9 @@ GDB 不会让被调试程序来处理这个信号。&lt;br /&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://to-ywz.github.io/weidongshan/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</guid>
+            <guid isPermalink="true">https://to-ywz.github.io/Embedded/weidongshan/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</guid>
             <title>嵌入式概念及硬件组成</title>
-            <link>https://to-ywz.github.io/weidongshan/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</link>
+            <link>https://to-ywz.github.io/Embedded/weidongshan/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</link>
             <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
             <category term="学习笔记" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
             <category term="STM32" scheme="https://to-ywz.github.io/tags/STM32/" />

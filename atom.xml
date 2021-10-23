@@ -644,9 +644,9 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
         <updated>2021-10-11T08:02:51.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</id>
+        <id>https://to-ywz.github.io/Embedded/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</id>
         <title>Ubuntu20.04安装中文输入法</title>
-        <link rel="alternate" href="https://to-ywz.github.io/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/Embedded/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/"/>
         <content type="html">&lt;h1 id=&#34;写在前面&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#写在前面&#34;&gt;#&lt;/a&gt; 写在前面&lt;/h1&gt;
 &lt;p&gt;因为个人不喜欢搜狗输入法，windows 用的也是微软自带的输入法，比较不喜花里胡哨的输入法界面。故选择了谷歌输入法&lt;/p&gt;
 &lt;h1 id=&#34;环境配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境配置&#34;&gt;#&lt;/a&gt; 环境配置&lt;/h1&gt;
@@ -680,9 +680,9 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
         <updated>2021-10-03T09:14:16.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/Linux/linux%E5%AD%A6%E4%B9%A0/</id>
+        <id>https://to-ywz.github.io/Embedded/Linux/linux%E5%AD%A6%E4%B9%A0/</id>
         <title>linux学习</title>
-        <link rel="alternate" href="https://to-ywz.github.io/Linux/linux%E5%AD%A6%E4%B9%A0/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/Embedded/Linux/linux%E5%AD%A6%E4%B9%A0/"/>
         <content type="html">&lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 &lt;h1 id=&#34;linux-基础知识&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux-基础知识&#34;&gt;#&lt;/a&gt; Linux 基础知识&lt;/h1&gt;
@@ -897,9 +897,9 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
         <updated>2021-10-03T09:09:33.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/communication-protocol/IIC/</id>
+        <id>https://to-ywz.github.io/Embedded/communication-protocol/IIC/</id>
         <title>IIC 协议备忘</title>
-        <link rel="alternate" href="https://to-ywz.github.io/communication-protocol/IIC/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/Embedded/communication-protocol/IIC/"/>
         <content type="html">&lt;h2 id=&#34;起源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#起源&#34;&gt;#&lt;/a&gt; 起源&lt;/h2&gt;
 &lt;p&gt;I2C 支持设备之间短距离通信，用于处理器和外设之间，只需要两根线来完成信息交互. I2C 出现于飞利浦公司，开始只允许 100kHz, 7-bit 标准地址。直到 1992 年，I2C 第一个公共规范，增加了 400kHz 的快速模式和 10-bit 扩展地址.&lt;br /&gt;
  在 I2C 的基础上，1995 年 Intel 提出了 SMBus 用于低速设备通信，SMBus 把时钟频率限制在 &lt;strong&gt;10KHz~100KHz&lt;/strong&gt;, 但目前的 I2C 可以支持 0KHz~5MHz 的外设:&lt;/p&gt;
@@ -1509,9 +1509,9 @@ TCP 协议没有限制一个重复的连接被重复使用的。这时候，就�
         <updated>2021-09-26T10:52:27.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/</id>
+        <id>https://to-ywz.github.io/computer-science/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/</id>
         <title>链表(二)——双向链表</title>
-        <link rel="alternate" href="https://to-ywz.github.io/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/computer-science/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%8C%E9%93%BE%E8%A1%A8/"/>
         <content type="html">&lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 &lt;h1 id=&#34;简介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h1&gt;
@@ -1619,9 +1619,9 @@ TCP 协议没有限制一个重复的连接被重复使用的。这时候，就�
         <updated>2021-09-25T23:24:06.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/</id>
+        <id>https://to-ywz.github.io/computer-science/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/</id>
         <title>链表(一)——单链表</title>
-        <link rel="alternate" href="https://to-ywz.github.io/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/computer-science/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8D%95%E9%93%BE%E8%A1%A8/"/>
         <content type="html">&lt;h1 id=&#34;概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#概述&#34;&gt;#&lt;/a&gt; 概述&lt;/h1&gt;
 &lt;p&gt;计算机中的线性结构有两种方法实现，第一种就是喜闻乐见的数组形式。第二种则是链式结构.&lt;br /&gt;
  与数组相比链式结构可以使用碎片的内存块来实现存储。常简逻辑形式如下:&lt;br /&gt;
@@ -2365,9 +2365,9 @@ PS: 如果没有左半边的的界面点击一下粉红色框起的地方点击&
         <updated>2021-08-03T23:37:39.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/Linux/GDB%E5%AD%A6%E4%B9%A0/</id>
+        <id>https://to-ywz.github.io/Embedded/Linux/GDB%E5%AD%A6%E4%B9%A0/</id>
         <title>GDB学习</title>
-        <link rel="alternate" href="https://to-ywz.github.io/Linux/GDB%E5%AD%A6%E4%B9%A0/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/Embedded/Linux/GDB%E5%AD%A6%E4%B9%A0/"/>
         <content type="html">&lt;h1 id=&#34;gbd-调试学习记录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gbd-调试学习记录&#34;&gt;#&lt;/a&gt; GBD 调试学习记录&lt;/h1&gt;
 &lt;p&gt;GDB 在 Windows 的 WSL 下进行代码调试.&lt;/p&gt;
 &lt;h2 id=&#34;gdb-作用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gdb-作用&#34;&gt;#&lt;/a&gt; GDB 作用&lt;/h2&gt;
@@ -3019,9 +3019,9 @@ GDB 不会让被调试程序来处理这个信号。&lt;br /&gt;
         <updated>2021-07-24T05:33:52.000Z</updated>
     </entry>
     <entry>
-        <id>https://to-ywz.github.io/weidongshan/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</id>
+        <id>https://to-ywz.github.io/Embedded/weidongshan/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</id>
         <title>嵌入式概念及硬件组成</title>
-        <link rel="alternate" href="https://to-ywz.github.io/weidongshan/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/"/>
+        <link rel="alternate" href="https://to-ywz.github.io/Embedded/weidongshan/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/"/>
         <content type="html">&lt;h1 id=&#34;嵌入式概念及硬件组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式概念及硬件组成&#34;&gt;#&lt;/a&gt; 嵌入式概念及硬件组成&lt;/h1&gt;
 &lt;h2 id=&#34;处理器的区分mcu_mpu_ap&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#处理器的区分mcu_mpu_ap&#34;&gt;#&lt;/a&gt; 处理器的区分 MCU_MPU_AP&lt;/h2&gt;
 &lt;h3 id=&#34;mpu&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mpu&#34;&gt;#&lt;/a&gt; MPU&lt;/h3&gt;
