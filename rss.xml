@@ -10,12 +10,47 @@
         </author>
         <description>如风一般悠长</description>
         <language>zh-CN</language>
-        <pubDate>Fri, 22 Oct 2021 18:54:20 +0800</pubDate>
-        <lastBuildDate>Fri, 22 Oct 2021 18:54:20 +0800</lastBuildDate>
+        <pubDate>Sun, 24 Oct 2021 09:24:15 +0800</pubDate>
+        <lastBuildDate>Sun, 24 Oct 2021 09:24:15 +0800</lastBuildDate>
         <category term="IT" />
         <category term="嵌入式" />
         <category term="C语言" />
         <category term="STM32" />
+        <item>
+            <guid isPermalink="true">https://to-ywz.github.io/win11/Bug/Win11%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95Microsoft%E8%B4%A6%E6%88%B7/</guid>
+            <title>Win11无法登录Microsoft账户</title>
+            <link>https://to-ywz.github.io/win11/Bug/Win11%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95Microsoft%E8%B4%A6%E6%88%B7/</link>
+            <category term="win11" scheme="https://to-ywz.github.io/categories/win11/" />
+            <category term="Bug" scheme="https://to-ywz.github.io/categories/win11/Bug/" />
+            <pubDate>Sun, 24 Oct 2021 09:24:15 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;昨天刷的 win11, Microsoft 登录账号失败了，琢磨半天才搞好，记个笔记&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/10/24/ADwYfX4mh7NMHWZ.png&#34; alt=&#34;bug&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;第一次遇到这个问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第一次遇到这个问题&#34;&gt;#&lt;/a&gt; 第一次遇到这个问题&lt;/h1&gt;
+&lt;p&gt;记得当初 win10 上是直接在 clash 的 &lt;code&gt;UWP Loopback&lt;/code&gt;  的管理器上配置了一下 Microsoft 的服务&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/10/24/cdzDwA9k5YaGgWb.png&#34; alt=&#34;clash&#34; /&gt;&lt;br /&gt;
+ 然而，是我记性不好，这是  &lt;code&gt;OneNote&lt;/code&gt;  无法同步的问题。整了半天都不好使&lt;/p&gt;
+&lt;h1 id=&#34;win11-的解决方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#win11-的解决方法&#34;&gt;#&lt;/a&gt; WIN11 的解决方法&lt;/h1&gt;
+&lt;p&gt;其实，可以先试试把代理关掉，我的就是这个 bug.&lt;br /&gt;
+ 当然在这之前还尝试过修改代理，这里演示一下.&lt;br /&gt;
+ &lt;code&gt;win + r&lt;/code&gt;  召唤 运行窗口&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/10/24/Xtj8q917zRmfoEV.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+选择 网络和 Intent, 下面的子选项&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/10/24/UW1CDw7ZgHjVLtS.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+进入后选择 更改网络适配器&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/10/24/YHNvzd5QxupsgSl.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+选择当前在工作的适配器，右键属性&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/10/24/45QOat7dV1sqjwN.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/10/24/lWjmeqygFVcGMkQ.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+选择 IPv4, 双击&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/10/24/SNPIy2K4mejxJt1.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+将 DNS 和 备用 DNS 改为 4.4.4.1 和 4.4.4.2&lt;br /&gt;
+&lt;img data-src=&#34;https://i.loli.net/2021/10/24/SdVCUZPjXG1Musx.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+ 这样子就可以再试试能否登录成功，如果还是不行，只能说不是一种问题&lt;br /&gt;
+记得登录完毕后将 DNS 修改回去&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://to-ywz.github.io/computer-science/C/C%E8%AF%AD%E8%A8%80%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/</guid>
             <title>C语言深度剖析</title>
@@ -3392,166 +3427,6 @@ CPU 架构可以分为哈弗架构与冯诺伊曼架构&lt;/p&gt;
 &lt;/li&gt;
 &lt;li class=&#34;quiz false&#34;&gt;
 &lt;p&gt;在中间代码优化中循环上的优化主要有不变表达式外提和削减运算强度。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://to-ywz.github.io/computer-science/compilation-principle/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A1%AB%E7%A9%BA%E9%A2%98/</guid>
-            <title>编译原理填空题</title>
-            <link>https://to-ywz.github.io/computer-science/compilation-principle/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%A1%AB%E7%A9%BA%E9%A2%98/</link>
-            <category term="计算机科学与技术" scheme="https://to-ywz.github.io/categories/computer-science/" />
-            <category term="编译原理" scheme="https://to-ywz.github.io/categories/computer-science/compilation-principle/" />
-            <category term="编译原理" scheme="https://to-ywz.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" />
-            <pubDate>Mon, 05 Jul 2021 16:13:43 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;编译原理填空题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译原理填空题&#34;&gt;#&lt;/a&gt; 编译原理填空题&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;编译程序是将 &lt;span class=&#34;gap&#34;&gt;高级语言程序&lt;/span&gt; 翻译成 &lt;span class=&#34;gap&#34;&gt;汇编语言或机器语言程序&lt;/span&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;编译程序的工作过程一般可以划分为 &lt;span class=&#34;gap&#34;&gt;词法分析&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;语法分析&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;语义分析&lt;/span&gt;，中间代码生成，中间代码优化，目标代码生成几个基本阶段，同时还会伴有 &lt;span class=&#34;gap&#34;&gt;表格处理&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;出错处理&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;对编译程序而言，输入数据是 &lt;span class=&#34;gap&#34;&gt;源程序&lt;/span&gt;，输出结果是 &lt;span class=&#34;gap&#34;&gt;目标程序&lt;/span&gt;  。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;程序设计语言的单词符号一般可分成下列 5 种 &lt;span class=&#34;gap&#34;&gt;保留字&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;标识符&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;常数&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;算符&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;界符&lt;/span&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;一个程序设计语言是一个记号系统，如同自然语言一样，它的完整的定义应包括 &lt;span class=&#34;gap&#34;&gt;语法&lt;/span&gt;和 &lt;span class=&#34;gap&#34;&gt;语义&lt;/span&gt;两个方面。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;文法中的终结符和非终结符的交集是 &lt;span class=&#34;gap&#34;&gt;空集&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;最左推导是指每都对句型中的 &lt;span class=&#34;gap&#34;&gt;最左&lt;/span&gt; 非终结符进行扩展。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;在语法分析中，最常见的两种方法，一是 &lt;span class=&#34;gap&#34;&gt;自底向上&lt;/span&gt; 分析法，另一是 &lt;span class=&#34;gap&#34;&gt;自顶向下&lt;/span&gt;   分析法。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;一个句型中的最左简单短语称为该句型的 &lt;span class=&#34;gap&#34;&gt;句柄&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;若 A={a , b} , B={c , d} , 则集合 AB = &lt;span class=&#34;gap&#34;&gt;{ac , ad , bc , bd}&lt;/span&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;设 x=AB , 则 x0= &lt;span class=&#34;gap&#34;&gt;ε&lt;/span&gt; , x1= &lt;span class=&#34;gap&#34;&gt;AB&lt;/span&gt; , x2 = &lt;span class=&#34;gap&#34;&gt;ABAB&lt;/span&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;文法描述的语言是该文法一切 &lt;span class=&#34;gap&#34;&gt;句子&lt;/span&gt;的集合。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;设文法 G 有两条产生式（1）S→0S1 （2）S→01 , 则该文法的语言 &lt;span class=&#34;gap&#34;&gt;L(G)={0n1n│n≥1} &lt;/span&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;一种描述字符串集合的工具叫文法，它是由一个四元式组组成的，分别是 &lt;span class=&#34;gap&#34;&gt;VT（终极符集）&lt;/span&gt; , &lt;span class=&#34;gap&#34;&gt;VN（非终极符集合）&lt;/span&gt; , &lt;span class=&#34;gap&#34;&gt;P（产生式集合）&lt;/span&gt; , &lt;span class=&#34;gap&#34;&gt;S（开始符）&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;乔姆斯基把文法分成四种类型，即 0 型，1 型，2 型和 3 型。其中 &lt;span class=&#34;gap&#34;&gt;2 型&lt;/span&gt;文法又称为上下文无关文法，&lt;span class=&#34;gap&#34;&gt;3 型&lt;/span&gt;文法又称为正规文法。 &lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;&lt;span class=&#34;gap&#34;&gt;上下文无关文法&lt;/span&gt; 有足够的能力描述现今程序设计语言的语法结构，比如描述算术表达式，描述各种语句等。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;&lt;span class=&#34;gap&#34;&gt;最右推导&lt;/span&gt;  称为规范推导。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;最右推导亦称为 &lt;span class=&#34;gap&#34;&gt;规范推导&lt;/span&gt;，由此得到的句型称为 &lt;span class=&#34;gap&#34;&gt;规范&lt;/span&gt; 句型。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;令 ={a,b} , 上的正规式（a|b）* 对应的正规集为:  &lt;span class=&#34;gap&#34;&gt;{ε , a , b , aa , ab… , 所有 a , b 组成的串}&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;令 ={d,.,e,+,-}, 则上的正规式 d*(.dd*|ε)(e (+|-|ε) dd*|ε) 表示的是 &lt;span class=&#34;gap&#34;&gt;无符号数&lt;/span&gt;  。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;设 Σ={a , b} , 则 Σ 上的正规式（a∣b）(a∣b) 相应的正规集为 &lt;span class=&#34;gap&#34;&gt;{aa,ab,ba,bb}&lt;/span&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;一种描述字符串集合的工具叫自动机，它是由一个五元组组成的，分别是 &lt;span class=&#34;gap&#34;&gt;字母表&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;状态集&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;开始状态&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;末态集&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;映射集&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;确定有限自动机 DFA 是 &lt;span class=&#34;gap&#34;&gt;NFA&lt;/span&gt; 的一个特例。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;编译技术中的词法分析阶段，常用的描述单词词法的工具主要包括正规文法和 &lt;span class=&#34;gap&#34;&gt;正规式&lt;/span&gt;    。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;词法分析阶段，常用的识别单词的有效工具是 &lt;span class=&#34;gap&#34;&gt;有穷自动机&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;所谓一个语言的 &lt;span class=&#34;gap&#34;&gt;语法&lt;/span&gt; 是指一组规则，用它可以形成和产生一个合适的程序。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;自顶向下的语法分析方法的基本思想是：从文法的 &lt;span class=&#34;gap&#34;&gt;开始符号&lt;/span&gt; 开始，根据给定的输入串并按照文法的产生式一步一步的向下进行 &lt;span class=&#34;gap&#34;&gt;直接推导&lt;/span&gt;，试图推导出文法的 &lt;span class=&#34;gap&#34;&gt;句子&lt;/span&gt;，使之与给定的输入串 &lt;span class=&#34;gap&#34;&gt;匹配&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill quiz fill&#34;&gt;
-&lt;p&gt;预测分析法属于 &lt;span class=&#34;gap&#34;&gt;自顶向下&lt;/span&gt;  的语法分析方法。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;编译技术中，常用的确定的自顶向下语法分析技术有预测分析法和 &lt;span class=&#34;gap&#34;&gt;递归下降法&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;预测分析程序是使用一张 &lt;span class=&#34;gap&#34;&gt;分析表&lt;/span&gt; 和一个 &lt;span class=&#34;gap&#34;&gt;符号栈&lt;/span&gt;      进行联合控制的。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;自底向上的语法分析方法的基本思想是：从输入串入手，利用文法的产生式一步一步地向上进行 &lt;span class=&#34;gap&#34;&gt;直接归约&lt;/span&gt;，力求归约到文法的 &lt;span class=&#34;gap&#34;&gt;开始符&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;自底向上分析法采用 &lt;span class=&#34;gap&#34;&gt;移进&lt;/span&gt;，归约，错误处理，&lt;span class=&#34;gap&#34;&gt;接受&lt;/span&gt;      等四种操作。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;分析句型时，应用算符优先分析技术时，每步被直接归约的是 &lt;span class=&#34;gap&#34;&gt;最左素短语&lt;/span&gt;，而应用 LR 分析技术时，每步被直接归约的是 &lt;span class=&#34;gap&#34;&gt;句柄&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;已知算符文法 G: S→b|∧|(T) T→T,S|S 则 F IRSTVT ((T)=  &lt;span class=&#34;gap&#34;&gt;  &lt;code&gt;b,  ∧,  ( ,   ,&lt;/code&gt;  &lt;/span&gt;。 &lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;&lt;span class=&#34;gap&#34;&gt;自下而上&lt;/span&gt; 语法分析的关键问题是精确定义可归约串的概念。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill quiz fill&#34;&gt;
-&lt;p&gt;LR 分析法属于 &lt;span class=&#34;gap&#34;&gt;自底向上&lt;/span&gt;  的语法分析方法。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill quiz fill&#34;&gt;
-&lt;p&gt;LR 分析器由 &lt;span class=&#34;gap&#34;&gt;总控程序&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;分析表&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt;分析栈&lt;/span&gt; 3 个部分组成。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill quiz fill&#34;&gt;
-&lt;p&gt;活前缀是指 &lt;span class=&#34;gap&#34;&gt;规范句型&lt;/span&gt;  的一个前缀，这种前缀不含 &lt;span class=&#34;gap&#34;&gt;句柄&lt;/span&gt; 之后的任何符号。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;LR 语法分析技术的 LR (0) 项目中，根据分隔符所在位置及分隔符后符号的类别，我们称 A→α.[n] 称为&lt;span class=&#34;gap&#34;&gt;归约&lt;/span&gt; 项目 ；对文法开始符号 S΄ , 称 S΄→α.[n] 为 &lt;span class=&#34;gap&#34;&gt;接受&lt;/span&gt;  项目；称 A→α.aβ[n]（a 为终结符）为 &lt;span class=&#34;gap&#34;&gt;移进&lt;/span&gt;  项目。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;假定一个 LR (0) 规范族中含有的项目集 (状态) I , I={X→α.bβ[n] , A→γ.[m] , B→δ.[k]} , 则该项目集中含有 &lt;span class=&#34;gap&#34;&gt;移进 - 归约&lt;/span&gt; 冲突和 &lt;span class=&#34;gap&#34;&gt;归约 - 归约&lt;/span&gt; 冲突。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;属性文法中，文法符号的属性有两种，一种称为 &lt;span class=&#34;gap&#34;&gt;继承属性&lt;/span&gt;，另一种称为 &lt;span class=&#34;gap&#34;&gt;综合属性&lt;/span&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;在编译技术中，常用的中间代码表示有 &lt;span class=&#34;gap&#34;&gt;抽象语法树（AST）&lt;/span&gt; , &lt;span class=&#34;gap&#34;&gt;四元式（TAC）&lt;/span&gt; , P-code,Bytecode 及 SSA。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;编译技术中，常用的两种语义计算模型有 &lt;span class=&#34;gap&#34;&gt;属性文法&lt;/span&gt; 和 &lt;span class=&#34;gap&#34;&gt;翻译模式&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;根据属性文法中包含属性的类别，属性文法可分为 &lt;span class=&#34;gap&#34;&gt;S - 属性&lt;/span&gt; 文法和 &lt;span class=&#34;gap&#34;&gt;L - 属性&lt;/span&gt;文法。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;翻译模式在形式上类似于属性文法，但允许用 { } 括起来的语义动作出现在产生式右端的 &lt;span class=&#34;gap&#34;&gt;任意&lt;/span&gt; 位置，和属性文法相对应，翻译模式分为 &lt;span class=&#34;gap&#34;&gt;S - 翻译模式&lt;/span&gt; 和 &lt;span class=&#34;gap&#34;&gt;L - 翻译模式&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;优化就是对程序进行各种 &lt;span class=&#34;gap&#34;&gt;等价&lt;/span&gt; 变换，使之能生成更有效的 &lt;span class=&#34;gap&#34;&gt;目标代码&lt;/span&gt; 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;依据优化所涉及的程序范围，编译过程中可以进行的优化可以分为 &lt;span class=&#34;gap&#34;&gt;局部优化&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt; 循环优化&lt;/span&gt;，&lt;span class=&#34;gap&#34;&gt; 全局优化&lt;/span&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;局部优化是在 &lt;span class=&#34;gap&#34;&gt;基本块&lt;/span&gt; 范围内进行的一种优化。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz fill&#34;&gt;
-&lt;p&gt;在程序流图中，对任意两个结点 m 和 n 而言，如果从流图的首结点出发，到达 n 的任一通路都要经过 m , 则称 m 是 n 的 &lt;span class=&#34;gap&#34;&gt;支配结点（必经结点）&lt;/span&gt; 。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
