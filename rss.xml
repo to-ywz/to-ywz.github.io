@@ -793,9 +793,187 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://to-ywz.github.io/Embedded/Linux/Linux%E7%BC%96%E8%AF%91Hello-World/</guid>
+            <title>Linux编译Hello World</title>
+            <link>https://to-ywz.github.io/Embedded/Linux/Linux%E7%BC%96%E8%AF%91Hello-World/</link>
+            <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+            <category term="学习笔记" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+            <category term="Linux" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Linux/" />
+            <category term="Linux" scheme="https://to-ywz.github.io/tags/Linux/" />
+            <pubDate>Thu, 07 Oct 2021 15:47:58 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;linux-c&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux-c&#34;&gt;#&lt;/a&gt; Linux C&lt;/h1&gt;
+&lt;h2 id=&#34;gcc-编译链&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gcc-编译链&#34;&gt;#&lt;/a&gt; GCC 编译链&lt;/h2&gt;
+&lt;p&gt;GCC 编译链 (toolchain) 是以 GCC 为核心的一整套工具，用于把源码转化为可执行应用程序。主要包括以下三部分:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;gcc-core&lt;/code&gt;  :  即 GCC 编译器，用于完成预处理和编译的过程.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Binutils&lt;/code&gt;  :  除 GCC 编译器外的一些列小工具。包括了 链接器 &lt;code&gt;ld&lt;/code&gt; , 汇编器 &lt;code&gt;as&lt;/code&gt; , 目标文件格式查看器 &lt;code&gt;readelf&lt;/code&gt;  等.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;glibc&lt;/code&gt;     :  包含了主要的 C 语言标准库函数，C 语言中常常使用的打印函数 &lt;code&gt;printf&lt;/code&gt; 、 &lt;code&gt;malloc&lt;/code&gt;  函数就在  &lt;code&gt;glibc&lt;/code&gt;  库中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;gcc编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gcc编译器&#34;&gt;#&lt;/a&gt; GCC 编译器&lt;/h3&gt;
+&lt;p&gt;GCC (GUN Compiler Collection) 是由 GUN 开发的编程语言编译器. GCC 最初代表  &lt;code&gt;GNU C Compiler&lt;/code&gt; , 当时只支持 C 语言。后来逐渐支持 C++, JAVA 等，GCC 就被重定义为  &lt;code&gt;GNU Compiler Collection&lt;/code&gt; , 称为史上最优秀的编译器。其比一般编译器编译器平均效率高出 20%~30%.&lt;br /&gt;
+ 虽然大部分教程都声明 Ubuntu 默认安装好了 GCC, 我实测出来的都是 没有安装 gcc 的，建议先输入以下命令安装 gcc&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; update&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; gcc -y&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;安装完毕后，输入  &lt;code&gt;gcc -v&lt;/code&gt;  查看版本信息&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211007173355.png&#34; alt=&#34;GCC&#34; /&gt;&lt;br /&gt;
+ 对于标注进行以下说明&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Target:x86_64-linux-gnu&lt;/code&gt;  表示该 GCC 的目标平台为 x86_64 架构 (Intel、 AMD 的 CPU), 表示它编译生成的应用程序只适用于 x86 架构，不适用于 ARM 开发板平台.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gcc version 9.3.0&lt;/code&gt;  表明该 GCC 的版本为 9.3.0, 部分程序可能会对编译器版本有要求，hello world 程序很简单不需要考虑兼容性。一开始可以不用在乎这个，而编译指定版本的 uboot、 Linux 内核的时候可能会对 GCC 有版本要求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;binutils-工具集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#binutils-工具集&#34;&gt;#&lt;/a&gt; Binutils 工具集&lt;/h3&gt;
+&lt;p&gt;Binutils（bin utility）, 是 GNU 二进制工具集，通常跟 GCC 编译器一起打包安装到系统，它的官方说明网站地址为:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ251Lm9yZy9zb2Z0d2FyZS9iaW51dGlscy8=&#34;&gt;https://www.gnu.org/software/binutils/&lt;/span&gt;&lt;br /&gt;
+ 在进行程序开发的时候通常不会直接调用这些工具，而是在使用 GCC 编译指令的时候由 GCC 编译器间接调用.&lt;br /&gt;
+ 下面是其中一些常用的工具:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;as:         汇编器，把汇编语言代码转换为机器码（目标文件）&lt;/li&gt;
+&lt;li&gt;ld:         链接器，把编译生成的多个目标文件组织成最终的可执行程序文件&lt;/li&gt;
+&lt;li&gt;readelf:    可用于查看目标文件或可执行程序文件的信息&lt;/li&gt;
+&lt;li&gt;nm:         可用于查看目标文件中出现的符号&lt;/li&gt;
+&lt;li&gt;objcopy:    可用于目标文件格式转换，如.bin 转换成.elf 、 .elf 转换成.bin 等&lt;/li&gt;
+&lt;li&gt;objdump:    可用于查看目标文件的信息，最主要的作用是反汇编&lt;/li&gt;
+&lt;li&gt;size:       可用于查看目标文件不同部分的尺寸和总尺寸，例如代码段大小、数据段大小、使用的静态内存、总大小等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;系统默认的 Binutils 工具集 位于  &lt;code&gt;/usr/bin&lt;/code&gt;  目录下。可以使用如下命令查看&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; /usr/bin/ &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; linux-gun-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211007174648.png&#34; alt=&#34;Binutils&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;glibc-库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#glibc-库&#34;&gt;#&lt;/a&gt; glibc 库&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;glibc&lt;/code&gt;  库是 GNU 组织为 GNU 系统以及 Linux 系统编写的 C 语言标准库，因为大部分 C 语言都依赖函数库，该文件甚至会直接影响到系统的正常运行，例如文件操作的  &lt;code&gt;read&lt;/code&gt;   &lt;code&gt;write&lt;/code&gt;   &lt;code&gt;open&lt;/code&gt;  , 标准输出的  &lt;code&gt;printf&lt;/code&gt; , 内存管理的  &lt;code&gt;malloc&lt;/code&gt;  等&lt;/p&gt;
+&lt;p&gt;在 Ubuntu 系统下，libc.so.6 是 glibc 的库文件，可直接执行该库文件查看版本，在主机上执行如下命令:&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;/lib/x86_64-linux-gun/libc.so.6&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211007175752.png&#34; alt=&#34;lib&#34; /&gt;&lt;br /&gt;
+ 在学习 C 语言的时候很好奇标准库是如何实现的，但是奈何 Window 下的 C 库并不开源.&lt;br /&gt;
+ 在 Linux 下是开源的，可以直接 glibc 的源代码，甚至可以加入开发社区贡献自己的代码.&lt;br /&gt;
+glibc 的官网地址为： &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ251Lm9yZy9zb2Z0d2FyZS9saWJjLw==&#34;&gt;https://www.gnu.org/software/libc/&lt;/span&gt; , 可在该网站中下载源代码来学习.&lt;/p&gt;
+&lt;h2 id=&#34;gcc编译过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gcc编译过程&#34;&gt;#&lt;/a&gt; GCC 编译过程&lt;/h2&gt;
+&lt;h3 id=&#34;基本语法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本语法&#34;&gt;#&lt;/a&gt; 基本语法&lt;/h3&gt;
+&lt;p&gt;GCC 基本命令如下:&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;-option&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; fileName&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;常用 option:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-o&lt;/code&gt; : 小写字母  &lt;code&gt;o&lt;/code&gt; , 指定生成可执行文件的名字，不指定的化生成的可执行文件名为  &lt;code&gt;a.out&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-E&lt;/code&gt; : 只进行预处理，不进行编译，也不进行汇编。简单来说就是去除头文件，替代宏定义。生成  &lt;code&gt;.i&lt;/code&gt;  文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-S&lt;/code&gt; : 只编译，不汇编。生成的是  &lt;code&gt;.s&lt;/code&gt;  汇编文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-c&lt;/code&gt; : 编译并进行汇编，不进行连接。生成  &lt;code&gt;.o&lt;/code&gt;  文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-g&lt;/code&gt; : 生成可执行文件待调试信息，便于  &lt;code&gt;gdb&lt;/code&gt;  调试&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-Ox&lt;/code&gt; : 大写字母 &lt;code&gt;O&lt;/code&gt;  加数字，设置程序优化等级，例如 &lt;code&gt;-O1&lt;/code&gt; ,  &lt;code&gt;-O2&lt;/code&gt; ,  &lt;code&gt;-O3&lt;/code&gt; , 数字越大的代码优化等级越高，编译出来的程序一般会越小，但是越小的程序约有可能执行异常. ( &lt;code&gt;i++&lt;/code&gt;  优化的你都不认识)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;编译过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译过程&#34;&gt;#&lt;/a&gt; 编译过程&lt;/h3&gt;
+&lt;p&gt;一般来说我们使用  &lt;code&gt;gcc&lt;/code&gt;  编译单个文件基本上像这样  &lt;code&gt;gcc hello.c -o hello&lt;/code&gt; , 就可以获得到可执行文件  &lt;code&gt;hello.out&lt;/code&gt; , 事实上编译是可以分步的。特别是编译多文件的时候，我们会把文件先编译为  &lt;code&gt;.o&lt;/code&gt;  文件用于链接，最后才去生成可执行文件.&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 一般来说:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc hello.c -o hello&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 等价于以下步骤&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 预处理&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc -E hello.c -o hello.i&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 编译&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc -S hello.i -o hello.s&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 汇编&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc -c hello.s -o hello.o&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 链接&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc hello.o -o Hello&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;GCC 编译工具链在编译一个 C 源文件时需要经过以下 4 步:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;预处理，在预处理过程中，对源代码文件中的文件包含 (include)、预编译语句 (如宏定义 define 等) 进行&lt;br /&gt;
+展开，生成.i 文件。可理解为把头文件的代码、宏之类的内容转换成更纯粹的 C 代码，不过生成的文件&lt;br /&gt;
+以.i 为后缀.&lt;/li&gt;
+&lt;li&gt;编译，把预处理后的.i 文件通过编译成为汇编语言，生成.s 文件，即把代码从 C 语言转换成汇编语言，&lt;br /&gt;
+ 这是 GCC 编译器完成的工作.&lt;/li&gt;
+&lt;li&gt;汇编，将汇编语言文件经过汇编，生成目标文件.o 文件，每一个源文件都对应一个目标文件。即把汇编&lt;br /&gt;
+语言的代码转换成机器码，这是 as 汇编器完成的工作.&lt;/li&gt;
+&lt;li&gt;链接，最后将每个源文件对应的.o 文件链接起来，就生成一个可执行程序文件，这是链接器 ld 完成的&lt;br /&gt;
+工作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;交叉编译工具链&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#交叉编译工具链&#34;&gt;#&lt;/a&gt; 交叉编译工具链&lt;/h3&gt;
+&lt;p&gt;先来看两个概念:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;本地编译：编译器和目标程序都是相同架构的编译过程&lt;/li&gt;
+&lt;li&gt;交叉编译：编译器和目标程程序运行在不同架构下的编译过程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;疑惑吗？交叉编译存在的意义是什么？&lt;br /&gt;
+ 我们来设想一下，我们在 i.MX6ull 上编译 一个庞大的工程，那么我们就需要一个编译器，还需还对应的工程文件的存储空间，调试空间... 更致命的是，C/C++ 这种项目，随随便便一编译都是好几 s, 这还是在我们性能超强的多核 CPU 上.&lt;br /&gt;
+ 咱的 ARM 架构的处理器资源和性能都无法和 x86 平台相比。尤其是对于 MCU 连 OS 都不配拥有，和谈编译器。有了交叉编译，我们就可以在 其他平台上使劲霍霍 CPU 了.&lt;/p&gt;
+&lt;p&gt;其实 MCU 开发的过程就是交编译，无论是 IAR, CCS 还是 keil 都是在 x86 上开发后下载到板子里然后执行.&lt;br /&gt;
+&lt;strong&gt;PS: 能进行架构 &amp;quot;交叉&amp;quot; 编译的编译器被称为交叉编译器 (Corss Compiler)&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;编译链安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译链安装&#34;&gt;#&lt;/a&gt; 编译链安装&lt;/h4&gt;
+&lt;p&gt;Linux 下:&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; gcc-arm-linux-gnueabihf -y&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;查看一下版本 和 相关编译链&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211008213347.png&#34; alt=&#34;arm&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211008213509.png&#34; alt=&#34;version&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;使用  &lt;code&gt;readelf -a hello&lt;/code&gt;  查看 可执行文件信息&lt;br /&gt;
+ x86 架构&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211008214155.png&#34; alt=&#34;x86_64&#34; /&gt;&lt;br /&gt;
+ARM 架构&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211008214030.png&#34; alt=&#34;ARM&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;编译器选择&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译器选择&#34;&gt;#&lt;/a&gt; 编译器选择&lt;/h3&gt;
+&lt;p&gt;除了我们安装的版本之外，编译器还有很多版本。目前来说大部分 ARM 开发者使用的都是由 Linaro 组织提供的交叉编译器，包括前面 APT 安装的 ARM-GCC 工具链也是来源于 Linaero.&lt;br /&gt;
+Linaro 是由 ARM 公司发起，与其他 ARM SOC 公司共同投资的非盈利组织.&lt;br /&gt;
+ARM 交叉编译链可以在这里找到:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yZWxlYXNlcy5saW5hcm8ub3JnL2NvbXBvbmVudHMvdG9vbGNoYWluL2JpbmFyaWVzLw==&#34;&gt; 传送门&lt;/span&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211009092521.png&#34; alt=&#34;version&#34; /&gt; &lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211009092751.png&#34; alt=&#34;os&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://gitee.com/code-qin/pic/raw/master/PicGo-Update/20211009093104.png&#34; alt=&#34;platform&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;虽然编译器的命名没有严格的规则，但他们的名字中一般包含我们最为关心的内容，可以根据名字来选择要使用的编译器:&lt;br /&gt;
+ &lt;code&gt;arch [-os] [-(gun)eabi(hf)] -gcc&lt;/code&gt; &lt;br /&gt;
+ 其中各段文字意义如下表所示.&lt;br /&gt;
+GCC 命名格式:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字段&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;arch&lt;/td&gt;
+&lt;td&gt;目标芯片&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gnu&lt;/td&gt;
+&lt;td&gt;C 标准库类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;eabi&lt;/td&gt;
+&lt;td&gt;应用二进制接口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;hf&lt;/td&gt;
+&lt;td&gt;浮点模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;以  &lt;code&gt;arm-linux-gnueabihf-gcc&lt;/code&gt;  编译器为例来分析一下.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;arm:    芯片架构为 ARM&lt;/li&gt;
+&lt;li&gt;linux:  目标操作系统为 Linux&lt;/li&gt;
+&lt;li&gt;gnu:    使用 GNU 的 C 语言标准库即 glibc&lt;/li&gt;
+&lt;li&gt;eabi:   使用嵌入式应用二进制接口 (eabi)&lt;/li&gt;
+&lt;li&gt;hf:     编译器浮点模式为硬浮点 hard-float.&lt;br /&gt;
+ 相对于 &lt;code&gt;arm-linux-gnueabi-gcc&lt;/code&gt;  查遍仅仅在于是否使携带  &lt;code&gt;hf&lt;/code&gt; , 像 M3 内核的处理器就不能使用 &lt;code&gt;hf&lt;/code&gt; , 其本身不带  &lt;code&gt;fpu&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;相关字段详细说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关字段详细说明&#34;&gt;#&lt;/a&gt; 相关字段详细说明&lt;/h4&gt;
+&lt;h5 id=&#34;目标芯片架构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目标芯片架构&#34;&gt;#&lt;/a&gt; 目标芯片架构&lt;/h5&gt;
+&lt;p&gt;目标芯片架构就是指交叉编译生成的程序运行的平台，如 ARM、MIPS, 其中 ARM 交叉编译又分为 ARMv7、ARMv8 以及 aarch64 架构.&lt;br /&gt;
+i.MX6ull 的内核为 Cortex-A7, 使用的是 ARMv7 架构.&lt;/p&gt;
+&lt;h5 id=&#34;大小端&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#大小端&#34;&gt;#&lt;/a&gt; 大小端&lt;/h5&gt;
+&lt;p&gt;指目标芯片的大小端模式，i.MX6ull 使用的是小端模式，若是大端模式 (big edian), 编译器名字中会带  &lt;code&gt;be&lt;/code&gt;  或 &lt;code&gt;eb&lt;/code&gt;  字段进行标注&lt;/p&gt;
+&lt;h5 id=&#34;目标操作系统&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目标操作系统&#34;&gt;#&lt;/a&gt; 目标操作系统&lt;/h5&gt;
+&lt;p&gt;目标操作系统表示编译后程序运行的系统，主要由 Linux 或 bare-metal (裸机) 两种， &lt;code&gt;arm-linux-guneabigcc&lt;/code&gt;  表示它的进程目标运行环境为 linux, 程序可以使用 linux 下的 C 标准库或 Linux 内核提供的 API, 例如 fork 等进程函数。而  &lt;code&gt;arm-eabi-gcc&lt;/code&gt;  或  &lt;code&gt;arm-none-eabi-gcc&lt;/code&gt;  表示它们的目标程序运行在无操作系统的环境中.&lt;br /&gt;
+ 严格来说，编译 Linux 应用程序时应该使用带 &lt;code&gt;linux&lt;/code&gt;  的编译器，而编译  &lt;code&gt;uboot&lt;/code&gt; 、裸机程序时，应该使用  &lt;code&gt;bare-metal&lt;/code&gt;  类型的裸机编译器.&lt;/p&gt;
+&lt;h5 id=&#34;c-标准库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c-标准库&#34;&gt;#&lt;/a&gt; C 标准库&lt;/h5&gt;
+&lt;p&gt;C 标准库一般 gnu、uglibc 等，分别表示 GNU 的 glibc 和 uclibc 库. C 库取决于系统，不过二者是相互兼容的，基本不需要特别注意。除了裸机开发之外不带 c 库，其他编译器 c 库都是 glibc 的库.&lt;/p&gt;
+&lt;h5 id=&#34;应用二进制接口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#应用二进制接口&#34;&gt;#&lt;/a&gt; 应用二进制接口&lt;/h5&gt;
+&lt;p&gt;应用二进制接口 (Application Binary Interface), 描述了应用程序和操作系统之间或其他应用程序的低级接口.&lt;br /&gt;
+ 在编译器中主要有  &lt;code&gt;abi&lt;/code&gt;  和  &lt;code&gt;eabi&lt;/code&gt;  两种类型， &lt;code&gt;abi&lt;/code&gt;  通常应用在 x86 架构上，而  &lt;code&gt;eabi&lt;/code&gt;  表示  &lt;code&gt;emabi abi&lt;/code&gt; , 即嵌入式架构，如 ARM、MIPS 等&lt;/p&gt;
+&lt;h5 id=&#34;浮点模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#浮点模式&#34;&gt;#&lt;/a&gt; 浮点模式&lt;/h5&gt;
+&lt;p&gt;部分 ARM 处理器带浮点运算单元，代码需要进行浮点运算时若交给  &lt;code&gt;fpu&lt;/code&gt;  处理，可以加快运算速度。编译器针对浮点运算的不同处理情况提供了以下几种模式:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;hard: 硬件浮点类型 (hard-float), 采用  &lt;code&gt;fpu&lt;/code&gt;  参与浮点运算.&lt;/li&gt;
+&lt;li&gt;soft: 软浮点类型 (soft-float), 即使有  &lt;code&gt;fpu&lt;/code&gt;  运算单元也不使用，使用软件模拟&lt;/li&gt;
+&lt;li&gt;softfp: 允许使用浮点指令，但是保持与软浮点 ABI 的兼容性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PS: ABI 即 &lt;code&gt;application binary interface&lt;/code&gt; , 即编译器将 c 代码编译成汇编代码时使用的一种规则&lt;/p&gt;
+&lt;h3 id=&#34;不同编译器对程序的影响&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#不同编译器对程序的影响&#34;&gt;#&lt;/a&gt; 不同编译器对程序的影响&lt;/h3&gt;
+&lt;p&gt;这里主要测试一下软浮点编译的动态编译和静态编译&lt;br /&gt;
+先来理解一下两个概念：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;静态链接：在编译阶段就会把所有用到的库打包到自己的可执行程序中，其优点是具有较好的兼容性，不依赖外部环境，但是生成的程序比较大.&lt;/li&gt;
+&lt;li&gt;动态链接：在应用程序运行时，链接器去加载外部的共享库，并完成共享库和动态编译程序之间的链接。不同的程序可以共用代码库，节省内存空间.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://to-ywz.github.io/Embedded/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</guid>
             <title>Ubuntu20.04安装中文输入法</title>
             <link>https://to-ywz.github.io/Embedded/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</link>
+            <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+            <category term="学习笔记" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+            <category term="Linux" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Linux/" />
+            <category term="Ubuntu" scheme="https://to-ywz.github.io/tags/Ubuntu/" />
             <pubDate>Sun, 03 Oct 2021 17:14:16 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;写在前面&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#写在前面&#34;&gt;#&lt;/a&gt; 写在前面&lt;/h1&gt;
 &lt;p&gt;因为个人不喜欢搜狗输入法，windows 用的也是微软自带的输入法，比较不喜花里胡哨的输入法界面。故选择了谷歌输入法&lt;/p&gt;
@@ -832,6 +1010,10 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
             <guid isPermalink="true">https://to-ywz.github.io/Embedded/Linux/linux%E5%AD%A6%E4%B9%A0/</guid>
             <title>linux学习</title>
             <link>https://to-ywz.github.io/Embedded/Linux/linux%E5%AD%A6%E4%B9%A0/</link>
+            <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+            <category term="学习笔记" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+            <category term="Linux" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Linux/" />
+            <category term="linux" scheme="https://to-ywz.github.io/tags/linux/" />
             <pubDate>Sun, 03 Oct 2021 17:09:33 +0800</pubDate>
             <description><![CDATA[ &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
@@ -3171,212 +3353,6 @@ GDB 不会让被调试程序来处理这个信号。&lt;br /&gt;
 当程序被 GDB 停住时，&lt;br /&gt;
  所有的运行线程都会被停住。这方便查看运行程序的总体情况。而在你恢复程序运行时，&lt;br /&gt;
  所有的线程也会被恢复运行。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://to-ywz.github.io/Embedded/weidongshan/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</guid>
-            <title>嵌入式概念及硬件组成</title>
-            <link>https://to-ywz.github.io/Embedded/weidongshan/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%A6%82%E5%BF%B5%E5%8F%8A%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90/</link>
-            <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
-            <category term="学习笔记" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-            <category term="STM32" scheme="https://to-ywz.github.io/tags/STM32/" />
-            <pubDate>Sat, 10 Jul 2021 08:52:27 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;嵌入式概念及硬件组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式概念及硬件组成&#34;&gt;#&lt;/a&gt; 嵌入式概念及硬件组成&lt;/h1&gt;
-&lt;h2 id=&#34;处理器的区分mcu_mpu_ap&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#处理器的区分mcu_mpu_ap&#34;&gt;#&lt;/a&gt; 处理器的区分 MCU_MPU_AP&lt;/h2&gt;
-&lt;h3 id=&#34;mpu&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mpu&#34;&gt;#&lt;/a&gt; MPU&lt;/h3&gt;
-&lt;p&gt;目前主流计算机的架构为: CPU + RAM + Stronger&lt;br /&gt;
- 对于微型计算机的 CPU 也被称为 MPU&lt;br /&gt;
-8086, 80186, 80286 等早期生成的 CPU 芯片都是 MPU&lt;br /&gt;
-MPU 是一个较为老的概念，现在个人电脑上的芯片被称为 CPU&lt;/p&gt;
-&lt;h3 id=&#34;mcu&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mcu&#34;&gt;#&lt;/a&gt; MCU&lt;/h3&gt;
-&lt;p&gt;MPU 成长路线的另一个分支为 MCU&lt;br /&gt;
-MCU: 集 CPU+RAM+FLASH (存储器，FLASH 最为常简)+ 其他模块 为一体的芯片&lt;br /&gt;
- MCU 的内存 RAM 一般都在 KB 级别，FLASH 一般在 KB ~ MB 级别，资源较少&lt;br /&gt;
- MCU 可以运行 裸机 或 RTOS, 但是功能基本专一化&lt;/p&gt;
-&lt;h3 id=&#34;ap&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ap&#34;&gt;#&lt;/a&gt; AP&lt;/h3&gt;
-&lt;p&gt;AP (Application processor) 应用处理器一般被视为 MCU 的超级加倍&lt;br /&gt;
- AP 内部一般会有 CPU+RAM+FLSH+DSP+GPU+LCD, 当内存不够了可以外接极大的 DDR, 存储空间不够可以外接极大的 FLASH&lt;br /&gt;
-AP 可以运行不同版本的操作系统，例如 Linux,IOS,Windows ..., 功能更加通用化&lt;br /&gt;
-跟 MCU 进行比较，Application Processors 有以下不同:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;集成了更多的模块:&lt;br /&gt;
-Application Processors 内部集成了更多的模块，比如用于数据处理的 DSP、用于图形显示的 GPU, 甚至有多个处理器.&lt;br /&gt;
- 在手机电路板中，可用空间非常小，Application Processors 还需要搭配内存芯片才可以使用.&lt;br /&gt;
- 于是发展出了一种名为 package-on-package (PoP) 的工艺：在电路板上先焊接 Application Processors, 在 Application Processors 上面再焊接内存芯片，即 2 个芯片叠在一起.&lt;/li&gt;
-&lt;li&gt;运行的操作系统不同:&lt;br /&gt;
-MCU 上一般不运行操作系统，或是运行一些资源耗费较小的小型实时操作系统 (RTOS).&lt;br /&gt;
-MCU 一般用来处理实时性要求高的事情，处理一些比较简单的事情.&lt;br /&gt;
-Application Processors 基本上都会运行比较复杂的操作系统 (比如 Linux), 在操作系统上运行多个 APP.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;上面又引入一个概念 “片上系统”(SoC, System on Chip), SoC 的本意是在一个芯片上就可以搭建完整的系统.&lt;br /&gt;
- 但是这个概念在日常使用中比较宽泛: MCU 芯片也可以称为 SoC, Application Processors 也可以称为 SoC, 即使它们还必须外接内存 / Flash 等外设才可以运行.&lt;br /&gt;
- 在以前的文档中涉及 SoC 时，意指比较复杂的系统；这时候 MCU 不属于 SoC, 因为 MCU 比较简单。但是时代在发展，MCU 也越来越复杂了，所以把 MCU 也当作 SoC 也是可以的.&lt;/p&gt;
-&lt;h3 id=&#34;三者之间的的关系&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三者之间的的关系&#34;&gt;#&lt;/a&gt; 三者之间的的关系&lt;/h3&gt;
-&lt;p&gt;MCU 和 AP 是 MPU 分支成长成不同 处理器&lt;br /&gt;
-&lt;img data-src=&#34;https://tva1.sinaimg.cn/large/005Q2GK3ly8gsbm8ubqp0j30xj0clabs.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;br /&gt;
-&lt;strong&gt;PS: 现在有些公司把和 MCU 相对应的，可以运行 Linux 的处理器 (AP) 也可以称为 MPU, 总之无是 MPU 还是 AP 都是 MCU 的对立面的处理器&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;嵌入式硬件组成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式硬件组成&#34;&gt;#&lt;/a&gt; 嵌入式硬件组成&lt;/h2&gt;
-&lt;p&gt;一句话引出嵌入式操作系统: &lt;mark&gt;支持 多种设备启动&lt;/mark&gt;&lt;br /&gt;
-补充知识:&lt;br /&gt;
-XIP: eXecute In Place, 本地执行。可以不用将代码拷贝到内存，而直接在代码的存储空间运行.&lt;/p&gt;
-&lt;h3 id=&#34;系统从哪开始执行程序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#系统从哪开始执行程序&#34;&gt;#&lt;/a&gt; 系统从哪开始执行程序？&lt;/h3&gt;
-&lt;h4 id=&#34;系统上电一定会执行程序那么系统从哪里开始执行程序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#系统上电一定会执行程序那么系统从哪里开始执行程序&#34;&gt;#&lt;/a&gt; 系统上电一定会执行程序，那么系统从哪里开始执行程序？&lt;/h4&gt;
-&lt;p&gt;一般理解为：系统从哪启动就从哪执行.&lt;br /&gt;
- 如果系统从 SPI FLASH 启动，SPI 设备不是  &lt;code&gt;XIP&lt;/code&gt;  设备 CPU 无法直接访问&lt;/p&gt;
-&lt;h4 id=&#34;cpu-如何执行-spi-flash-上的代码-cpu-上电后第一个程序的第一条指令在哪里&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cpu-如何执行-spi-flash-上的代码-cpu-上电后第一个程序的第一条指令在哪里&#34;&gt;#&lt;/a&gt; CPU 如何执行 SPI FLASH 上的代码？CPU 上电后第一个程序的第一条指令在哪里？&lt;/h4&gt;
-&lt;p&gt;上电后 CPU 只能和 XIP 设备沟通，还需要有存储功能，那么毫无疑问就是 片内 ROM&lt;br /&gt;
-ROM 中的程序会进行必要的初始化，比如设置时钟、设置内存；再从 &amp;quot;非 XIP 设备&amp;quot; 中把程序读到内存；最后启动这上程序&lt;/p&gt;
-&lt;h4 id=&#34;可读可写的变量存储在哪&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#可读可写的变量存储在哪&#34;&gt;#&lt;/a&gt; 可读可写的变量存储在哪？&lt;/h4&gt;
-&lt;p&gt;上面说过 嵌入式操作系统是支持多种设备启动的，ROM 的 功能会非常强大，一般有由 C 语言来实现&lt;br /&gt;
- C 语言对变量的操作，必然是由读和写构成的，但是 ROM 是 Read Only Memory, 无法进行写入&lt;br /&gt;
-如果 ROM 可写，极有可能会导致系统被破坏。那么，这些可读写的变量又该存储在哪呢？&lt;br /&gt;
- 前面提到过 AP 中会有 RAM, 而 RAM 是 Random Access Memory, 随机访问存储器.&lt;br /&gt;
-RAM 就是专门用于存储 这些易变，需要读写的变量的，但是由于成本过于高昂，所以 RAM 基本很小&lt;br /&gt;
-随着我们功能越来越复杂，需要内存也就越来越大，这时候就会外置 DDR 内存，当然 DDR 属于 DRAM, 片内 RAM 一般为 SRAM. 二者速度和工作方式还是有较大差别&lt;/p&gt;
-&lt;h4 id=&#34;cpu-如何管理-这么多控制器呢&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cpu-如何管理-这么多控制器呢&#34;&gt;#&lt;/a&gt; CPU 如何管理 这么多控制器呢？&lt;/h4&gt;
-&lt;p&gt;无论是什么外置接口，都会有相应的控制器，例如: SPI FLASH 会有 SPI 控制器，LCD 会有 LCD 控制器，DDR 会有 DDR 控制器 ...&lt;br /&gt;
-CPU 不可能与他们直连，一般通过寻址的方式来和各个芯片交互&lt;br /&gt;
-然而 CPU 不可能什么都亲力亲为，所以就有了 内存控制器 来帮助 CPU 管理分发地址&lt;/p&gt;
-&lt;h3 id=&#34;嵌入式设备最简硬件组成图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式设备最简硬件组成图&#34;&gt;#&lt;/a&gt; 嵌入式设备最简硬件组成图&lt;/h3&gt;
-&lt;p&gt;这是最简单的 嵌入式设备的模板&lt;br /&gt;
-&lt;img data-src=&#34;https://tva4.sinaimg.cn/large/005Q2GK3ly8gsbp71xwsyj30p70mt79p.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;br /&gt;
-ps: 图片来源于韦东山硬件大全视频&lt;/p&gt;
-&lt;h2 id=&#34;嵌入式系统启动流程概述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#嵌入式系统启动流程概述&#34;&gt;#&lt;/a&gt; 嵌入式系统启动流程概述&lt;/h2&gt;
-&lt;p&gt;主芯片内部有 ROM, ROM 程序协助从非 XIP 设备启动.&lt;br /&gt;
- 以 SD 卡启动为例.&lt;br /&gt;
- 我们知道 CPU 只能运行 XIP 设备中的程序，ROM 程序做什么？&lt;br /&gt;
- 显然: ROM 需要把 SD 卡上的程序读到内存里 (片内 RAM 或是片外的 DDR)&lt;/p&gt;
-&lt;h3 id=&#34;rom-要做的事情&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rom-要做的事情&#34;&gt;#&lt;/a&gt; ROM 要做的事情&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;初始化硬件&lt;/li&gt;
-&lt;li&gt;初始化时钟，提高 CPU、外设速度&lt;/li&gt;
-&lt;li&gt;初始化内存：DDR 需要初始化才能使用&lt;/li&gt;
-&lt;li&gt;初始化其他硬件，比如看门狗、SD 卡等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;从外设把程序复制到内存&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;支持那么多的启动方式，SD 卡、SPI FLASH、USB DISK, 怎么选择？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;通过跳线，选择某个设备&lt;/li&gt;
-&lt;li&gt;通过跳线，选择一个设备列表，按列表顺序逐个尝试&lt;/li&gt;
-&lt;li&gt;不让客户选择，按固定顺序逐个尝试&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;内存那么大，把程序从 SD 卡等设备，复制到内存哪个位置？复制多长？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;烧写在 SD 卡等设备上的程序，含有一个头部信息，里面指定了内存地址和长度；&lt;/li&gt;
-&lt;li&gt;不给客户选择，程序被复制到内存固定的位置，长度也固定&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;程序在 SD 卡上怎么存？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;原始二进制 (raw bin),&lt;/li&gt;
-&lt;li&gt;作为一个文件保存在分区&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;执行新程序&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;哈佛架构-和-冯诺依曼架构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#哈佛架构-和-冯诺依曼架构&#34;&gt;#&lt;/a&gt; 哈佛架构 和 冯诺依曼架构&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://tva4.sinaimg.cn/large/005Q2GK3ly8gsbt5ov4qfj30og0ejdg6.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;br /&gt;
-CPU 架构可以分为哈弗架构与冯诺伊曼架构&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;哈弗架构中指令与数据分开存放，CPU 可以同时读入指令、读写数据&lt;/li&gt;
-&lt;li&gt;冯诺伊曼架构中指令、数据混合存放，CPU 依次读取指令、读写数据，不可同时操作指令和数据&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;改进的哈弗结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#改进的哈弗结构&#34;&gt;#&lt;/a&gt; 改进的哈弗结构&lt;/h3&gt;
-&lt;p&gt;RM 公司的芯片，ARM7 及之前的芯片是冯诺伊曼架构，ARM7 之后使用 “改进的哈弗架构”&lt;br /&gt;
-“改进的哈弗结构” 如下所示:&lt;br /&gt;
-&lt;img data-src=&#34;https://tva2.sinaimg.cn/large/005Q2GK3ly8gsbt61tfbbj30fw0ejmxh.jpg&#34; alt=&#34;alt&#34; /&gt;&lt;br /&gt;
- “改进的哈弗架构” 里，指令和数据在外部存储器中混合存放；CPU 运行时，从指令 cache 中获得指令，从数据 cache 中读写数据&lt;/p&gt;
-&lt;h2 id=&#34;cisc-和-risc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cisc-和-risc&#34;&gt;#&lt;/a&gt; CISC 和 RISC&lt;/h2&gt;
-&lt;p&gt;CISC (Complex Instruction Set Computers, 复杂指令集计算集) 和 RISC (Reduced Instruction Set Computers, 精减指令集计算集) 是两大类主流的 CPU 指令集类型&lt;br /&gt;
-其中 CISC 以 Intel、AMD 的 X86 CPU 为代表&lt;br /&gt;
-而 RISC 以 ARM、IBM Power 为代表&lt;br /&gt;
-开源的 RISC-V 也是 RISC 指令集，RISC 的设计初衷针对 CISC CPU 复杂的弊端，选择一些可以在单个 CPU 周期完成的指令，以降低 CPU 的复杂度，将复杂性交给编译器&lt;/p&gt;
-&lt;p&gt;在此，总结一下 CISC 和 RISC 的主要区别：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;指令集&lt;/th&gt;
-&lt;th&gt;CISC&lt;/th&gt;
-&lt;th&gt;RISC&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;指令能力&lt;/td&gt;
-&lt;td&gt;指令能力强，单多数指令使用率低却增加了 CPU 的复杂度，指令是可变长格式；&lt;/td&gt;
-&lt;td&gt;指令大部分为单周期指令，指令长度固定.RISC 内存只有 &lt;code&gt;load&lt;/code&gt;  和 &lt;code&gt;store&lt;/code&gt;  才做，数据运算由 CPU 完成&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;寻址方式&lt;/td&gt;
-&lt;td&gt;支持多种寻址方式&lt;/td&gt;
-&lt;td&gt;支持的寻址方式少&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;实现方式&lt;/td&gt;
-&lt;td&gt;通过微程序控制技术实现&lt;/td&gt;
-&lt;td&gt;增加了通用寄存器，硬布线逻辑控制为主，采用流水线方式执行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;研发周期&lt;/td&gt;
-&lt;td&gt;CISC 的研制周期长&lt;/td&gt;
-&lt;td&gt;RISC 硬件简单，需要优化编译器&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;PS: ARM 公司的芯片都使用 RISC 指令集，对内存只有 load/store 操作，数据的处理是在 CPU 寄存器上进行&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;概念巩固测试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#概念巩固测试&#34;&gt;#&lt;/a&gt; 概念巩固测试&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;现代主流计算机的三大主件是&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;.&lt;/p&gt;
-&lt;ul class=&#34;options&#34;&gt;
-&lt;li class=&#34;correct&#34;&gt;CPU、内存条、硬盘 &lt;/li&gt;
-&lt;li&gt;CPU、内存条、显卡&lt;/li&gt;
-&lt;li&gt;CPU、硬盘、显卡&lt;/li&gt;
-&lt;li&gt;硬盘、显卡、内存条&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;微型计算机 CPU 常常叫做什么&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;.&lt;/p&gt;
-&lt;ul class=&#34;options&#34;&gt;
-&lt;li&gt;MCU&lt;/li&gt;
-&lt;li class=&#34;correct&#34;&gt;MPU&lt;/li&gt;
-&lt;li&gt;CMU&lt;/li&gt;
-&lt;li&gt;CMP&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;ul class=&#34;options&#34;&gt;
-&lt;li&gt;:MPU (Microprocessor Unit) 微处理器，微机中的中央处理器（CPU）称为微处理器（MPU）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li class=&#34;quiz&#34;&gt;
-&lt;p&gt;MCU 又可以叫什么&lt;span class=&#34;gap&#34;&gt;&lt;/span&gt;.&lt;/p&gt;
-&lt;ul class=&#34;options&#34;&gt;
-&lt;li&gt;AP&lt;/li&gt;
-&lt;li&gt;CPU&lt;/li&gt;
-&lt;li class=&#34;correct&#34;&gt;单片机 &lt;/li&gt;
-&lt;li&gt;微型计算机&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;ul class=&#34;options&#34;&gt;
-&lt;li&gt;: 微控制单元 (Microcontroller Unit; MCU) , 又称单片微型计算机 (Single Chip Microcomputer ) 或者单片机&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
