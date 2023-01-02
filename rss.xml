@@ -10,16 +10,86 @@
         </author>
         <description>笔记&amp;分享</description>
         <language>zh-CN</language>
-        <pubDate>Mon, 14 Nov 2022 18:38:47 +0800</pubDate>
-        <lastBuildDate>Mon, 14 Nov 2022 18:38:47 +0800</lastBuildDate>
+        <pubDate>Sun, 04 Dec 2022 22:58:49 +0800</pubDate>
+        <lastBuildDate>Sun, 04 Dec 2022 22:58:49 +0800</lastBuildDate>
         <category term="IT" />
         <category term="嵌入式" />
         <category term="C语言" />
         <category term="STM32" />
         <item>
-            <guid isPermalink="true">https://to-ywz.github.io/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
+            <guid isPermalink="true">https://to-ywz.github.io/Embedded/Linux/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%BB%98%E8%AE%A4%E5%AF%86%E7%A0%81%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95/</guid>
+            <title></title>
+            <link>https://to-ywz.github.io/Embedded/Linux/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%BB%98%E8%AE%A4%E5%AF%86%E7%A0%81%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95/</link>
+            <pubDate>Sun, 04 Dec 2022 22:58:49 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;起因&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#起因&#34;&gt;#&lt;/a&gt; 起因&lt;/h2&gt;
+&lt;p&gt;最近开始捣鼓树莓派，之前那它做了个旁路由，最后发现使用率太低，准备换成 Home Assistant&lt;/p&gt;
+&lt;p&gt;结果在刷 Raspberry Pi OS 的时候，发现创建  &lt;code&gt;wpa_supplicant.conf&lt;/code&gt;  和  &lt;code&gt;SSH&lt;/code&gt;  文件的方式完全没有用了&lt;/p&gt;
+&lt;p&gt;一开始我以为是 wifi 密码大小写问题，改了几次都不行，然后接入有线网络后登录 SSH 发现，默认的账号密码都不好使&lt;/p&gt;
+&lt;h2 id=&#34;结果&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结果&#34;&gt;#&lt;/a&gt; 结果&lt;/h2&gt;
+&lt;p&gt;到官网查阅了一下更新记录，发现&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.7bi1e1dof300.webp&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;大致意思就是，为了安全起见删除了默认账号&lt;/p&gt;
+&lt;h2 id=&#34;解决方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决方法&#34;&gt;#&lt;/a&gt; 解决方法&lt;/h2&gt;
+&lt;h3 id=&#34;方案一推荐&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方案一推荐&#34;&gt;#&lt;/a&gt; 方案一 (推荐)&lt;/h3&gt;
+&lt;p&gt;使用官方的烧录软件:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb3dubG9hZHMucmFzcGJlcnJ5cGkub3JnL2ltYWdlci9pbWFnZXJfMS43LjMuZXhl&#34;&gt; 地址&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;有梯子的建议关掉哦，我挂梯子反而下的慢&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.4gbdvpyp1s40.webp&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;方案二&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方案二&#34;&gt;#&lt;/a&gt; 方案二&lt;/h3&gt;
+&lt;p&gt;说实话，第一种方法最大的问题就是慢，磨磨唧唧的装个 64bit 版本简直的没话说（可以安心的出去吃个饭再回来看看）。&lt;/p&gt;
+&lt;p&gt;所以为了解决这个问题。可以考虑通过在 SD 的启动分区中创建一个名为  &lt;code&gt;userconf&lt;/code&gt;  或  &lt;code&gt;userconf.txt&lt;/code&gt;  的文件&lt;/p&gt;
+&lt;p&gt;内容格式为  &lt;code&gt;username:encrypted-password&lt;/code&gt; , 其中  &lt;code&gt;username&lt;/code&gt;  是用户名， &lt;code&gt;encrypted-password&lt;/code&gt;  是密码的加密代码 (通过 OpenSSL 生成)&lt;/p&gt;
+&lt;p&gt;通过 OpenSSL 生成加密密码的指令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &#39;mypassword&#39; | openssl passwd -6 -stdin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;里面的  &lt;code&gt;&#39;password&#39;&lt;/code&gt;  自行替换成自己的密码&lt;/p&gt;
+&lt;p&gt;这里可以提供一个现成的&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pi:$6$Q7yQqYO94B9fI9jn$trNI8/yvcZ8WYleaYKN5qlrzQ3AhZXLZtcNkYJlSH16xGloh2ZiM4KeAay8GSBoQ09LZI/wMOxM3qeou7uZXq.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对应的账号密码就是之前的默认账号密码  &lt;code&gt;pi:raspberry&lt;/code&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://to-ywz.github.io/tool/VSCode%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
+            <title>VSCode使用问题记录</title>
+            <link>https://to-ywz.github.io/tool/VSCode%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</link>
+            <category term="开发工具" scheme="https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" />
+            <category term="VSCode" scheme="https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/" />
+            <category term="VScode" scheme="https://to-ywz.github.io/tags/VScode/" />
+            <pubDate>Tue, 22 Nov 2022 13:14:07 +0800</pubDate>
+            <description><![CDATA[ &lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+&lt;h4 id=&#34;写在前面&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#写在前面&#34;&gt;#&lt;/a&gt; 写在前面&lt;/h4&gt;
+&lt;p&gt;这篇博客用于记录我使用 vscode 过程中出现的问题，以及解决方法&lt;br /&gt;
+吹爆 vscode&lt;/p&gt;
+&lt;h2 id=&#34;bracket-pair-colorizer-2-不维护&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bracket-pair-colorizer-2-不维护&#34;&gt;#&lt;/a&gt; Bracket Pair Colorizer 2 不维护&lt;/h2&gt;
+&lt;p&gt;今天打开我的生产力的时候发现，一大堆插件要更新 (忙于其它事情，一直没用这台电脑), 突然就发现  &lt;code&gt;Bracket Pair Colorizer 2&lt;/code&gt;  它不维护了&lt;br /&gt;
+被划了删除线，插件图标都变灰了&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.7hrpunjly9c0.webp&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+ 这个插件可以把不同嵌套层级的各种类型的括号，用不同的颜色标注出来&lt;br /&gt;
+ (⊙o⊙)？我和时代脱轨了，这可是 VSCode 必装的神级插件啊，居然不维护了！没天理了啊&lt;/p&gt;
+&lt;p&gt;我去了官网之后发现，不维护的原因是 VSCode 内置了这个功能，这里是作者原话&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This project started on 3 Dec 2016. Now 5 years later, &lt;strong&gt;it has become a native feature in VSCode.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This extension has seen wilder success then I could over ever dreamed of, with over 10M+ downloads.&lt;/p&gt;
+&lt;p&gt;I&#39;m glad so many people found it useful, however it no longer has a purpose entering 2022 so development will no longer continue.&lt;/p&gt;
+&lt;p&gt;If you enjoyed it, a coffee donation is appreciated:&lt;/p&gt;
+&lt;p&gt;🎁 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9rby1maS5jb20vYnJhY2tldHBhaXJjb2xvcml6ZXI=&#34;&gt;Donate&lt;/span&gt; 🎁&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;大致意思就是致谢然后说不再维护，然后重点是我加粗的那句 &amp;quot;已经成为内部功能&amp;quot;, 并且作者也给出了如何开启内部括号匹配的方法&lt;/p&gt;
+&lt;h3 id=&#34;解决方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决方法&#34;&gt;#&lt;/a&gt; 解决方法&lt;/h3&gt;
+&lt;p&gt;在 setting.json 文件中添加以下代码&lt;/p&gt;
+&lt;figure class=&#34;highlight json&#34;&gt;&lt;figcaption data-lang=&#34;JSON&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;editor.bracketPairColorization.enabled&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;editor.guides.bracketPairs&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;active&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;当然，添加到全局的 setting 文件中肯定比较好一些&lt;br /&gt;
+ ---------2022 年 11 月 -----------------&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://to-ywz.github.io/blog/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
             <title>hexo博客使用问题记录</title>
-            <link>https://to-ywz.github.io/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</link>
+            <link>https://to-ywz.github.io/blog/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</link>
             <category term="blog" scheme="https://to-ywz.github.io/categories/blog/" />
             <category term="blog" scheme="https://to-ywz.github.io/tags/blog/" />
             <pubDate>Mon, 14 Nov 2022 18:38:47 +0800</pubDate>
@@ -89,116 +159,6 @@
 &lt;p&gt;&lt;strong&gt;[1] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21yYm9uZTExL2FydGljbGUvZGV0YWlscy8xMDQwNTIxMzc=&#34;&gt;https://blog.csdn.net/mrbone11/article/details/104052137&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
 &lt;strong&gt;[2] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZmluY2xpcC5jb20vbmV3cy9mLzExNjc4Lmh0bWw=&#34;&gt;https://www.finclip.com/news/f/11678.html&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
 &lt;strong&gt;[3] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvTmV3bGluZQ==&#34;&gt;https://en.wikipedia.org/wiki/Newline&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://to-ywz.github.io/life-tips/prevent-disease/%E9%A2%84%E9%98%B2%E7%9A%AE%E8%82%A4%E5%B9%B2%E7%87%A5/</guid>
-            <title>预防皮肤干燥</title>
-            <link>https://to-ywz.github.io/life-tips/prevent-disease/%E9%A2%84%E9%98%B2%E7%9A%AE%E8%82%A4%E5%B9%B2%E7%87%A5/</link>
-            <category term="日常贴士" scheme="https://to-ywz.github.io/categories/%E6%97%A5%E5%B8%B8%E8%B4%B4%E5%A3%AB/" />
-            <category term="疾病预防" scheme="https://to-ywz.github.io/categories/%E6%97%A5%E5%B8%B8%E8%B4%B4%E5%A3%AB/prevent-disease/" />
-            <category term="疾病预防" scheme="https://to-ywz.github.io/tags/%E7%96%BE%E7%97%85%E9%A2%84%E9%98%B2/" />
-            <pubDate>Sat, 18 Dec 2021 08:09:03 +0800</pubDate>
-            <description><![CDATA[ &lt;hr /&gt;
-&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
-&lt;h1 id=&#34;起因&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#起因&#34;&gt;#&lt;/a&gt; 起因&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;年龄大了&lt;/li&gt;
-&lt;li&gt;天气寒冷&lt;/li&gt;
-&lt;li&gt;偏食和减肥&lt;/li&gt;
-&lt;li&gt;经常使用洗衣粉、肥皂、洗洁精等洗涤剂及酒精等有机溶剂，以及长时间所处空调环境下等&lt;/li&gt;
-&lt;li&gt;血虚、阴虚的人皮肤更容易干燥&lt;/li&gt;
-&lt;li&gt;睡眠不足会使身体受到相当程度的伤害，血液循环也会变差&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;危害&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#危害&#34;&gt;#&lt;/a&gt; 危害&lt;/h1&gt;
-&lt;p&gt;长皱纹、暗黄、脱皮、起色斑，还易引发湿疹、特应性皮炎，&lt;br /&gt;
- 严重的时候肌肤甚至会像鱼鳞一样轻轻一抓就掉下很多白色皮屑&lt;/p&gt;
-&lt;h1 id=&#34;预防方案&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#预防方案&#34;&gt;#&lt;/a&gt; 预防方案&lt;/h1&gt;
-&lt;h2 id=&#34;饮食方面&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#饮食方面&#34;&gt;#&lt;/a&gt; 饮食方面&lt;/h2&gt;
-&lt;p&gt;多吃白色食物白萝卜、白菜、冬瓜、百合、银耳、莲藕、莲子这一类的都算，长得白的基本就是了，不知道白黄瓜算不算 (狗头)&lt;br /&gt;
- 除了这个法子还可以走药膳的路子:&lt;/p&gt;
-&lt;h3 id=&#34;马蹄甘蔗胡萝卜饮&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#马蹄甘蔗胡萝卜饮&#34;&gt;#&lt;/a&gt; 马蹄甘蔗胡萝卜饮&lt;/h3&gt;
-&lt;p&gt;食材:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;马蹄 100 克&lt;/li&gt;
-&lt;li&gt;去皮甘蔗 250 克&lt;/li&gt;
-&lt;li&gt;胡萝卜 1 根&lt;/li&gt;
-&lt;li&gt;红枣 5 颗&lt;/li&gt;
-&lt;li&gt;清水 1500 毫升&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;制作:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;马蹄去皮洗净&lt;/li&gt;
-&lt;li&gt;甘蔗切成 10 厘米的长段后切成条&lt;/li&gt;
-&lt;li&gt;红萝卜去皮切块&lt;/li&gt;
-&lt;li&gt;红枣去核&lt;br /&gt;
-全部食材入锅，加水、冰糖，大火烧开转小火慢炖 1 小时即可&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;雪梨猪肺汤这个我觉得不太好喝&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#雪梨猪肺汤这个我觉得不太好喝&#34;&gt;#&lt;/a&gt; 雪梨猪肺汤 (这个我觉得不太好喝)&lt;/h3&gt;
-&lt;p&gt;食材:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;猪肺 500 克&lt;/li&gt;
-&lt;li&gt;雪梨 250 克&lt;/li&gt;
-&lt;li&gt;川贝母 20 克&lt;/li&gt;
-&lt;li&gt;食盐适量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;制作:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;雪梨洗净、连皮切成块状、去核&lt;/li&gt;
-&lt;li&gt;川贝母洗净&lt;/li&gt;
-&lt;li&gt;猪肺洗净、切成块状、沸水&lt;br /&gt;
-将适量清水放入煲内，煮沸后加入以上材料、猛火煲滚后改用慢火煲至食材熟烂、加盐调味即可&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;百合小米粥&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#百合小米粥&#34;&gt;#&lt;/a&gt; 百合小米粥&lt;/h3&gt;
-&lt;p&gt;食材:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;小米&lt;/li&gt;
-&lt;li&gt;干百合&lt;/li&gt;
-&lt;li&gt;干银耳&lt;/li&gt;
-&lt;li&gt;红枣&lt;/li&gt;
-&lt;li&gt;花生&lt;/li&gt;
-&lt;li&gt;冰糖适量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;制作:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;洗净食材&lt;/li&gt;
-&lt;li&gt;往锅内注入清水大火煮沸，放入小米、银耳和花生，&lt;/li&gt;
-&lt;li&gt;期间要注意搅拌以防糊底，等到材料加入完全煮沸后改为中火.&lt;/li&gt;
-&lt;li&gt;在小米开始出花的时候将红枣、百合和冰糖放入小米粥中，将火力改为大火煮沸后即可出锅&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;茶&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#茶&#34;&gt;#&lt;/a&gt; 茶&lt;/h2&gt;
-&lt;p&gt;中华文化博大精深，衣食住行都是如此。养生当然少不了茶&lt;/p&gt;
-&lt;h3 id=&#34;玫瑰美颜茶&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#玫瑰美颜茶&#34;&gt;#&lt;/a&gt; 玫瑰美颜茶&lt;/h3&gt;
-&lt;p&gt;做法:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;干品玫瑰花 1g,&lt;/li&gt;
-&lt;li&gt;麦冬、玉竹、首乌各 1.5g&lt;/li&gt;
-&lt;li&gt;200 毫升的开水冲泡十分钟&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;雪梨茶&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#雪梨茶&#34;&gt;#&lt;/a&gt; 雪梨茶&lt;/h3&gt;
-&lt;p&gt;做法：雪梨切碎，冰糖煮梨水泡茶饮用&lt;br /&gt;
-这个其实也可以止咳，个人咳嗽比较厉害，所以小时候有喝过这个&lt;br /&gt;
-体质较寒的人可用乌龙茶 (这个不止咳)&lt;/p&gt;
-&lt;h3 id=&#34;补气生津茶这个还是挺好的&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#补气生津茶这个还是挺好的&#34;&gt;#&lt;/a&gt; 补气生津茶 (这个还是挺好的)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;红枣 3 个&lt;/li&gt;
-&lt;li&gt;西洋参 3 片&lt;/li&gt;
-&lt;li&gt;麦冬 2g&lt;/li&gt;
-&lt;li&gt;五味子 0.3g&lt;/li&gt;
-&lt;li&gt;用 200 毫升的开水冲泡十分钟&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;日常防护&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#日常防护&#34;&gt;#&lt;/a&gt; 日常防护&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;养成良好的作息习惯，多喝水&lt;/li&gt;
-&lt;li&gt;用温水洗澡，因为热水会将皮肤上的天然油分彻底洗掉&lt;/li&gt;
-&lt;li&gt;冬季洗澡一般不要超过 15 分钟&lt;/li&gt;
-&lt;li&gt;使用温和的沐浴液或香皂浴后涂上润肤品、身体乳、护手霜等&lt;/li&gt;
-&lt;li&gt;在那些易发生干裂的身体部位，涂润肤乳&lt;/li&gt;
-&lt;li&gt;可使用加湿器，增加空气湿度&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;本文大部分来自于网上中医，有一部分是自己从小喝到大的方子&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
  ]]></description>
@@ -2646,87 +2606,6 @@ C2000Ware 这玩意我装了三天，删了好多次注册表，才装上去的.
  不过我是用了 gpio 反转的函数 原理和上面差不多&lt;/p&gt;
 &lt;p&gt;好了，这篇新建工程就这样了.&lt;br /&gt;
  以上是我个人观点，如有不正，望大佬斧正&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://to-ywz.github.io/Embedded/STM32/STM32TIM%E7%BC%96%E7%A0%81%E5%99%A8%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
-            <title>STM32TIM编码器模式配置</title>
-            <link>https://to-ywz.github.io/Embedded/STM32/STM32TIM%E7%BC%96%E7%A0%81%E5%99%A8%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</link>
-            <pubDate>Mon, 09 Aug 2021 19:43:23 +0800</pubDate>
-            <description><![CDATA[ &lt;hr /&gt;
-&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
-&lt;h1 id=&#34;stm32-hal库-编码器模式配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#stm32-hal库-编码器模式配置&#34;&gt;#&lt;/a&gt; STM32 HAL 库 编码器模式配置&lt;/h1&gt;
-&lt;p&gt;前几天准备电赛的时候，朋友编码器数值读不出来，我好奇也就凑合了一下，记录一下配置过程&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;PS: 开发环境 STM32 HAL 库 + STM32CubeMX + MDK + VSCode + Windows10&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;相关硬件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关硬件&#34;&gt;#&lt;/a&gt; 相关硬件&lt;/h2&gt;
-&lt;h3 id=&#34;电机&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#电机&#34;&gt;#&lt;/a&gt; 电机&lt;/h3&gt;
-&lt;p&gt;用的是 370 电机，减速器为 513, 减速比为 1:30&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092041.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;编码器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编码器&#34;&gt;#&lt;/a&gt; 编码器&lt;/h3&gt;
-&lt;p&gt;用的和电机一体的霍尔编码器，不知直到从哪买的，淘宝上查出来是 13pr&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092103.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;主控&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主控&#34;&gt;#&lt;/a&gt; 主控&lt;/h3&gt;
-&lt;p&gt;用的普中的 407 核心板，换了一个牛角座，没有使用它 usb 转串口&lt;br /&gt;
-跳线帽一接上，对接 Xshell Jlink 直接红灯.&lt;br /&gt;
- 用了一对 lora 的无线串口，外部高速晶振 8M&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092119.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h2 id=&#34;hal库配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hal库配置&#34;&gt;#&lt;/a&gt; HAL 库配置&lt;/h2&gt;
-&lt;h3 id=&#34;工欲善其事&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工欲善其事&#34;&gt;#&lt;/a&gt; 工欲善其事&lt;/h3&gt;
-&lt;p&gt;学习一个功能最好的方法就是直接查阅数据手册.&lt;br /&gt;
- 脉冲计数最有可能是定时器的输入捕获功能，所以咱先去看看有没有定时器有没有对应的模式，这种工作模式基本都在 通用或者高级 定时器上，先去看看高级定时器&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092140.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-哎，有。那再看看通用定时器&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092158.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-也有，TIM2 和 TIM5 的 counter 还是 32 位的&lt;br /&gt;
-这样子就齐活了，现在去看看 编码器转起来的波形密度，决定用哪个定时器&lt;br /&gt;
- 13 ppr 我实在是不明白什么意思，只能等转起来直接看数据了&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092215.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-啧，这只能用 TIM2 先顶着了。接下去就去新建工程啦&lt;/p&gt;
-&lt;h3 id=&#34;基本配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本配置&#34;&gt;#&lt;/a&gt; 基本配置&lt;/h3&gt;
-&lt;p&gt;新建 HAL 库的新工程我就不详细说了，不会的可以参见这篇博客: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90by15d3oudG9wL0NTL0VtYmVkZGVkL1NUTTMyLyVFNiU5NiVCMCVFNSVCQiVCQUhBTCVFNSVCQSU5MyVFNSVCNyVBNSVFNyVBOCU4QiVFNyU5QSU4NCVFNiU5NiVCOSVFNiVCMyU5NS8=&#34;&gt;传送门&lt;/span&gt;.&lt;br /&gt;
- 这里我就简单的说一下基本配置&lt;/p&gt;
-&lt;h4 id=&#34;sys-配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sys-配置&#34;&gt;#&lt;/a&gt; SYS 配置&lt;/h4&gt;
-&lt;p&gt;为了防止锁死芯片，Debug 选项配置为  &lt;code&gt;Serial Wire&lt;/code&gt;&lt;/p&gt;
-&lt;h4 id=&#34;时钟配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#时钟配置&#34;&gt;#&lt;/a&gt; 时钟配置&lt;/h4&gt;
-&lt;p&gt;我使用外部高速晶振，&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092238.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;外部晶振 8M, 主频 168M, 时钟树如下&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092305.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-然后为了便于查看结果开启一路串口 USART1&lt;br /&gt;
- 配置如下&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092320.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;由于 TIM2 的  &lt;code&gt;Counter Period&lt;/code&gt;  是 32 位的所以我在这里选择了 TIM2&lt;br /&gt;
- 没有进行分频，计数值拉到最大，防止溢出中断，通道 1 和通道 2 被编码器模式复用，所以编程灰色， &lt;code&gt;combined Channels&lt;/code&gt;  选择  &lt;code&gt;Encoder Mode&lt;/code&gt; &lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092337.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;然后成功工程即可&lt;/p&gt;
-&lt;h2 id=&#34;相关函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关函数&#34;&gt;#&lt;/a&gt; 相关函数&lt;/h2&gt;
-&lt;p&gt;我们这里就简单的使用 DMA 和 IT 模式以后再探索&lt;/p&gt;
-&lt;h3 id=&#34;启动编码器计数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动编码器计数&#34;&gt;#&lt;/a&gt; 启动编码器计数&lt;/h3&gt;
-&lt;p&gt;Encoder Mode 的 初始化函数和开启函数如下 如下图:&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092351.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;HAL_StatusTypeDef &lt;span class=&#34;token function&#34;&gt;HAL_TIM_Encoder_Start&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;TIM_HandleTypeDef &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;htim&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt; Channel&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;参数是 对应的定时器 htim2, 因为有 A 相位，B 相位 使用两个通道，所以使用参数 &lt;code&gt;TIM_CHANNEL_ALL&lt;/code&gt; &lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092413.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;获取编码器数值&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#获取编码器数值&#34;&gt;#&lt;/a&gt; 获取编码器数值&lt;/h3&gt;
-&lt;p&gt;获取脉冲方向，返回方向 0 或 1&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;__HAL_TIM_IS_TIM_COUNTING_DOWN&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;获取脉冲次数函数，返回脉冲次数&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;__HAL_TIM_GET_COUNTER&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;TIM2 定时器 Encoder 模式读出的数值自带方向 (正负)&lt;/p&gt;
-&lt;h2 id=&#34;简单读取数值测试&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简单读取数值测试&#34;&gt;#&lt;/a&gt; 简单读取数值测试&lt;/h2&gt;
-&lt;p&gt;我这里写了一个简单的测试样例&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getEncoderValue&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; Direction &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;__HAL_TIM_IS_TIM_COUNTING_DOWN&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;htim2&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; GetData &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;__HAL_TIM_GET_COUNTER&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;htim2&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Encoder: %d\r\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; GetData&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;结果如下&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211127092433.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-我测出这个电机转一圈会产生 600 次脉冲，TIM2 和 TIM5 读出的 脉冲数自带方向当从 0 开始反向选装 printf 打印出的数据自带符号，&lt;/p&gt;
-&lt;p&gt;使用 printf 记得重定向一下  &lt;code&gt;printf&lt;/code&gt; &lt;br /&gt;
- 这里提供一下全版本的 编译器的 printf 重定向&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdio.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token function&#34;&gt;defined&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt; __CC_ARM &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;PUTCHAR_PROTOTYPE&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;fputc&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; ch&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; FILE &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;f&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;        &lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/*&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; * Arm Compiler above 6.10.1 (armclang)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token function&#34;&gt;defined&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;__ARMCC_VERSION&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;__ARMCC_VERSION &lt;span class=&#34;token operator&#34;&gt;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;6100100&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;PUTCHAR_PROTOTYPE&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;fputc&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; ch&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; FILE &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;f&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/*&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; * GNU Compiler&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token function&#34;&gt;defined&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt; __GNUC__ &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/* With GCC, small printf (option LD Linker-&gt;Libraries-&gt;Small printf&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   set to &#39;Yes&#39;) calls __io_putchar() */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;PUTCHAR_PROTOTYPE&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;__io_putchar&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; ch&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;PUTCHAR_PROTOTYPE&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 具体哪个串口可以更改 huart1 为其它串口&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;HAL_UART_Transmit&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;huart1&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint8_t&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;ch&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0xffff&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; ch&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;end&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#end&#34;&gt;#&lt;/a&gt; END&lt;/h2&gt;
-&lt;p&gt;大概小结一下，开启编码器模式:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;选定定时器，选定 Encoder 模式&lt;/li&gt;
-&lt;li&gt;配置 分配因子 和 计数周期&lt;/li&gt;
-&lt;li&gt;使用相关函数 获取计数值&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;以上皆为个人简单实践，如有错误，望斧正.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
  ]]></description>
