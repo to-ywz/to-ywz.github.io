@@ -14,12 +14,10 @@
     <category term="C语言" />
     <category term="STM32" />
     <entry>
-        <id>https://to-ywz.github.io/%E9%9D%A2%E8%AF%95%E5%B0%8F%E7%BB%93/</id>
+        <id>https://to-ywz.github.io/work/%E9%9D%A2%E8%AF%95%E5%B0%8F%E7%BB%93/</id>
         <title>面试小结</title>
-        <link rel="alternate" href="https://to-ywz.github.io/%E9%9D%A2%E8%AF%95%E5%B0%8F%E7%BB%93/"/>
-        <content type="html">&lt;hr /&gt;
-&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;br /&gt;
- 今天面试了一个很有趣的企业，HR 超级友善，虽然技术有一些问题没有回答上来，（挠头）&lt;/p&gt;
+        <link rel="alternate" href="https://to-ywz.github.io/work/%E9%9D%A2%E8%AF%95%E5%B0%8F%E7%BB%93/"/>
+        <content type="html">&lt;p&gt;今天面试了一个很有趣的企业，HR 超级友善，虽然技术有一些问题没有回答上来，（挠头）&lt;/p&gt;
 &lt;p&gt;例如，舵机的控制脉宽，和脉宽周期 还有 modbus rtu 协议的开始和结束的条件，以及位置 PID（本质是一样的嘛）&lt;/p&gt;
 &lt;p&gt;趁这次机会回顾一下这些内容&lt;/p&gt;
 &lt;h1 id=&#34;舵机脉宽&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#舵机脉宽&#34;&gt;#&lt;/a&gt; 舵机脉宽&lt;/h1&gt;
@@ -115,6 +113,8 @@
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
+        <category term="求职" scheme="https://to-ywz.github.io/categories/work/" />
+        <category term="面试" scheme="https://to-ywz.github.io/categories/work/%E9%9D%A2%E8%AF%95/" />
         <updated>2023-03-14T03:23:33.000Z</updated>
     </entry>
     <entry>
