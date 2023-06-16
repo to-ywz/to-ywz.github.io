@@ -89,18 +89,6 @@
             ]
         },
         {
-            "id": "https://to-ywz.github.io/tool/VSCode%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/",
-            "url": "https://to-ywz.github.io/tool/VSCode%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/",
-            "title": "VSCode使用问题记录",
-            "date_published": "2022-11-22T05:14:07.000Z",
-            "content_html": "<h4 id=\"写在前面\"><a class=\"anchor\" href=\"#写在前面\">#</a> 写在前面</h4>\n<p>这篇博客用于记录我使用 vscode 过程中出现的问题，以及解决方法<br />\n吹爆 vscode</p>\n<h2 id=\"bracket-pair-colorizer-2-不维护\"><a class=\"anchor\" href=\"#bracket-pair-colorizer-2-不维护\">#</a> Bracket Pair Colorizer 2 不维护</h2>\n<p>今天打开我的生产力的时候发现，一大堆插件要更新 (忙于其它事情，一直没用这台电脑), 突然就发现  <code>Bracket Pair Colorizer 2</code>  它不维护了<br />\n被划了删除线，插件图标都变灰了<br />\n<img data-src=\"https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.7hrpunjly9c0.webp\" alt=\"image\" /><br />\n 这个插件可以把不同嵌套层级的各种类型的括号，用不同的颜色标注出来<br />\n (⊙o⊙)？我和时代脱轨了，这可是 VSCode 必装的神级插件啊，居然不维护了！没天理了啊</p>\n<p>我去了官网之后发现，不维护的原因是 VSCode 内置了这个功能，这里是作者原话</p>\n<blockquote>\n<p>This project started on 3 Dec 2016. Now 5 years later, <strong>it has become a native feature in VSCode.</strong></p>\n<p>This extension has seen wilder success then I could over ever dreamed of, with over 10M+ downloads.</p>\n<p>I'm glad so many people found it useful, however it no longer has a purpose entering 2022 so development will no longer continue.</p>\n<p>If you enjoyed it, a coffee donation is appreciated:</p>\n<p>🎁 <span class=\"exturl\" data-url=\"aHR0cHM6Ly9rby1maS5jb20vYnJhY2tldHBhaXJjb2xvcml6ZXI=\">Donate</span> 🎁</p>\n</blockquote>\n<p>大致意思就是致谢然后说不再维护，然后重点是我加粗的那句 &quot;已经成为内部功能&quot;, 并且作者也给出了如何开启内部括号匹配的方法</p>\n<h3 id=\"解决方法\"><a class=\"anchor\" href=\"#解决方法\">#</a> 解决方法</h3>\n<p>在 setting.json 文件中添加以下代码</p>\n<figure class=\"highlight json\"><figcaption data-lang=\"JSON\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre><span class=\"token punctuation\">&#123;</span></pre></td></tr><tr><td data-num=\"2\"></td><td><pre>    <span class=\"token property\">\"editor.bracketPairColorization.enabled\"</span><span class=\"token operator\">:</span> <span class=\"token boolean\">true</span><span class=\"token punctuation\">,</span></pre></td></tr><tr><td data-num=\"3\"></td><td><pre>    <span class=\"token property\">\"editor.guides.bracketPairs\"</span><span class=\"token operator\">:</span><span class=\"token string\">\"active\"</span></pre></td></tr><tr><td data-num=\"4\"></td><td><pre><span class=\"token punctuation\">&#125;</span></pre></td></tr></table></figure><p>当然，添加到全局的 setting 文件中肯定比较好一些<br />\n ---------2022 年 11 月 -----------------</p>\n<hr />\n<p>大道五十，天衍四十九，人遁其一！</p>\n",
-            "tags": [
-                "开发工具",
-                "VSCode",
-                "VScode"
-            ]
-        },
-        {
             "id": "https://to-ywz.github.io/tool/HAL%E5%BA%93%E5%87%BA%E7%8E%B0HAL_StatusTypeDef%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB/",
             "url": "https://to-ywz.github.io/tool/HAL%E5%BA%93%E5%87%BA%E7%8E%B0HAL_StatusTypeDef%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB/",
             "title": "HAL库出现HAL_StatusTypeDef无法识别",
@@ -110,6 +98,18 @@
                 "开发工具",
                 "HAL库",
                 "HAL库"
+            ]
+        },
+        {
+            "id": "https://to-ywz.github.io/tool/VSCode%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/",
+            "url": "https://to-ywz.github.io/tool/VSCode%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/",
+            "title": "VSCode使用问题记录",
+            "date_published": "2022-11-22T05:14:07.000Z",
+            "content_html": "<h4 id=\"写在前面\"><a class=\"anchor\" href=\"#写在前面\">#</a> 写在前面</h4>\n<p>这篇博客用于记录我使用 vscode 过程中出现的问题，以及解决方法<br />\n吹爆 vscode</p>\n<h2 id=\"bracket-pair-colorizer-2-不维护\"><a class=\"anchor\" href=\"#bracket-pair-colorizer-2-不维护\">#</a> Bracket Pair Colorizer 2 不维护</h2>\n<p>今天打开我的生产力的时候发现，一大堆插件要更新 (忙于其它事情，一直没用这台电脑), 突然就发现  <code>Bracket Pair Colorizer 2</code>  它不维护了<br />\n被划了删除线，插件图标都变灰了<br />\n<img data-src=\"https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.7hrpunjly9c0.webp\" alt=\"image\" /><br />\n 这个插件可以把不同嵌套层级的各种类型的括号，用不同的颜色标注出来<br />\n (⊙o⊙)？我和时代脱轨了，这可是 VSCode 必装的神级插件啊，居然不维护了！没天理了啊</p>\n<p>我去了官网之后发现，不维护的原因是 VSCode 内置了这个功能，这里是作者原话</p>\n<blockquote>\n<p>This project started on 3 Dec 2016. Now 5 years later, <strong>it has become a native feature in VSCode.</strong></p>\n<p>This extension has seen wilder success then I could over ever dreamed of, with over 10M+ downloads.</p>\n<p>I'm glad so many people found it useful, however it no longer has a purpose entering 2022 so development will no longer continue.</p>\n<p>If you enjoyed it, a coffee donation is appreciated:</p>\n<p>🎁 <span class=\"exturl\" data-url=\"aHR0cHM6Ly9rby1maS5jb20vYnJhY2tldHBhaXJjb2xvcml6ZXI=\">Donate</span> 🎁</p>\n</blockquote>\n<p>大致意思就是致谢然后说不再维护，然后重点是我加粗的那句 &quot;已经成为内部功能&quot;, 并且作者也给出了如何开启内部括号匹配的方法</p>\n<h3 id=\"解决方法\"><a class=\"anchor\" href=\"#解决方法\">#</a> 解决方法</h3>\n<p>在 setting.json 文件中添加以下代码</p>\n<figure class=\"highlight json\"><figcaption data-lang=\"JSON\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre><span class=\"token punctuation\">&#123;</span></pre></td></tr><tr><td data-num=\"2\"></td><td><pre>    <span class=\"token property\">\"editor.bracketPairColorization.enabled\"</span><span class=\"token operator\">:</span> <span class=\"token boolean\">true</span><span class=\"token punctuation\">,</span></pre></td></tr><tr><td data-num=\"3\"></td><td><pre>    <span class=\"token property\">\"editor.guides.bracketPairs\"</span><span class=\"token operator\">:</span><span class=\"token string\">\"active\"</span></pre></td></tr><tr><td data-num=\"4\"></td><td><pre><span class=\"token punctuation\">&#125;</span></pre></td></tr></table></figure><p>当然，添加到全局的 setting 文件中肯定比较好一些<br />\n ---------2022 年 11 月 -----------------</p>\n<hr />\n<p>大道五十，天衍四十九，人遁其一！</p>\n",
+            "tags": [
+                "开发工具",
+                "VSCode",
+                "VScode"
             ]
         },
         {
