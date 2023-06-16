@@ -613,14 +613,14 @@
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/tags/blog/</loc>
+    <loc>https://to-ywz.github.io/tags/blog-markdown/</loc>
     <lastmod>2023-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/tags/blog-markdown/</loc>
+    <loc>https://to-ywz.github.io/tags/blog/</loc>
     <lastmod>2023-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -909,13 +909,6 @@
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/categories/Embedded/communication-protocol/</loc>
-    <lastmod>2023-06-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/HAL%E5%BA%93/</loc>
     <lastmod>2023-06-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -923,7 +916,7 @@
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/categories/computer-science/C/</loc>
+    <loc>https://to-ywz.github.io/categories/Embedded/communication-protocol/</loc>
     <lastmod>2023-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -931,6 +924,13 @@
   
   <url>
     <loc>https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/</loc>
+    <lastmod>2023-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://to-ywz.github.io/categories/computer-science/C/</loc>
     <lastmod>2023-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -958,14 +958,14 @@
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/categories/computer-science/compilation-principle/</loc>
+    <loc>https://to-ywz.github.io/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</loc>
     <lastmod>2023-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/categories/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</loc>
+    <loc>https://to-ywz.github.io/categories/computer-science/compilation-principle/</loc>
     <lastmod>2023-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
