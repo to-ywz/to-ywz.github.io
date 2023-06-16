@@ -10,12 +10,95 @@
         </author>
         <description>笔记&amp;分享</description>
         <language>zh-CN</language>
-        <pubDate>Fri, 16 Jun 2023 06:18:38 +0800</pubDate>
-        <lastBuildDate>Fri, 16 Jun 2023 06:18:38 +0800</lastBuildDate>
+        <pubDate>Sat, 17 Jun 2023 18:38:47 +0800</pubDate>
+        <lastBuildDate>Sat, 17 Jun 2023 18:38:47 +0800</lastBuildDate>
         <category term="IT" />
         <category term="嵌入式" />
         <category term="C语言" />
         <category term="STM32" />
+        <item>
+            <guid isPermalink="true">https://to-ywz.github.io/blog/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
+            <title>hexo博客使用问题记录</title>
+            <link>https://to-ywz.github.io/blog/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</link>
+            <category term="blog" scheme="https://to-ywz.github.io/categories/blog/" />
+            <category term="blog" scheme="https://to-ywz.github.io/tags/blog/" />
+            <pubDate>Sat, 17 Jun 2023 18:38:47 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;hexo-blog-使用bug问题记录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-blog-使用bug问题记录&#34;&gt;#&lt;/a&gt; hexo blog 使用 bug 问题记录&lt;/h1&gt;
+&lt;h2 id=&#34;hexo-d-出现warning-lf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-d-出现warning-lf&#34;&gt;#&lt;/a&gt; hexo d 出现 &amp;quot;warning: LF&amp;quot;&lt;/h2&gt;
+&lt;p&gt;先说结论，出现如下的警告，其实是可以直接忽视的，不会影响编译后的结果&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.6krjwmiaz080.webp&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+ 网上能 Google 到一大堆解决方案都是千篇一律的，将  &lt;code&gt;core.autocrlf&lt;/code&gt;  设置为  &lt;code&gt;false&lt;/code&gt; .&lt;br /&gt;
+ 这样可以直接解决警告提示，但是很显然，全局化的处理必然会带来更多的隐性问题&lt;br /&gt;
+所以，还是很有必要去弄清楚为什么，然后再找出合理的方案解决这个问题&lt;/p&gt;
+&lt;h3 id=&#34;分析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分析&#34;&gt;#&lt;/a&gt; 分析&lt;/h3&gt;
+&lt;p&gt;这和个问题的本质源头和  &lt;code&gt;git add&lt;/code&gt;  出现 &amp;quot;LF&amp;quot; 警告是一致的&lt;br /&gt;
+在 Windows 中使用 CRLF ( &lt;code&gt;\r\n&lt;/code&gt; ) 做作为行尾符，而在 Linux 系统中则使用 LF ( &lt;code&gt;\n&lt;/code&gt; )&lt;br /&gt;
+ CRLF 即 Carriage-Return Line-Feed 的缩写&lt;br /&gt;
+ Git 不修改文件内容，但默认会将入库的文件的行尾符设置为 LF, 会将检出的文件的行尾符设置为 CRLF, 在执行时出现上面的警告&lt;br /&gt;
+工作目录中的文件的行尾是 LF, 但是这里在即将入 Git 库之前会将 LF 转换为 CRLF, 所以给出  &lt;code&gt;LF will be replaced by CRLF in &amp;lt;file-name&amp;gt;&lt;/code&gt;  的警告&lt;br /&gt;
+其实其目的是在告诉我们，源文件不会被修改，但是在 git 仓库中的文件 LF 会被设置为 CRLF.&lt;br /&gt;
+ 因此在  &lt;code&gt;&amp;quot;LF will be replaced by CRLF in &amp;lt;file-name&amp;gt;&lt;/code&gt;  警告后面往往会有一句  &lt;code&gt;&amp;quot;The file will have its original line endings in your working directory.&amp;quot;&lt;/code&gt; &lt;br /&gt;
+ 所以  &lt;code&gt;core.autocrlf&lt;/code&gt;  的配置是用于检测跨平台的，如果将其设置为  &lt;code&gt;false&lt;/code&gt;  则可能出现一些很难发现的 bug&lt;br /&gt;
+ 例如，我在做 ftp 开发时，ftp server 是运行在 linux 上的，而从机 MCU 开发是在 windows 上实现的，在新建文件夹命令中多出了一个空格，使用 windows 的 ftp 客户端去查看时跟本无法辨别，而在 linux 上会显示出一个  &lt;code&gt;\ &lt;/code&gt; 的空格，这个 bug 查了半天&lt;/p&gt;
+&lt;p&gt;而现将  &lt;code&gt;core.autocrlf&lt;/code&gt;  的检测关闭，最直接会导致:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;pull linux 文件到自己的 windows 环境下用记事本看的话会出现黑点&lt;/li&gt;
+&lt;li&gt;Windows 里的文件在 Mac 下打开的话，在每行的结尾可能会多出一个 ^M 符号 (未验证，穷鬼没有 Mac, 据说 Mac 投奔了 Unix)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;解决方案&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决方案&#34;&gt;#&lt;/a&gt; 解决方案&lt;/h3&gt;
+&lt;p&gt;由上面可知，暴力的全局更改为不检测并不可取，那么有没有什么合理的方法呢？&lt;br /&gt;
+ 很遗憾，当必须跨平台处理协作的时候就不能关闭&lt;br /&gt;
+一般来说 git 的 Windows 客户端会默认设置  &lt;code&gt;core.autocrlf=true&lt;/code&gt;  (可通过  &lt;code&gt;git config core.autocrlf&lt;/code&gt;  命令查询是否默认 true. 如不是 true, 通过  &lt;code&gt;config --global core.autocrlf true&lt;/code&gt;  命令设置该属性为 true)&lt;br /&gt;
+ 而  &lt;code&gt;core.autocrlf=true&lt;/code&gt;  有以下 3 个功能来避免我们出现我们前面分析时所述的问题:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在把  &lt;code&gt;modified&lt;/code&gt;  修改过的文件  &lt;code&gt;git add&lt;/code&gt;  到暂存区 stage” 时，Git 自动把 LF 转换成 CRLF, 并给出那条警告 &amp;quot;LF will be replaced by CRLF&amp;quot;&lt;/li&gt;
+&lt;li&gt;在把  &lt;code&gt;modified&lt;/code&gt;  修改过的文件由暂存区 (stage) 提交 (commit) 到版本库 / 仓库 (repository) 时，Git 自动把 CRLF 转换成 LF&lt;/li&gt;
+&lt;li&gt;在用  &lt;code&gt;check/git checkout&lt;/code&gt;  切换到指定分支 或  &lt;code&gt;git clone&lt;/code&gt;  克隆远程版本库” 来加载代码时，Git 自动把 LF 转换成 CRLF&lt;br /&gt;
+ 我们博客属于第一种&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;不过对于我们只写博客不进行跨平台处理的情况的话，还是有一个建议可以在使用编辑器的时候，将编辑器的换行标识符进行默认设置&lt;br /&gt;
+这里介绍 vscode 的解决方法&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;vsocode 的的右下角设置为 CRLF&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.6y86xuenw300.webp&#34; alt=&#34;image&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;每次都手动设置就非常的不合理，所以可以去工作区的设置中设置默认的文件换行方法，这样就可以避免出现需要警告了&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.2mnd2tv5ls00.webp&#34; alt=&#34;image&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;当让也可以在  &lt;code&gt;.vscode&lt;/code&gt;  文件夹中的  &lt;code&gt;setting.json&lt;/code&gt;  文件中添加  &lt;code&gt;&amp;quot;files.eol&amp;quot;:&amp;quot;\r\n&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;知识大爆炸&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#知识大爆炸&#34;&gt;#&lt;/a&gt; 知识大爆炸&lt;/h3&gt;
+&lt;h4 id=&#34;cr-lf-和-lf-区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cr-lf-和-lf-区别&#34;&gt;#&lt;/a&gt; CR-LF 和 LF 区别&lt;/h4&gt;
+&lt;p&gt;LF: Line Feed 换行&lt;br /&gt;
+ CRLF: Carriage Return Line Feed 回车换行&lt;/p&gt;
+&lt;p&gt;早期的机械打字机上个名为 **「字车」&lt;strong&gt;(Typewriter carriage) 的部件，类似于现在的光标，打一个字符，字车前进一格.&lt;br /&gt;
+ 而打完一行后，则需要让字车回到起始位置，这就是&lt;/strong&gt; Carriage Return** 键最早的作用，因而被直接翻译为 **「回车」**&lt;br /&gt;
+ 虽然回车键的功能已经不止 &amp;quot;倒回字车&amp;quot; 了 (例如，泄愤的大回车键，狗头), 但这个译名保留了下来&lt;/p&gt;
+&lt;h4 id=&#34;r与n的起源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#r与n的起源&#34;&gt;#&lt;/a&gt; &#39;\r&#39; 与 &#39;\n&#39; 的起源&lt;/h4&gt;
+&lt;p&gt;这最早起源于电传打字机，这是一种远距离信息传送器械，通常由键盘、收发报器和印字机构等组发报时，按下某一字符键，就能将该字符的电码信号自动发送到信道；收报时，能自动接收来自信道的电码信号，并打印出相应的字符.&lt;br /&gt;
+ 大概是这个样子，经常出现在二战时期为背景的电影中的打字机是他的祖先辈份&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.1py4lg46v8w0.webp&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+ 这种打字机有一个打印头和滚轮，滚轮用于调整纸的纵向移动。每当打印头打印完当前行后需要将打印头移到最左边，滚轮需要把纸向下移动一行。由于这两个操作需要的时间远大于电信号传输的时间，可能会导致在操作过程中电信号的丢失。而解决这个问题的方案是物理补偿，要求每行都加上  &lt;code&gt;\r\n&lt;/code&gt;  这两个字符，用于补偿物理设备操作的时间&lt;br /&gt;
+ &lt;code&gt;\r&lt;/code&gt;  代表打印头左移对应 CR, 而  &lt;code&gt;\n&lt;/code&gt;  滚轮滚动操作对应 LF.&lt;/p&gt;
+&lt;h4 id=&#34;那么为什么要分成两个字符&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#那么为什么要分成两个字符&#34;&gt;#&lt;/a&gt; 那么为什么要分成两个字符？&lt;/h4&gt;
+&lt;p&gt;其实理由很简单，因为测试出来的结果是一个字符输入后，CRLF 的操作并没有完成，进而导致移动到一半的时候打印出错位的文字。所以干错设计为两个字符来避免这个问题.&lt;br /&gt;
+ 虽然这个理由很无厘头，但这就是最节省成本的解决方式&lt;/p&gt;
+&lt;h4 id=&#34;为什么不是-nr呢&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么不是-nr呢&#34;&gt;#&lt;/a&gt; 为什么不是  &lt;code&gt;\n\r&lt;/code&gt;  呢？&lt;/h4&gt;
+&lt;p&gt;因为  &lt;code&gt;\r&lt;/code&gt;  所消耗的时间会更长，保证在两个字符输入完成前实现 CR-LF 的操作，要不然也会出现一个字符设计版本的问题&lt;/p&gt;
+&lt;h2 id=&#34;nodejs-14-accessing-non-existent-property问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nodejs-14-accessing-non-existent-property问题&#34;&gt;#&lt;/a&gt; Node.js 14 Accessing non-existent property 问题&lt;/h2&gt;
+&lt;p&gt;-------------------20230617---------------------------&lt;/p&gt;
+&lt;p&gt;今天早更新主题一不小心把  &lt;code&gt;_config.yml&lt;/code&gt;  文件覆盖了，/(ㄒ o ㄒ)/~~&lt;/p&gt;
+&lt;p&gt;之前环境配置也存在一些问题，所以干脆重新搭建一遍环境&lt;/p&gt;
+&lt;p&gt;结果在编译的时候出现了这个警告，本着不放过任何一个警告的精神，我去 google 了一下&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.4gexhvdisp00.webp&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;结果，但部分都说是无关紧要的警告，是因为 Node Js 的版本过高，可以忽略或者强制降低警告优先级&lt;/p&gt;
+&lt;p&gt;目前暂时没有找到更好的解决方案，而且还有一大堆 bug 没修，所以暂时搁置一下&lt;/p&gt;
+&lt;h4 id=&#34;本文参考来源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#本文参考来源&#34;&gt;#&lt;/a&gt; 本文参考来源&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;[1] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21yYm9uZTExL2FydGljbGUvZGV0YWlscy8xMDQwNTIxMzc=&#34;&gt;https://blog.csdn.net/mrbone11/article/details/104052137&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;[2] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZmluY2xpcC5jb20vbmV3cy9mLzExNjc4Lmh0bWw=&#34;&gt;https://www.finclip.com/news/f/11678.html&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;[3] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvTmV3bGluZQ==&#34;&gt;https://en.wikipedia.org/wiki/Newline&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://to-ywz.github.io/computer-science/C/C%E8%AF%AD%E8%A8%80%E6%8B%BE%E9%81%97/</guid>
             <title>C语言拾遗</title>
@@ -855,81 +938,6 @@ else
 &lt;p&gt;在 setting.json 文件中添加以下代码&lt;/p&gt;
 &lt;figure class=&#34;highlight json&#34;&gt;&lt;figcaption data-lang=&#34;JSON&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;editor.bracketPairColorization.enabled&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;editor.guides.bracketPairs&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;active&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;当然，添加到全局的 setting 文件中肯定比较好一些&lt;br /&gt;
  ---------2022 年 11 月 -----------------&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://to-ywz.github.io/blog/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
-            <title>hexo博客使用问题记录</title>
-            <link>https://to-ywz.github.io/blog/hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</link>
-            <category term="blog" scheme="https://to-ywz.github.io/categories/blog/" />
-            <category term="blog" scheme="https://to-ywz.github.io/tags/blog/" />
-            <pubDate>Mon, 14 Nov 2022 18:38:47 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;hexo-blog-使用bug问题记录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-blog-使用bug问题记录&#34;&gt;#&lt;/a&gt; hexo blog 使用 bug 问题记录&lt;/h1&gt;
-&lt;h2 id=&#34;hexo-d-出现warning-lf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#hexo-d-出现warning-lf&#34;&gt;#&lt;/a&gt; hexo d 出现 &amp;quot;warning: LF&amp;quot;&lt;/h2&gt;
-&lt;p&gt;先说结论，出现如下的警告，其实是可以直接忽视的，不会影响编译后的结果&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.6krjwmiaz080.webp&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
- 网上能 Google 到一大堆解决方案都是千篇一律的，将 &lt;code&gt;core.autocrlf&lt;/code&gt;  设置为 &lt;code&gt;false&lt;/code&gt; .&lt;br /&gt;
- 这样可以直接解决警告提示，但是很显然，全局化的处理必然会带来更多的隐性问题&lt;br /&gt;
-所以，还是很有必要去弄清楚为什么，然后再找出合理的方案解决这个问题&lt;/p&gt;
-&lt;h3 id=&#34;分析&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分析&#34;&gt;#&lt;/a&gt; 分析&lt;/h3&gt;
-&lt;p&gt;这和个问题的本质源头和  &lt;code&gt;git add&lt;/code&gt;  出现 &amp;quot;LF&amp;quot; 警告是一致的&lt;br /&gt;
-在 Windows 中使用 CRLF ( &lt;code&gt;\r\n&lt;/code&gt; ) 做作为行尾符，而在 Linux 系统中则使用 LF ( &lt;code&gt;\n&lt;/code&gt; )&lt;br /&gt;
- CRLF 即 Carriage-Return Line-Feed 的缩写&lt;br /&gt;
- Git 不修改文件内容，但默认会将入库的文件的行尾符设置为 LF, 会将检出的文件的行尾符设置为 CRLF, 在执行时出现上面的警告&lt;br /&gt;
-工作目录中的文件的行尾是 LF, 但是这里在即将入 Git 库之前会将 LF 转换为 CRLF, 所以给出 &lt;code&gt;LF will be replaced by CRLF in &amp;lt;file-name&amp;gt;&lt;/code&gt;  的警告&lt;br /&gt;
-其实其目的是在告诉我们，源文件不会被修改，但是在 git 仓库中的文件 LF 会被设置为 CRLF.&lt;br /&gt;
- 因此在 &lt;code&gt;&amp;quot;LF will be replaced by CRLF in &amp;lt;file-name&amp;gt;&lt;/code&gt;  警告后面往往会有一句 &lt;code&gt;&amp;quot;The file will have its original line endings in your working directory.&amp;quot;&lt;/code&gt; &lt;br /&gt;
- 所以  &lt;code&gt;core.autocrlf&lt;/code&gt;  的配置是用于检测跨平台的，如果将其设置为 &lt;code&gt;false&lt;/code&gt;  则可能出现一些很难发现的 bug&lt;br /&gt;
- 例如，我在做 ftp 开发时，ftp server 是运行在 linux 上的，而从机 MCU 开发是在 windows 上实现的，在新建文件夹命令中多出了一个空格，使用 windows 的 ftp 客户端去查看时跟本无法辨别，而在 linux 上会显示出一个 &lt;code&gt;\ &lt;/code&gt; 的空格，这个 bug 查了半天&lt;/p&gt;
-&lt;p&gt;而现将  &lt;code&gt;core.autocrlf&lt;/code&gt;  的检测关闭，最直接会导致:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;pull linux 文件到自己的 windows 环境下用记事本看的话会出现黑点&lt;/li&gt;
-&lt;li&gt;Windows 里的文件在 Mac 下打开的话，在每行的结尾可能会多出一个 ^M 符号 (未验证，穷鬼没有 Mac, 据说 Mac 投奔了 Unix)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;解决方案&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决方案&#34;&gt;#&lt;/a&gt; 解决方案&lt;/h3&gt;
-&lt;p&gt;由上面可知，暴力的全局更改为不检测并不可取，那么有没有什么合理的方法呢？&lt;br /&gt;
- 很遗憾，当必须跨平台处理协作的时候就不能关闭&lt;br /&gt;
-一般来说 git 的 Windows 客户端会默认设置  &lt;code&gt;core.autocrlf=true&lt;/code&gt;  (可通过 &lt;code&gt;git config core.autocrlf&lt;/code&gt;  命令查询是否默认 true. 如不是 true, 通过 &lt;code&gt;config --global core.autocrlf true&lt;/code&gt;  命令设置该属性为 true)&lt;br /&gt;
- 而 &lt;code&gt;core.autocrlf=true&lt;/code&gt;  有以下 3 个功能来避免我们出现我们前面分析时所述的问题:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在把  &lt;code&gt;modified&lt;/code&gt;  修改过的文件 &lt;code&gt;git add&lt;/code&gt;  到暂存区 stage” 时，Git 自动把 LF 转换成 CRLF, 并给出那条警告 &amp;quot;LF will be replaced by CRLF&amp;quot;&lt;/li&gt;
-&lt;li&gt;在把  &lt;code&gt;modified&lt;/code&gt;  修改过的文件由暂存区 (stage) 提交 (commit) 到版本库 / 仓库 (repository) 时，Git 自动把 CRLF 转换成 LF&lt;/li&gt;
-&lt;li&gt;在用  &lt;code&gt;check/git checkout&lt;/code&gt;  切换到指定分支 或  &lt;code&gt;git clone&lt;/code&gt;  克隆远程版本库” 来加载代码时，Git 自动把 LF 转换成 CRLF&lt;br /&gt;
- 我们博客属于第一种&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;不过对于我们只写博客不进行跨平台处理的情况的话，还是有一个建议可以在使用编辑器的时候，将编辑器的换行标识符进行默认设置&lt;br /&gt;
-这里介绍 vscode 的解决方法&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;vsocode 的的右下角设置为 CRLF&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.6y86xuenw300.webp&#34; alt=&#34;image&#34; /&gt;&lt;/li&gt;
-&lt;li&gt;每次都手动设置就非常的不合理，所以可以去工作区的设置中设置默认的文件换行方法，这样就可以避免出现需要警告了&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.2mnd2tv5ls00.webp&#34; alt=&#34;image&#34; /&gt;&lt;/li&gt;
-&lt;li&gt;当让也可以在 &lt;code&gt;.vscode&lt;/code&gt;  文件夹中的 &lt;code&gt;setting.json&lt;/code&gt;  文件中添加 &lt;code&gt;&amp;quot;files.eol&amp;quot;:&amp;quot;\r\n&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;知识大爆炸&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#知识大爆炸&#34;&gt;#&lt;/a&gt; 知识大爆炸&lt;/h3&gt;
-&lt;h4 id=&#34;cr-lf-和-lf-区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cr-lf-和-lf-区别&#34;&gt;#&lt;/a&gt; CR-LF 和 LF 区别&lt;/h4&gt;
-&lt;p&gt;LF: Line Feed 换行&lt;br /&gt;
- CRLF: Carriage Return Line Feed 回车换行&lt;/p&gt;
-&lt;p&gt;早期的机械打字机上个名为 **「字车」&lt;strong&gt;(Typewriter carriage) 的部件，类似于现在的光标，打一个字符，字车前进一格.&lt;br /&gt;
- 而打完一行后，则需要让字车回到起始位置，这就是&lt;/strong&gt; Carriage Return** 键最早的作用，因而被直接翻译为 **「回车」**&lt;br /&gt;
- 虽然回车键的功能已经不止 &amp;quot;倒回字车&amp;quot; 了 (例如，泄愤的大回车键，狗头), 但这个译名保留了下来&lt;/p&gt;
-&lt;h4 id=&#34;r与n的起源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#r与n的起源&#34;&gt;#&lt;/a&gt; &#39;\r&#39; 与 &#39;\n&#39; 的起源&lt;/h4&gt;
-&lt;p&gt;这最早起源于电传打字机，这是一种远距离信息传送器械，通常由键盘、收发报器和印字机构等组发报时，按下某一字符键，就能将该字符的电码信号自动发送到信道；收报时，能自动接收来自信道的电码信号，并打印出相应的字符.&lt;br /&gt;
- 大概是这个样子，经常出现在二战时期为背景的电影中的打字机是他的祖先辈份&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.1py4lg46v8w0.webp&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
- 这种打字机有一个打印头和滚轮，滚轮用于调整纸的纵向移动。每当打印头打印完当前行后需要将打印头移到最左边，滚轮需要把纸向下移动一行。由于这两个操作需要的时间远大于电信号传输的时间，可能会导致在操作过程中电信号的丢失。而解决这个问题的方案是物理补偿，要求每行都加上 &lt;code&gt;\r\n&lt;/code&gt;  这两个字符，用于补偿物理设备操作的时间&lt;br /&gt;
- &lt;code&gt;\r&lt;/code&gt;  代表打印头左移对应 CR, 而 &lt;code&gt;\n&lt;/code&gt;  滚轮滚动操作对应 LF.&lt;/p&gt;
-&lt;h4 id=&#34;那么为什么要分成两个字符&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#那么为什么要分成两个字符&#34;&gt;#&lt;/a&gt; 那么为什么要分成两个字符？&lt;/h4&gt;
-&lt;p&gt;其实理由很简单，因为测试出来的结果是一个字符输入后，CRLF 的操作并没有完成，进而导致移动到一半的时候打印出错位的文字。所以干错设计为两个字符来避免这个问题.&lt;br /&gt;
- 虽然这个理由很无厘头，但这就是最节省成本的解决方式&lt;/p&gt;
-&lt;h4 id=&#34;为什么不是nr呢&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么不是nr呢&#34;&gt;#&lt;/a&gt; 为什么不是 &lt;code&gt;\n\r&lt;/code&gt;  呢？&lt;/h4&gt;
-&lt;p&gt;因为 &lt;code&gt;\r&lt;/code&gt;  所消耗的时间会更长，保证在两个字符输入完成前实现 CR-LF 的操作，要不然也会出现一个字符设计版本的问题&lt;/p&gt;
-&lt;h4 id=&#34;本文参考来源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#本文参考来源&#34;&gt;#&lt;/a&gt; 本文参考来源&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;[1] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21yYm9uZTExL2FydGljbGUvZGV0YWlscy8xMDQwNTIxMzc=&#34;&gt;https://blog.csdn.net/mrbone11/article/details/104052137&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
-&lt;strong&gt;[2] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZmluY2xpcC5jb20vbmV3cy9mLzExNjc4Lmh0bWw=&#34;&gt;https://www.finclip.com/news/f/11678.html&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
-&lt;strong&gt;[3] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvTmV3bGluZQ==&#34;&gt;https://en.wikipedia.org/wiki/Newline&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
  ]]></description>
