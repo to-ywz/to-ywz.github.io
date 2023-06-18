@@ -1020,6 +1020,7 @@ else
 </content>
         <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
         <category term="Linux" scheme="https://to-ywz.github.io/categories/Embedded/Linux/" />
+        <category term="Raspberry Pi" scheme="https://to-ywz.github.io/categories/Raspberry-Pi/" />
         <category term="树莓派" scheme="https://to-ywz.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" />
         <updated>2022-12-04T14:58:49.000Z</updated>
     </entry>
@@ -2134,8 +2135,8 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
 &lt;p&gt;GCC 编译链 (toolchain) 是以 GCC 为核心的一整套工具，用于把源码转化为可执行应用程序。主要包括以下三部分:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;gcc-core&lt;/code&gt;  :  即 GCC 编译器，用于完成预处理和编译的过程.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Binutils&lt;/code&gt;  :  除 GCC 编译器外的一些列小工具。包括了 链接器 &lt;code&gt;ld&lt;/code&gt; , 汇编器 &lt;code&gt;as&lt;/code&gt; , 目标文件格式查看器 &lt;code&gt;readelf&lt;/code&gt;  等.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;glibc&lt;/code&gt;     :  包含了主要的 C 语言标准库函数，C 语言中常常使用的打印函数 &lt;code&gt;printf&lt;/code&gt; 、 &lt;code&gt;malloc&lt;/code&gt;  函数就在  &lt;code&gt;glibc&lt;/code&gt;  库中&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Binutils&lt;/code&gt;  :  除 GCC 编译器外的一些列小工具。包括了 链接器  &lt;code&gt;ld&lt;/code&gt; , 汇编器  &lt;code&gt;as&lt;/code&gt; , 目标文件格式查看器  &lt;code&gt;readelf&lt;/code&gt;  等.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;glibc&lt;/code&gt;     :  包含了主要的 C 语言标准库函数，C 语言中常常使用的打印函数  &lt;code&gt;printf&lt;/code&gt; 、 &lt;code&gt;malloc&lt;/code&gt;  函数就在  &lt;code&gt;glibc&lt;/code&gt;  库中&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;gcc编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gcc编译器&#34;&gt;#&lt;/a&gt; GCC 编译器&lt;/h3&gt;
 &lt;p&gt;GCC (GUN Compiler Collection) 是由 GUN 开发的编程语言编译器. GCC 最初代表  &lt;code&gt;GNU C Compiler&lt;/code&gt; , 当时只支持 C 语言。后来逐渐支持 C++, JAVA 等，GCC 就被重定义为  &lt;code&gt;GNU Compiler Collection&lt;/code&gt; , 称为史上最优秀的编译器。其比一般编译器编译器平均效率高出 20%~30%.&lt;br /&gt;
@@ -2179,7 +2180,7 @@ glibc 的官网地址为： &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cH
 &lt;li&gt;&lt;code&gt;-S&lt;/code&gt; : 只编译，不汇编。生成的是  &lt;code&gt;.s&lt;/code&gt;  汇编文件&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;-c&lt;/code&gt; : 编译并进行汇编，不进行连接。生成  &lt;code&gt;.o&lt;/code&gt;  文件&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;-g&lt;/code&gt; : 生成可执行文件待调试信息，便于  &lt;code&gt;gdb&lt;/code&gt;  调试&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-Ox&lt;/code&gt; : 大写字母 &lt;code&gt;O&lt;/code&gt;  加数字，设置程序优化等级，例如 &lt;code&gt;-O1&lt;/code&gt; ,  &lt;code&gt;-O2&lt;/code&gt; ,  &lt;code&gt;-O3&lt;/code&gt; , 数字越大的代码优化等级越高，编译出来的程序一般会越小，但是越小的程序约有可能执行异常. ( &lt;code&gt;i++&lt;/code&gt;  优化的你都不认识)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-Ox&lt;/code&gt; : 大写字母  &lt;code&gt;O&lt;/code&gt;  加数字，设置程序优化等级，例如  &lt;code&gt;-O1&lt;/code&gt; ,  &lt;code&gt;-O2&lt;/code&gt; ,  &lt;code&gt;-O3&lt;/code&gt; , 数字越大的代码优化等级越高，编译出来的程序一般会越小，但是越小的程序约有可能执行异常. ( &lt;code&gt;i++&lt;/code&gt;  优化的你都不认识)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;编译过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译过程&#34;&gt;#&lt;/a&gt; 编译过程&lt;/h3&gt;
 &lt;p&gt;一般来说我们使用  &lt;code&gt;gcc&lt;/code&gt;  编译单个文件基本上像这样  &lt;code&gt;gcc hello.c -o hello&lt;/code&gt; , 就可以获得到可执行文件  &lt;code&gt;hello.out&lt;/code&gt; , 事实上编译是可以分步的。特别是编译多文件的时候，我们会把文件先编译为  &lt;code&gt;.o&lt;/code&gt;  文件用于链接，最后才去生成可执行文件.&lt;/p&gt;
@@ -2250,26 +2251,29 @@ GCC 命名格式:&lt;/p&gt;
 &lt;td&gt;hf&lt;/td&gt;
 &lt;td&gt;浮点模式&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;以  &lt;code&gt;arm-linux-gnueabihf-gcc&lt;/code&gt;  编译器为例来分析一下.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;以  &lt;code&gt;arm-linux-gnueabihf-gcc&lt;/code&gt;  编译器为例来分析一下.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;arm:    芯片架构为 ARM&lt;/li&gt;
 &lt;li&gt;linux:  目标操作系统为 Linux&lt;/li&gt;
 &lt;li&gt;gnu:    使用 GNU 的 C 语言标准库即 glibc&lt;/li&gt;
 &lt;li&gt;eabi:   使用嵌入式应用二进制接口 (eabi)&lt;/li&gt;
 &lt;li&gt;hf:     编译器浮点模式为硬浮点 hard-float.&lt;br /&gt;
- 相对于 &lt;code&gt;arm-linux-gnueabi-gcc&lt;/code&gt;  查遍仅仅在于是否使携带  &lt;code&gt;hf&lt;/code&gt; , 像 M3 内核的处理器就不能使用 &lt;code&gt;hf&lt;/code&gt; , 其本身不带  &lt;code&gt;fpu&lt;/code&gt;&lt;/li&gt;
+ 相对于  &lt;code&gt;arm-linux-gnueabi-gcc&lt;/code&gt;  查遍仅仅在于是否使携带  &lt;code&gt;hf&lt;/code&gt; , 像 M3 内核的处理器就不能使用  &lt;code&gt;hf&lt;/code&gt; , 其本身不带  &lt;code&gt;fpu&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;相关字段详细说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关字段详细说明&#34;&gt;#&lt;/a&gt; 相关字段详细说明&lt;/h4&gt;
 &lt;h5 id=&#34;目标芯片架构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目标芯片架构&#34;&gt;#&lt;/a&gt; 目标芯片架构&lt;/h5&gt;
 &lt;p&gt;目标芯片架构就是指交叉编译生成的程序运行的平台，如 ARM、MIPS, 其中 ARM 交叉编译又分为 ARMv7、ARMv8 以及 aarch64 架构.&lt;br /&gt;
 i.MX6ull 的内核为 Cortex-A7, 使用的是 ARMv7 架构.&lt;/p&gt;
 &lt;h5 id=&#34;大小端&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#大小端&#34;&gt;#&lt;/a&gt; 大小端&lt;/h5&gt;
-&lt;p&gt;指目标芯片的大小端模式，i.MX6ull 使用的是小端模式，若是大端模式 (big edian), 编译器名字中会带  &lt;code&gt;be&lt;/code&gt;  或 &lt;code&gt;eb&lt;/code&gt;  字段进行标注&lt;/p&gt;
+&lt;p&gt;指目标芯片的大小端模式，i.MX6ull 使用的是小端模式，若是大端模式 (big edian), 编译器名字中会带  &lt;code&gt;be&lt;/code&gt;  或  &lt;code&gt;eb&lt;/code&gt;  字段进行标注&lt;/p&gt;
 &lt;h5 id=&#34;目标操作系统&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目标操作系统&#34;&gt;#&lt;/a&gt; 目标操作系统&lt;/h5&gt;
 &lt;p&gt;目标操作系统表示编译后程序运行的系统，主要由 Linux 或 bare-metal (裸机) 两种， &lt;code&gt;arm-linux-guneabigcc&lt;/code&gt;  表示它的进程目标运行环境为 linux, 程序可以使用 linux 下的 C 标准库或 Linux 内核提供的 API, 例如 fork 等进程函数。而  &lt;code&gt;arm-eabi-gcc&lt;/code&gt;  或  &lt;code&gt;arm-none-eabi-gcc&lt;/code&gt;  表示它们的目标程序运行在无操作系统的环境中.&lt;br /&gt;
- 严格来说，编译 Linux 应用程序时应该使用带 &lt;code&gt;linux&lt;/code&gt;  的编译器，而编译  &lt;code&gt;uboot&lt;/code&gt; 、裸机程序时，应该使用  &lt;code&gt;bare-metal&lt;/code&gt;  类型的裸机编译器.&lt;/p&gt;
+ 严格来说，编译 Linux 应用程序时应该使用带  &lt;code&gt;linux&lt;/code&gt;  的编译器，而编译  &lt;code&gt;uboot&lt;/code&gt; 、裸机程序时，应该使用  &lt;code&gt;bare-metal&lt;/code&gt;  类型的裸机编译器.&lt;/p&gt;
 &lt;h5 id=&#34;c-标准库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c-标准库&#34;&gt;#&lt;/a&gt; C 标准库&lt;/h5&gt;
 &lt;p&gt;C 标准库一般 gnu、uglibc 等，分别表示 GNU 的 glibc 和 uclibc 库. C 库取决于系统，不过二者是相互兼容的，基本不需要特别注意。除了裸机开发之外不带 c 库，其他编译器 c 库都是 glibc 的库.&lt;/p&gt;
 &lt;h5 id=&#34;应用二进制接口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#应用二进制接口&#34;&gt;#&lt;/a&gt; 应用二进制接口&lt;/h5&gt;
@@ -2282,7 +2286,7 @@ i.MX6ull 的内核为 Cortex-A7, 使用的是 ARMv7 架构.&lt;/p&gt;
 &lt;li&gt;soft: 软浮点类型 (soft-float), 即使有  &lt;code&gt;fpu&lt;/code&gt;  运算单元也不使用，使用软件模拟&lt;/li&gt;
 &lt;li&gt;softfp: 允许使用浮点指令，但是保持与软浮点 ABI 的兼容性&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;PS: ABI 即 &lt;code&gt;application binary interface&lt;/code&gt; , 即编译器将 c 代码编译成汇编代码时使用的一种规则&lt;/p&gt;
+&lt;p&gt;PS: ABI 即  &lt;code&gt;application binary interface&lt;/code&gt; , 即编译器将 c 代码编译成汇编代码时使用的一种规则&lt;/p&gt;
 &lt;h3 id=&#34;不同编译器对程序的影响&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#不同编译器对程序的影响&#34;&gt;#&lt;/a&gt; 不同编译器对程序的影响&lt;/h3&gt;
 &lt;p&gt;这里主要测试一下软浮点编译的动态编译和静态编译&lt;br /&gt;
 先来理解一下两个概念：&lt;/p&gt;
@@ -2294,8 +2298,8 @@ i.MX6ull 的内核为 Cortex-A7, 使用的是 ARMv7 架构.&lt;/p&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
         <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
-        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="Linux" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Linux/" />
+        <category term="Linux" scheme="https://to-ywz.github.io/categories/Embedded/Linux/" />
+        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
         <category term="Linux" scheme="https://to-ywz.github.io/tags/Linux/" />
         <updated>2021-10-07T07:47:58.000Z</updated>
     </entry>
@@ -2323,7 +2327,7 @@ i.MX6ull 的内核为 Cortex-A7, 使用的是 ARMv7 架构.&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; fcitx-googlepinyin &lt;span class=&#34;token parameter variable&#34;&gt;-y&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;安装完毕后输入以下命令行配置谷歌输入法&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;fcitx-config-gtk3&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;出现界面如下&lt;br /&gt;
 &lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031747059.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-点击 &lt;code&gt;+&lt;/code&gt;  号，在弹出的界面取消勾选&lt;br /&gt;
+点击  &lt;code&gt;+&lt;/code&gt;  号，在弹出的界面取消勾选&lt;br /&gt;
 &lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031752053.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
 拉到最后找到谷歌拼音选项&lt;br /&gt;
 &lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031753588.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
@@ -2334,8 +2338,8 @@ i.MX6ull 的内核为 Cortex-A7, 使用的是 ARMv7 架构.&lt;/p&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
 </content>
         <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
-        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="Linux" scheme="https://to-ywz.github.io/categories/Embedded/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Linux/" />
+        <category term="Linux" scheme="https://to-ywz.github.io/categories/Embedded/Linux/" />
+        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
         <category term="Ubuntu" scheme="https://to-ywz.github.io/tags/Ubuntu/" />
         <updated>2021-10-03T09:14:16.000Z</updated>
     </entry>
