@@ -8,11 +8,79 @@
     <author>
       <name>黑羊</name>
     </author>
-    <updated>2023-06-18T16:33:52.000Z</updated>
+    <updated>2023-06-23T05:27:27.000Z</updated>
     <category term="IT" />
     <category term="嵌入式" />
     <category term="C语言" />
     <category term="STM32" />
+    <entry>
+        <id>https://to-ywz.github.io/Education/E333/6-23/</id>
+        <title>E333抽背</title>
+        <link rel="alternate" href="https://to-ywz.github.io/Education/E333/6-23/"/>
+        <content type="html">&lt;h2 id=&#34;秦汉教育&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#秦汉教育&#34;&gt;#&lt;/a&gt; 秦汉教育&lt;/h2&gt;
+&lt;h3 id=&#34;名词解释&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#名词解释&#34;&gt;#&lt;/a&gt; 名词解释&lt;/h3&gt;
+&lt;h4 id=&#34;太学&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#太学&#34;&gt;#&lt;/a&gt; 太学&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li class=&#34;quiz fill&#34;&gt;
+&lt;p&gt;简介&lt;span class=&#34;gap&#34;&gt;✔&lt;/span&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;太学是汉武帝时期在董仲舒的建议下，为推行 “独尊儒术” 的文教政策而创立的中央官学。为五经博士置弟子标志着太学正式成立，也标志着以经学教育为基本内容的中国封建教育制度正式确立&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li class=&#34;quiz fill&#34;&gt;
+&lt;p&gt;特点:&lt;span class=&#34;gap&#34;&gt;✔&lt;/span&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;太学以为国家培养 “经明行修” 的官吏作为教育宗旨；@在教学内容上，制定统一的教材主要学习 “五经”;3 太学中有个别、小组教学、“大都授” 集体上课以及次第相传的教学形式；@太学以 “设科射策” 的形式进行考试；太学把教师称作博士，把学生称作 “博士弟子” 或 “太学生”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li class=&#34;quiz fill&#34;&gt;
+&lt;p&gt;评价:&lt;span class=&#34;gap&#34;&gt;✔&lt;/span&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;太学是我国第一所有完备规划、史实详尽可考的学校太学最早利用学校教育来强化官方意识形态；太学掀开了反抗宦官政治的中国学生运动史上的第一页。但由于太学在教学中存在排除异己学说、空谈义理的现象，严重束缚了教育思想和学术研究的发展&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;简答题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简答题&#34;&gt;#&lt;/a&gt; 简答题&lt;/h3&gt;
+&lt;h4 id=&#34;简述汉武帝董-汉代独术三大文教政策&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简述汉武帝董-汉代独术三大文教政策&#34;&gt;#&lt;/a&gt; 简述 (汉武帝 / 董 / 汉代)“独术”(三大) 文教政策&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li class=&#34;quiz fill&#34;&gt;
+&lt;p&gt;简介:&lt;span class=&#34;gap&#34;&gt;✔&lt;/span&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;汉武在董仲舒的建议下，实行 “独术” 的文教政策。&lt;br /&gt;
+董仲舒提出的 “独尊儒术” 等三大建议，称为汉代三大文教政策&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li class=&#34;quiz fill&#34;&gt;
+&lt;p&gt;含义:&lt;span class=&#34;gap&#34;&gt;✔&lt;/span&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;国家政策和文化教育皆以儒术为本，儒学成为统一的指导思想，&lt;br /&gt;
+ 以儒家经典为教育内容，&lt;br /&gt;
+ 用严格的师法代替自由讲学书本知识在教学中占主要地位，&lt;br /&gt;
+ 长句古训代替了对现实问题的探讨&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li class=&#34;quiz fill&#34;&gt;
+&lt;p&gt;三大文教政策:&lt;span class=&#34;gap&#34;&gt;“推明孔氏，抑黜百家”&lt;/span&gt;、&lt;span class=&#34;gap&#34;&gt;兴太学以养士&lt;/span&gt;、&lt;span class=&#34;gap&#34;&gt;重视选举，任贤使能&lt;/span&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“推明孔氏，抑黜百家”。&lt;br /&gt;
+这是文教政策的总纲领。&lt;br /&gt;
+董仲舒论证了儒学在封建统治中独一无二的地位，汉代虽主张其他各家学说也可以发展，但其他学说处于从属地位，不可取代儒学的官方地位&lt;/p&gt;
+&lt;p&gt;兴太学以养士。&lt;br /&gt;
+为了保证封建国家在统治思想上的高度统一，也为了改变统治人才短缺的局面，董仲舒提出 “兴太学以养士” 的建议。&lt;br /&gt;
+实际上，通过兴办太学，政府直接操纵教育大权，决定人才的培养目标.&lt;br /&gt;
+ 这是落实 “独尊儒术” 教育政策的重要手段之一。&lt;/p&gt;
+&lt;p&gt;重视选举，任贤使能。&lt;br /&gt;
+针对汉初人才选拔和使用中的弊病，董仲舒提出加强选举合理任用人才的主他提出 “量材而授官录德而定位” 的用人思想。&lt;br /&gt;
+这些主张对促进儒学取得独尊地位有重要作用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="教育学" scheme="https://to-ywz.github.io/categories/Education/" />
+        <category term="E333" scheme="https://to-ywz.github.io/categories/Education/E333/" />
+        <category term="E333" scheme="https://to-ywz.github.io/tags/E333/" />
+        <updated>2023-06-23T05:27:27.000Z</updated>
+    </entry>
     <entry>
         <id>https://to-ywz.github.io/Embedded/STM32/%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8FSTM32MP157/</id>
         <title>第一个程序STM32MP157</title>
@@ -2302,45 +2370,5 @@ i.MX6ull 的内核为 Cortex-A7, 使用的是 ARMv7 架构.&lt;/p&gt;
         <category term="学习笔记" scheme="https://to-ywz.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
         <category term="Linux" scheme="https://to-ywz.github.io/tags/Linux/" />
         <updated>2021-10-07T07:47:58.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://to-ywz.github.io/Embedded/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/</id>
-        <title>Ubuntu20.04安装中文输入法</title>
-        <link rel="alternate" href="https://to-ywz.github.io/Embedded/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/"/>
-        <content type="html">&lt;h1 id=&#34;写在前面&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#写在前面&#34;&gt;#&lt;/a&gt; 写在前面&lt;/h1&gt;
-&lt;p&gt;因为个人不喜欢搜狗输入法，windows 用的也是微软自带的输入法，比较不喜花里胡哨的输入法界面。故选择了谷歌输入法&lt;/p&gt;
-&lt;h1 id=&#34;环境配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境配置&#34;&gt;#&lt;/a&gt; 环境配置&lt;/h1&gt;
-&lt;h2 id=&#34;安装-fcitx&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-fcitx&#34;&gt;#&lt;/a&gt; 安装  &lt;code&gt;Fcitx&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;谷歌输入法是基于  &lt;code&gt;Fcitx&lt;/code&gt;  输入法的。所以我们需要先安装  &lt;code&gt;Fcitx&lt;/code&gt; .&lt;br /&gt;
- 在  &lt;code&gt;shell&lt;/code&gt;  中输入&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; fcitx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/fcitx.png&#34; alt=&#34;fcitx&#34; /&gt;&lt;/p&gt;
-&lt;h2 id=&#34;配置-fcitx&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置-fcitx&#34;&gt;#&lt;/a&gt; 配置  &lt;code&gt;Fcitx&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;在  &lt;code&gt;shell&lt;/code&gt;  中 输入&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;im-config&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;会出现下面这种情况，开启输入法配置窗口&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031726765.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-点击 OK 后，会窗口如下 (可能要点击两次)&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031727179.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
- 选择其中的  &lt;code&gt;fcitx&lt;/code&gt; , 然后选择 ok , 完成配置基本环境&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;PS: 环境变量配置完毕后，重启操作系统&lt;/strong&gt;&lt;/p&gt;
-&lt;h1 id=&#34;安装谷歌输入法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装谷歌输入法&#34;&gt;#&lt;/a&gt; 安装谷歌输入法&lt;/h1&gt;
-&lt;p&gt;在命令行中输入&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; fcitx-googlepinyin &lt;span class=&#34;token parameter variable&#34;&gt;-y&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;安装完毕后输入以下命令行配置谷歌输入法&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;fcitx-config-gtk3&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;出现界面如下&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031747059.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-点击  &lt;code&gt;+&lt;/code&gt;  号，在弹出的界面取消勾选&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031752053.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-拉到最后找到谷歌拼音选项&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031753588.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-选择后点击 ok 至此，我们就可以愉快的使用中文输入法了&lt;/p&gt;
-&lt;p&gt;PS: 如果想要关闭  &lt;code&gt;shift&lt;/code&gt;  切换输入法，在下面的  &lt;code&gt;Extra for trigger input method&lt;/code&gt;  中选择  &lt;code&gt;Disabled&lt;/code&gt;  即可&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031758028.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
-</content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
-        <category term="Linux" scheme="https://to-ywz.github.io/categories/Embedded/Linux/" />
-        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="Ubuntu" scheme="https://to-ywz.github.io/tags/Ubuntu/" />
-        <updated>2021-10-03T09:14:16.000Z</updated>
     </entry>
 </feed>

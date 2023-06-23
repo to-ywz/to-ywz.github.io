@@ -7,6 +7,18 @@
     "home_page_url": "https://to-ywz.github.io",
     "items": [
         {
+            "id": "https://to-ywz.github.io/Education/E333/6-23/",
+            "url": "https://to-ywz.github.io/Education/E333/6-23/",
+            "title": "E333抽背",
+            "date_published": "2023-06-23T05:27:27.000Z",
+            "content_html": "<h2 id=\"秦汉教育\"><a class=\"anchor\" href=\"#秦汉教育\">#</a> 秦汉教育</h2>\n<h3 id=\"名词解释\"><a class=\"anchor\" href=\"#名词解释\">#</a> 名词解释</h3>\n<h4 id=\"太学\"><a class=\"anchor\" href=\"#太学\">#</a> 太学</h4>\n<ol>\n<li class=\"quiz fill\">\n<p>简介<span class=\"gap\">✔</span>。</p>\n<blockquote>\n<p>太学是汉武帝时期在董仲舒的建议下，为推行 “独尊儒术” 的文教政策而创立的中央官学。为五经博士置弟子标志着太学正式成立，也标志着以经学教育为基本内容的中国封建教育制度正式确立</p>\n</blockquote>\n</li>\n<li class=\"quiz fill\">\n<p>特点:<span class=\"gap\">✔</span>。</p>\n<blockquote>\n<p>太学以为国家培养 “经明行修” 的官吏作为教育宗旨；@在教学内容上，制定统一的教材主要学习 “五经”;3 太学中有个别、小组教学、“大都授” 集体上课以及次第相传的教学形式；@太学以 “设科射策” 的形式进行考试；太学把教师称作博士，把学生称作 “博士弟子” 或 “太学生”</p>\n</blockquote>\n</li>\n<li class=\"quiz fill\">\n<p>评价:<span class=\"gap\">✔</span>。</p>\n<blockquote>\n<p>太学是我国第一所有完备规划、史实详尽可考的学校太学最早利用学校教育来强化官方意识形态；太学掀开了反抗宦官政治的中国学生运动史上的第一页。但由于太学在教学中存在排除异己学说、空谈义理的现象，严重束缚了教育思想和学术研究的发展</p>\n</blockquote>\n</li>\n</ol>\n<h3 id=\"简答题\"><a class=\"anchor\" href=\"#简答题\">#</a> 简答题</h3>\n<h4 id=\"简述汉武帝董-汉代独术三大文教政策\"><a class=\"anchor\" href=\"#简述汉武帝董-汉代独术三大文教政策\">#</a> 简述 (汉武帝 / 董 / 汉代)“独术”(三大) 文教政策</h4>\n<ol>\n<li class=\"quiz fill\">\n<p>简介:<span class=\"gap\">✔</span>。</p>\n<blockquote>\n<p>汉武在董仲舒的建议下，实行 “独术” 的文教政策。<br />\n董仲舒提出的 “独尊儒术” 等三大建议，称为汉代三大文教政策</p>\n</blockquote>\n</li>\n<li class=\"quiz fill\">\n<p>含义:<span class=\"gap\">✔</span>。</p>\n<blockquote>\n<p>国家政策和文化教育皆以儒术为本，儒学成为统一的指导思想，<br />\n 以儒家经典为教育内容，<br />\n 用严格的师法代替自由讲学书本知识在教学中占主要地位，<br />\n 长句古训代替了对现实问题的探讨</p>\n</blockquote>\n</li>\n<li class=\"quiz fill\">\n<p>三大文教政策:<span class=\"gap\">“推明孔氏，抑黜百家”</span>、<span class=\"gap\">兴太学以养士</span>、<span class=\"gap\">重视选举，任贤使能</span>。</p>\n<blockquote>\n<p>“推明孔氏，抑黜百家”。<br />\n这是文教政策的总纲领。<br />\n董仲舒论证了儒学在封建统治中独一无二的地位，汉代虽主张其他各家学说也可以发展，但其他学说处于从属地位，不可取代儒学的官方地位</p>\n<p>兴太学以养士。<br />\n为了保证封建国家在统治思想上的高度统一，也为了改变统治人才短缺的局面，董仲舒提出 “兴太学以养士” 的建议。<br />\n实际上，通过兴办太学，政府直接操纵教育大权，决定人才的培养目标.<br />\n 这是落实 “独尊儒术” 教育政策的重要手段之一。</p>\n<p>重视选举，任贤使能。<br />\n针对汉初人才选拔和使用中的弊病，董仲舒提出加强选举合理任用人才的主他提出 “量材而授官录德而定位” 的用人思想。<br />\n这些主张对促进儒学取得独尊地位有重要作用。</p>\n</blockquote>\n</li>\n</ol>\n",
+            "tags": [
+                "教育学",
+                "E333",
+                "E333"
+            ]
+        },
+        {
             "id": "https://to-ywz.github.io/Embedded/STM32/%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8FSTM32MP157/",
             "url": "https://to-ywz.github.io/Embedded/STM32/%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8FSTM32MP157/",
             "title": "第一个程序STM32MP157",
@@ -230,19 +242,6 @@
                 "Linux",
                 "学习笔记",
                 "Linux"
-            ]
-        },
-        {
-            "id": "https://to-ywz.github.io/Embedded/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/",
-            "url": "https://to-ywz.github.io/Embedded/Linux/Ubuntu20-04%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/",
-            "title": "Ubuntu20.04安装中文输入法",
-            "date_published": "2021-10-03T09:14:16.000Z",
-            "content_html": "<h1 id=\"写在前面\"><a class=\"anchor\" href=\"#写在前面\">#</a> 写在前面</h1>\n<p>因为个人不喜欢搜狗输入法，windows 用的也是微软自带的输入法，比较不喜花里胡哨的输入法界面。故选择了谷歌输入法</p>\n<h1 id=\"环境配置\"><a class=\"anchor\" href=\"#环境配置\">#</a> 环境配置</h1>\n<h2 id=\"安装-fcitx\"><a class=\"anchor\" href=\"#安装-fcitx\">#</a> 安装  <code>Fcitx</code></h2>\n<p>谷歌输入法是基于  <code>Fcitx</code>  输入法的。所以我们需要先安装  <code>Fcitx</code> .<br />\n 在  <code>shell</code>  中输入</p>\n<figure class=\"highlight shell\"><figcaption data-lang=\"Bash\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre><span class=\"token function\">sudo</span> <span class=\"token function\">apt</span> <span class=\"token function\">install</span> fcitx</pre></td></tr></table></figure><p><img data-src=\"https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/fcitx.png\" alt=\"fcitx\" /></p>\n<h2 id=\"配置-fcitx\"><a class=\"anchor\" href=\"#配置-fcitx\">#</a> 配置  <code>Fcitx</code></h2>\n<p>在  <code>shell</code>  中 输入</p>\n<figure class=\"highlight shell\"><figcaption data-lang=\"Bash\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre>im-config</pre></td></tr></table></figure><p>会出现下面这种情况，开启输入法配置窗口<br />\n<img data-src=\"https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031726765.png\" alt=\"\" /><br />\n点击 OK 后，会窗口如下 (可能要点击两次)<br />\n<img data-src=\"https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031727179.png\" alt=\"\" /><br />\n 选择其中的  <code>fcitx</code> , 然后选择 ok , 完成配置基本环境</p>\n<p><strong>PS: 环境变量配置完毕后，重启操作系统</strong></p>\n<h1 id=\"安装谷歌输入法\"><a class=\"anchor\" href=\"#安装谷歌输入法\">#</a> 安装谷歌输入法</h1>\n<p>在命令行中输入</p>\n<figure class=\"highlight shell\"><figcaption data-lang=\"Bash\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre><span class=\"token function\">sudo</span> <span class=\"token function\">apt</span> <span class=\"token function\">install</span> fcitx-googlepinyin <span class=\"token parameter variable\">-y</span></pre></td></tr></table></figure><p>安装完毕后输入以下命令行配置谷歌输入法</p>\n<figure class=\"highlight shell\"><figcaption data-lang=\"Bash\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre>fcitx-config-gtk3</pre></td></tr></table></figure><p>出现界面如下<br />\n<img data-src=\"https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031747059.png\" alt=\"\" /><br />\n点击  <code>+</code>  号，在弹出的界面取消勾选<br />\n<img data-src=\"https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031752053.png\" alt=\"\" /><br />\n拉到最后找到谷歌拼音选项<br />\n<img data-src=\"https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031753588.png\" alt=\"\" /><br />\n选择后点击 ok 至此，我们就可以愉快的使用中文输入法了</p>\n<p>PS: 如果想要关闭  <code>shift</code>  切换输入法，在下面的  <code>Extra for trigger input method</code>  中选择  <code>Disabled</code>  即可<br />\n<img data-src=\"https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/202110031758028.png\" alt=\"\" /></p>\n<hr />\n<p>大道五十，天衍四十九，人遁其一！</p>\n",
-            "tags": [
-                "嵌入式",
-                "Linux",
-                "学习笔记",
-                "Ubuntu"
             ]
         }
     ]
