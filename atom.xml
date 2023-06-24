@@ -329,6 +329,256 @@ _start:
         <updated>2023-06-17T10:38:47.000Z</updated>
     </entry>
     <entry>
+        <id>https://to-ywz.github.io/Embedded/STM32/ARM%E6%9E%B6%E6%9E%84/</id>
+        <title>ARM架构</title>
+        <link rel="alternate" href="https://to-ywz.github.io/Embedded/STM32/ARM%E6%9E%B6%E6%9E%84/"/>
+        <content type="html">&lt;h1 id=&#34;arm-架构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#arm-架构&#34;&gt;#&lt;/a&gt; ARM 架构&lt;/h1&gt;
+&lt;p&gt;随着对 STM 的逐步了解，就会发现一些特别的地方，例如，为什么 ARM 可以像访问内存一样访问外设？&lt;/p&gt;
+&lt;h2 id=&#34;为什么arm可以像访问内存一样访问外设&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么arm可以像访问内存一样访问外设&#34;&gt;#&lt;/a&gt; 为什么 ARM 可以像访问内存一样访问外设？&lt;/h2&gt;
+&lt;p&gt;不要觉得这是理所当然的&lt;br /&gt;
+在 x86 上驱动程序需要有对应的驱动文件，驱动文件需要通过库函数或是内联汇编才能实现&lt;br /&gt;
+虽然 ST 也需要驱动文件，但是底层的实现就很有意思，但 ST 系列的单片机可以使用 C 语言像访问内存一样来访问外设&lt;/p&gt;
+&lt;p&gt;从汇编的层面来看 ARM 架构下的处理器可以通过 &lt;code&gt;ldr&lt;/code&gt;  来操作任意的内存和外设，而  &lt;code&gt;x86&lt;/code&gt;  不同&lt;br /&gt;
+他是通过 &lt;code&gt;IN&lt;/code&gt;  指令和 &lt;code&gt;MOV&lt;/code&gt;  指令分别实现对外设和内存的操作&lt;/p&gt;
+&lt;p&gt;其实本质是架构不同，形成的指令集不同，对于 ARM 架构来说，地址和内存统一编址，而 x86 则是将外设分别进行编址&lt;br /&gt;
+ CPU 依靠地址总线来访问对应的地址，32 位的单片机有 32 根地址线，有 4G 的寻址空间，ROM、RAM 和外设分布在 0~4G 的寻址空间之内&lt;br /&gt;
+ ARM 架构的内存分布大致如下图&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.28ed6cywyu68.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;只要是在 0~4G 之外的地址，CPU 想要访问就会和 x86 类似的方式来实现访问&lt;br /&gt;
+例如，要访问 EEPROM, 那么对于处理器啊来说，会检查访问 eeprom 的驱动，然后再按 eeprom 的内部地址&lt;/p&gt;
+&lt;h2 id=&#34;risc-cisc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#risc-cisc&#34;&gt;#&lt;/a&gt; RISC &amp;amp; CISC&lt;/h2&gt;
+&lt;p&gt;既然说到了架构，那就不得不说一下 两种指令集 CISC 和 RISC&lt;br /&gt;
+ 由于个人能力有限，所以可能会出现错误和纰漏，就大致介绍一下两大指令集&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CISC&lt;br /&gt;
+Complex Instruction Set Computing, 其所用指令较为复杂，而复杂的指令采用 &amp;quot;微程序&amp;quot; 实现&lt;br /&gt;
+ &amp;quot;微程序&amp;quot; 不代表会高效，该执行的步骤一部都不少，&lt;br /&gt;
+ 例如: call 和 ret 指令用于实现函数调用和返回，其事实上也是在调用的之前将 pc 或标签地址存入 LR 寄存器，然后在执行到 RET 语句时读取出来&lt;br /&gt;
+尽管逻辑一致&lt;/li&gt;
+&lt;li&gt;RISC&lt;br /&gt;
+Reduced Instruction Set Computing, 其所用指令较为简单，特点如下:&lt;/li&gt;
+&lt;li&gt;对内存只有读、写指令&lt;/li&gt;
+&lt;li&gt;对于数据的运算是在 CPU 内部实现&lt;/li&gt;
+&lt;li&gt;使用 RISC 指令的 CPU 复杂度小一点，，易于设计&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#区别&#34;&gt;#&lt;/a&gt; 区别&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;CISC 的指令能力强，但多数指令使用率低却增加了 CPU 的复杂度，指令是可变长格式&lt;/li&gt;
+&lt;li&gt;RISC 的指令大部分为单周期指令，指令长度固定，操作寄存器，对于内存只有 Load/Store 操作&lt;/li&gt;
+&lt;li&gt;CISC 支持多种寻址方式；RISC 支持的寻址方式&lt;/li&gt;
+&lt;li&gt;CISC 通过微程序控制技术实现；&lt;/li&gt;
+&lt;li&gt;RISC 增加了通用寄存器，硬布线逻辑控制为主，采用流水线&lt;/li&gt;
+&lt;li&gt;CISC 的研制周期长&lt;/li&gt;
+&lt;li&gt;RISC 优化编译，有效支持高级语言&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;arm的cpu内部寄存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#arm的cpu内部寄存器&#34;&gt;#&lt;/a&gt; ARM 的 CPU 内部寄存器&lt;/h2&gt;
+&lt;p&gt;解决了一个问题，又出现了新的问题～～(我那该死的探索欲啊)~~&lt;br /&gt;
+ARM 架构的 CPU 的内部寄存器有哪些，具体代表什么作用&lt;/p&gt;
+&lt;p&gt;ARM 内部有 17 个寄存器，R0~R15 和一个 PSR 寄存器，大致如下图&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.dtnj6p5voaw.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+ 其中 R0~R12 是通用寄存器&lt;br /&gt;
+ R13 是 SP 寄存器，SP 寄存器又分为 &lt;code&gt;sp_process&lt;/code&gt;  和 &lt;code&gt;sp_main&lt;/code&gt; , 分别用于 &lt;code&gt;main&lt;/code&gt;  的主栈和子函数的 &lt;code&gt;sp_process&lt;/code&gt;  过程栈，启动文件中设置的 &lt;code&gt;sp&lt;/code&gt;  就是这个文件&lt;br /&gt;
+这里的两个寄存器在 keil 是可见的&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.31psuz72bc00.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+R14 是 LR 寄存器，用来保存返回地址，函数调用，例如，在使用 BL 之前需要将地址存入到 LR 中&lt;br /&gt;
+ R15 是 PC 寄存器，程序寄存器，表示当前执行指令的下一条指令。例如，当前执行到 0x12 地址上的  &lt;code&gt;mov R0, #8&lt;/code&gt; , 那么 PC 的值则为 0x1A&lt;br /&gt;
+PSR 寄存器的情况又有些不同，要分为 cortex-M3/M4 内核和 A7 核&lt;/p&gt;
+&lt;h3 id=&#34;m核&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#m核&#34;&gt;#&lt;/a&gt; M 核&lt;/h3&gt;
+&lt;p&gt;PSR 实际上是 xPSR&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.3jtxfp5tvs20.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+xPSR 等价于三个寄存器&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IPSR: 中断 PSR&lt;/li&gt;
+&lt;li&gt;EPSR: 执行 PSR&lt;/li&gt;
+&lt;li&gt;APSR: 应用 PSR&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这三个寄存器可以一起访问也可以分开访问&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;MRS R0, APSR  ; 读取APSR
+MSR APSR, R0  ; 写入APSR
+MRS R0, PSR   ;写入组合程序状态
+MSR PSR, R0   ;写组合程序状态
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;xpsr各个寄存器控制的位&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xpsr各个寄存器控制的位&#34;&gt;#&lt;/a&gt; xPSR 各个寄存器控制的位&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.4n144w85e3o0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+ 其在 keil 中视图如下&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.2z4k0x924600.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;APSR 各个位的含义&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.63sl0usm6y80.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.4zx9vd9o3c40.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.5380s8s84qc0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;a核&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#a核&#34;&gt;#&lt;/a&gt; A 核&lt;/h3&gt;
+&lt;p&gt;PSR 实际上是 CPSR,Current Program Status Register&lt;br /&gt;
+A7 充分的利用了每一位，每一位的 bit 都有自己的含义&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.3ak1ce85wgu0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+A7 内部还有更多寄存器类型，例如 FIQ、IRQ、ABT 之类的， 更多的可以参考&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kZXZlbG9wZXIuYXJtLmNvbS9kb2N1bWVudGF0aW9uL2RkaTA0MDYvbGF0ZXN0Lw==&#34;&gt;官方文档&lt;/span&gt; B1-1145&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.36pautl6uz80.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;一些想法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一些想法&#34;&gt;#&lt;/a&gt; 一些想法&lt;/h3&gt;
+&lt;p&gt;CPU 的内部的寄存器只有这些，而像 IIC, GPIO 等一系列的外设属于外设的寄存器，仅仅是因为他们在 CPU 的寻址范围内，所以可以实现像内存一样的控制&lt;/p&gt;
+&lt;p&gt;其实只有汇编层面上的寄存器才和 CPU 相关，C 语言层面的寄存器更多的是一个内存地址，转化到汇编就是将地址存入十二个寄存器之后进行操作而已&lt;/p&gt;
+&lt;h2 id=&#34;arm的汇编到底是啥&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#arm的汇编到底是啥&#34;&gt;#&lt;/a&gt; ARM 的汇编到底是啥&lt;/h2&gt;
+&lt;p&gt;说起这个问题，汇编的名字是  &lt;code&gt;ASM&lt;/code&gt; , 但是很有意思，会发现  &lt;code&gt;ATT&lt;/code&gt;  和  &lt;code&gt;Intel&lt;/code&gt;  的汇编都是 ASM, 但是差距还是很大的&lt;br /&gt;
+前面也说了，RISC 和 CISC 的指令集不一样，而且 ARM 官方给出了推出了几次指令集，ARM、Thumb、Thumb2， 以及 UAL.&lt;/p&gt;
+&lt;p&gt;最开始的时候 ARM 公司只推出了 Thumb 和 ARM 两种汇编语言，两种指令都可以在 MCU 中执行，例如 STM32F103 系列&lt;br /&gt;
+ Thumb 是 16 位的指令集合，节省空间；而 ARM 是 32 位的指令集合，高效但浪费空间&lt;/p&gt;
+&lt;h3 id=&#34;如何区别两种指令集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#如何区别两种指令集&#34;&gt;#&lt;/a&gt; 如何区别两种指令集&lt;/h3&gt;
+&lt;p&gt;ARM 公司给出了两个两个关键字 &lt;code&gt;CODE16&lt;/code&gt;  和  &lt;code&gt;CODE32&lt;/code&gt; &lt;br /&gt;
+ 当用 CODE16, 表示下面的代码工作于 Thumb 指令集&lt;br /&gt;
+用 CODE32, 表示下面的代码工作于 ARM 指令集&lt;/p&gt;
+&lt;p&gt;指令集会影响到 CPU 的取指译码一连串的操作，所以 CPU 也必须实时的知道&lt;br /&gt;
+所以在 PSR 寄存器中设有一个 T 标志位，用于区分当前处于哪一个指令集&lt;br /&gt;
+为 0 的时候是 ARM 指令集，为 1 时时 Thumb 指令集&lt;/p&gt;
+&lt;h3 id=&#34;cpu如何调用函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cpu如何调用函数&#34;&gt;#&lt;/a&gt; CPU 如何调用函数&lt;/h3&gt;
+&lt;p&gt;试想一个问题，函数 A 使用 Thumb 指令写的，函数 B 是使用 ARM 指令集编写，如何调用 A/B&lt;/p&gt;
+&lt;p&gt;事实上，可以直接将 A/B 的地址写入 PC 寄存器，来实现这个功能&lt;/p&gt;
+&lt;p&gt;但是再细想一下，如何让 CPU 运行再 Thumb 模式下运行 A, 而再运行 B 的时候处于 ARM 模式&lt;br /&gt;
+做个手脚:&lt;br /&gt;
+ 调用函数 A 时，让 PC 寄存器的 BITO 等于 1，即: PC = 函数 A 地址 +(1&amp;lt;&amp;lt;0);&lt;br /&gt;
+ 调用函数 B 时，让 PC 寄存器的 BITO 等于 0:，即：PC = 函数 B 地址&lt;/p&gt;
+&lt;p&gt;再进一步，如何再执行 A 时调用 ARM 指令的函数 B, 在执行完毕后回到 Thumb 指令函数 A&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;Bx B_Addr
+Bx A_Addr +1(+1之后会使能Bit0位)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是这样子还是存在问题。例如，同一个程序中，有些地方需要高效的 ARM 指令集，而有些则需要 Thumb 低空间&lt;br /&gt;
+为了解决这麻烦的问题，ARM 公司推出了 Thumb2 指令集，支持 CODE16 和 CODE32 混合编程&lt;/p&gt;
+&lt;p&gt;ARM, Thumb, Thumb2, 每一种汇编都有自己的语言风格，尽管相似，但是会有不同的特性，这样子就增加了程序员的学习成本&lt;br /&gt;
+因此 ARM 公司就推出了统一的汇编语言 UAL, UAL 支持 CODE32,CODE16,Thumb 三种风格的语言，这样 ARM 的汇编语言的发展就算是基本成型了&lt;/p&gt;
+&lt;h2 id=&#34;基本的ual汇编语法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本的ual汇编语法&#34;&gt;#&lt;/a&gt; 基本的 UAL 汇编语法&lt;/h2&gt;
+&lt;p&gt;汇编语言本身大差不差，大致会分为，内存操作指令，输出处理指令 以及 转跳指令三大类&lt;/p&gt;
+&lt;h3 id=&#34;内存操作指令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#内存操作指令&#34;&gt;#&lt;/a&gt; 内存操作指令&lt;/h3&gt;
+&lt;h4 id=&#34;单寄存器操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#单寄存器操作&#34;&gt;#&lt;/a&gt; 单寄存器操作&lt;/h4&gt;
+&lt;p&gt;内存操作指令大致分为两大类：涉及内存读取和不涉及内存读取&lt;/p&gt;
+&lt;p&gt;所谓的涉不涉及内存，其实就是只涉及立即数和寄存器的操作，可以是寄存器到寄存器，也可以是立即数到寄存器&lt;br /&gt;
+不过有一点需要注意，立即数是有一定限制的.&lt;br /&gt;
+ 立即数必须满足，可以通过对一个 8 位数字进行向右旋转的操作得到一个在 32 位字中可以用作立即数的值&lt;br /&gt;
+例如， &lt;code&gt;mov r0, #10&lt;/code&gt;  是可以的但是 &lt;code&gt;mov r0, #10086&lt;/code&gt;  就不行&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;MOV		R0, #0x20000
+MOV		R1, #0x10
+MOV		R2, #0x12
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;涉及内存的操作，也需要经过寄存器，通过 &lt;code&gt;STR&lt;/code&gt;  和 &lt;code&gt;LDR&lt;/code&gt;  来实现这个功能&lt;br /&gt;
+例如，读取 0x20000 的数据到 R1 中，读取 0x40000 中的数据到 R3 中&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;mov r0, #0x20000  ; 0x20000 地址放入r0
+str r0, [r2]        ; 将数据放入r1的地址
+mov r0, #0x40000  ; 将地址写入r0
+ldr r3, [r0]        ; 将地址中的数据读入r3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;除了这些基本的操作，还有一些更复杂的操作&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;STR		R2, [R0]              ; R2的值存到R0所示地址
+STR		R2, [R0, #4]          ; R2的值存到R0+4所示地址
+STR		R2, [R0, #8]!         ; R2的值存到R0+8所示地址, R0=R0+8
+STR		R2, [R0, R1]          ; R2的值存到R0+R1所示地址
+STR		R2, [R0, R1, LSL #4]  ; R2的值存到R0+(R1&amp;lt;&amp;lt;4)所示地址
+STR		R2, [R0], #0X20       ; R2的值存到R0所示地址, R0=R0+0x20
+MOV		R2, #0x34
+STR		R2, [R0]              ; R2的值存到R0所示地址
+LDR		R3, [R0], +R1, LSL #1 ; R3的值等于R0+(R1&amp;lt;&amp;lt;1)所示地址上的值
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;多寄存器操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#多寄存器操作&#34;&gt;#&lt;/a&gt; 多寄存器操作&lt;/h4&gt;
+&lt;p&gt;当然除了读取单个寄存器还可以实现读个寄存器的读取&lt;br /&gt;
+基本语法如下&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.bbr7un23kmw.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;对于多寄存器的操作来说，会有 LDM 和 STM 指令的 RegList 列表寄存器存储如何对应的问题&lt;br /&gt;
+就记住一句话：低标号 Reg 对应低地址减法也如此&lt;br /&gt;
+下面是一些 &lt;code&gt;STMA&lt;/code&gt;  操作，LDM 也类似&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.6rhvfh8cv1o0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;实现栈操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实现栈操作&#34;&gt;#&lt;/a&gt; 实现栈操作&lt;/h4&gt;
+&lt;p&gt;到这里，就会发现，这个操作非常的像栈，这里来模拟一下进出栈的操作&lt;/p&gt;
+&lt;p&gt;这里使用满减栈:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;压栈，先减后存，STMFD&lt;/li&gt;
+&lt;li&gt;出栈，先出后减，LDMFD&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;前面说过栈指针是 SP, 咱们将 R1~R3 的数值存入压入栈中，然后，更改 R1~R3 的值之后存，再出栈，如果数据还原则表示入栈成功&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.34cfbkaaw6w0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.2bgcm06wvesk.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;数据处理指令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数据处理指令&#34;&gt;#&lt;/a&gt; 数据处理指令&lt;/h3&gt;
+&lt;p&gt;相较于 读取指令，数据操作的指令就更加多了，加减乘除，移位，清零等等&lt;br /&gt;
+这里只介绍加减和为位操作以及简单的比较指令&lt;/p&gt;
+&lt;h4 id=&#34;加法指令add&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#加法指令add&#34;&gt;#&lt;/a&gt; 加法指令：ADD&lt;/h4&gt;
+&lt;p&gt;语法:  &lt;code&gt;add 目的寄存器, 加数1, 加数2&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;		mov		r0, #1
+		mov		r1, #2
+		add		r1, r1, r0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;减法指令sub&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#减法指令sub&#34;&gt;#&lt;/a&gt; 减法指令：SUB&lt;/h4&gt;
+&lt;p&gt;语法:  &lt;code&gt;sub 目的寄存器, 被减数数1, 减数2&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;		mov		r0, #2
+		mov		r1, #1
+		sub		r1, r1, r0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;位操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#位操作&#34;&gt;#&lt;/a&gt; 位操作&lt;/h4&gt;
+&lt;h5 id=&#34;and&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#and&#34;&gt;#&lt;/a&gt; AND&lt;/h5&gt;
+&lt;p&gt;语法:  &lt;code&gt;and 目的寄存器, 数值1, 数值2&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;		mov		r0, #2
+		mov		r1, #1
+		and		r1, r1, r0 ; r1变成0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;bic&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bic&#34;&gt;#&lt;/a&gt; BIC&lt;/h5&gt;
+&lt;p&gt;语法:  &lt;code&gt;bic 目的寄存器, 数值1, 数值2&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;		mov		r0, #1
+		mov		r1, #3
+		bic		r1, r1, r0 ; r1 变成2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;orr&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#orr&#34;&gt;#&lt;/a&gt; ORR&lt;/h5&gt;
+&lt;p&gt;语法:  &lt;code&gt;orr 目的寄存器, 数值1, 数值2&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;		mov		r0, #1
+		mov		r1, #2
+		orr		r1, r1, r0 ;r1变成3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;比较&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#比较&#34;&gt;#&lt;/a&gt; 比较&lt;/h4&gt;
+&lt;h5 id=&#34;比较指令-cmp&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#比较指令-cmp&#34;&gt;#&lt;/a&gt; 比较指令 CMP&lt;/h5&gt;
+&lt;p&gt;语法:  &lt;code&gt;cmp r1, r2&lt;/code&gt; &lt;br /&gt;
+cmp 指令执行后会影响 psr 的 C 位，根据比较结果实现置位和&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.5sumnuksm000.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h5 id=&#34;测试tst&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#测试tst&#34;&gt;#&lt;/a&gt; 测试 TST&lt;/h5&gt;
+&lt;p&gt;不修改数据结果来进行 &lt;code&gt;and&lt;/code&gt;  操作，来测试数据&lt;/p&gt;
+&lt;p&gt;语法:  &lt;code&gt;tst 寄存器1, 寄存器&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;		mov		r0, #1
+		mov		r1, #2
+		tst		r1, r0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;转跳指令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#转跳指令&#34;&gt;#&lt;/a&gt; 转跳指令&lt;/h3&gt;
+&lt;p&gt;转跳指令其实不止这两个，但是这两个是函数调用的接口&lt;/p&gt;
+&lt;p&gt;B: Branch 转跳&lt;br /&gt;
+ BL:Branch with Link, 转跳前将返回地址存入 LR&lt;br /&gt;
+BX: Branch and exechange, 根据转跳地址的 BIT0, 自动切换 ARM 指令集和 Thumb 指令集&lt;br /&gt;
+ BXL: 同上，但是转跳前保存返回地址&lt;/p&gt;
+&lt;p&gt;语法如图&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.4bzwss3uvj80.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;由于模拟器不能模拟 BX 系列指令，这里只有 B 指令的例子&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;		mov		r0, #10
+		BL		Delay
+		
+		mov		r2, #0x1
+		
+		
+Delay
+		SUBS	r0, r0, #1	;等价于下面两句话
+		;SUB		r0, r0, #1
+		;CMP		r0, #0
+		BNE		Delay
+		mov		PC, LR	
+		; BL 的返回地址在LR中, 要通过mov来实现
+		; 没有类似x86的 ret 指令
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;小结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#小结&#34;&gt;#&lt;/a&gt; 小结&lt;/h2&gt;
+&lt;p&gt;由于个人知识储备有限，文章可能有些虎头蛇尾，后期等查阅完毕相关的文档后在更新和修正&lt;br /&gt;
+文章如有不恰当之处，望诸位大佬斧正&lt;/p&gt;
+&lt;h2 id=&#34;参考文献&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考文献&#34;&gt;#&lt;/a&gt; 参考文献&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;[1] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuMTAwYXNrLm5ldC9wL3RfcGMvY291cnNlX3BjX2RldGFpbC9jb2x1bW4vcF81Zjg1Njc3YmU0YjA2YWZmMWEwM2NlY2I/Y29udGVudF9hcHBfaWQ9&#34;&gt;https://www.100ask.net/p/t_pc/course_pc_detail/column/p_5f85677be4b06aff1a03cecb?content_app_id=&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;[2] STM32MP157 裸机开发完全手册&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt; [3] DM00327659&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt; [4] ARM Cortex-M3 与 Cortex-M4 权威指南&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt; [5] DDI0406C_d_armv7ar_arm&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+</content>
+        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
+        <category term="ARM" scheme="https://to-ywz.github.io/categories/Embedded/ARM/" />
+        <category term="ARM" scheme="https://to-ywz.github.io/tags/ARM/" />
+        <updated>2023-06-16T14:20:07.000Z</updated>
+    </entry>
+    <entry>
         <id>https://to-ywz.github.io/computer-science/C/C%E8%AF%AD%E8%A8%80%E6%8B%BE%E9%81%97/</id>
         <title>C语言拾遗</title>
         <link rel="alternate" href="https://to-ywz.github.io/computer-science/C/C%E8%AF%AD%E8%A8%80%E6%8B%BE%E9%81%97/"/>
@@ -2207,182 +2457,5 @@ typedef 在官方 的定义上是不会创造新的数据类型的，那么疑�
         <category term="求职" scheme="https://to-ywz.github.io/categories/work/" />
         <category term="面试" scheme="https://to-ywz.github.io/categories/work/%E9%9D%A2%E8%AF%95/" />
         <updated>2021-10-11T08:02:51.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://to-ywz.github.io/Embedded/Linux/Linux%E7%BC%96%E8%AF%91Hello-World/</id>
-        <title>Linux编译Hello World</title>
-        <link rel="alternate" href="https://to-ywz.github.io/Embedded/Linux/Linux%E7%BC%96%E8%AF%91Hello-World/"/>
-        <content type="html">&lt;h1 id=&#34;linux-c&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#linux-c&#34;&gt;#&lt;/a&gt; Linux C&lt;/h1&gt;
-&lt;h2 id=&#34;gcc-编译链&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gcc-编译链&#34;&gt;#&lt;/a&gt; GCC 编译链&lt;/h2&gt;
-&lt;p&gt;GCC 编译链 (toolchain) 是以 GCC 为核心的一整套工具，用于把源码转化为可执行应用程序。主要包括以下三部分:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;gcc-core&lt;/code&gt;  :  即 GCC 编译器，用于完成预处理和编译的过程.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Binutils&lt;/code&gt;  :  除 GCC 编译器外的一些列小工具。包括了 链接器  &lt;code&gt;ld&lt;/code&gt; , 汇编器  &lt;code&gt;as&lt;/code&gt; , 目标文件格式查看器  &lt;code&gt;readelf&lt;/code&gt;  等.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;glibc&lt;/code&gt;     :  包含了主要的 C 语言标准库函数，C 语言中常常使用的打印函数  &lt;code&gt;printf&lt;/code&gt; 、 &lt;code&gt;malloc&lt;/code&gt;  函数就在  &lt;code&gt;glibc&lt;/code&gt;  库中&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;gcc编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gcc编译器&#34;&gt;#&lt;/a&gt; GCC 编译器&lt;/h3&gt;
-&lt;p&gt;GCC (GUN Compiler Collection) 是由 GUN 开发的编程语言编译器. GCC 最初代表  &lt;code&gt;GNU C Compiler&lt;/code&gt; , 当时只支持 C 语言。后来逐渐支持 C++, JAVA 等，GCC 就被重定义为  &lt;code&gt;GNU Compiler Collection&lt;/code&gt; , 称为史上最优秀的编译器。其比一般编译器编译器平均效率高出 20%~30%.&lt;br /&gt;
- 虽然大部分教程都声明 Ubuntu 默认安装好了 GCC, 我实测出来的都是 没有安装 gcc 的，建议先输入以下命令安装 gcc&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; update&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; gcc &lt;span class=&#34;token parameter variable&#34;&gt;-y&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;安装完毕后，输入  &lt;code&gt;gcc -v&lt;/code&gt;  查看版本信息&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211007173355.png&#34; alt=&#34;GCC&#34; /&gt;&lt;br /&gt;
- 对于标注进行以下说明&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Target:x86_64-linux-gnu&lt;/code&gt;  表示该 GCC 的目标平台为 x86_64 架构 (Intel、 AMD 的 CPU), 表示它编译生成的应用程序只适用于 x86 架构，不适用于 ARM 开发板平台.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;gcc version 9.3.0&lt;/code&gt;  表明该 GCC 的版本为 9.3.0, 部分程序可能会对编译器版本有要求，hello world 程序很简单不需要考虑兼容性。一开始可以不用在乎这个，而编译指定版本的 uboot、 Linux 内核的时候可能会对 GCC 有版本要求&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;binutils-工具集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#binutils-工具集&#34;&gt;#&lt;/a&gt; Binutils 工具集&lt;/h3&gt;
-&lt;p&gt;Binutils（bin utility）, 是 GNU 二进制工具集，通常跟 GCC 编译器一起打包安装到系统，它的官方说明网站地址为:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ251Lm9yZy9zb2Z0d2FyZS9iaW51dGlscy8=&#34;&gt;https://www.gnu.org/software/binutils/&lt;/span&gt;&lt;br /&gt;
- 在进行程序开发的时候通常不会直接调用这些工具，而是在使用 GCC 编译指令的时候由 GCC 编译器间接调用.&lt;br /&gt;
- 下面是其中一些常用的工具:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;as:         汇编器，把汇编语言代码转换为机器码（目标文件）&lt;/li&gt;
-&lt;li&gt;ld:         链接器，把编译生成的多个目标文件组织成最终的可执行程序文件&lt;/li&gt;
-&lt;li&gt;readelf:    可用于查看目标文件或可执行程序文件的信息&lt;/li&gt;
-&lt;li&gt;nm:         可用于查看目标文件中出现的符号&lt;/li&gt;
-&lt;li&gt;objcopy:    可用于目标文件格式转换，如.bin 转换成.elf 、 .elf 转换成.bin 等&lt;/li&gt;
-&lt;li&gt;objdump:    可用于查看目标文件的信息，最主要的作用是反汇编&lt;/li&gt;
-&lt;li&gt;size:       可用于查看目标文件不同部分的尺寸和总尺寸，例如代码段大小、数据段大小、使用的静态内存、总大小等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;系统默认的 Binutils 工具集 位于  &lt;code&gt;/usr/bin&lt;/code&gt;  目录下。可以使用如下命令查看&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; /usr/bin/ &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; linux-gun-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211007174648.png&#34; alt=&#34;Binutils&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;glibc-库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#glibc-库&#34;&gt;#&lt;/a&gt; glibc 库&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;glibc&lt;/code&gt;  库是 GNU 组织为 GNU 系统以及 Linux 系统编写的 C 语言标准库，因为大部分 C 语言都依赖函数库，该文件甚至会直接影响到系统的正常运行，例如文件操作的  &lt;code&gt;read&lt;/code&gt;   &lt;code&gt;write&lt;/code&gt;   &lt;code&gt;open&lt;/code&gt;  , 标准输出的  &lt;code&gt;printf&lt;/code&gt; , 内存管理的  &lt;code&gt;malloc&lt;/code&gt;  等&lt;/p&gt;
-&lt;p&gt;在 Ubuntu 系统下，libc.so.6 是 glibc 的库文件，可直接执行该库文件查看版本，在主机上执行如下命令:&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;/lib/x86_64-linux-gun/libc.so.6&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211007175752.png&#34; alt=&#34;lib&#34; /&gt;&lt;br /&gt;
- 在学习 C 语言的时候很好奇标准库是如何实现的，但是奈何 Window 下的 C 库并不开源.&lt;br /&gt;
- 在 Linux 下是开源的，可以直接 glibc 的源代码，甚至可以加入开发社区贡献自己的代码.&lt;br /&gt;
-glibc 的官网地址为： &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ251Lm9yZy9zb2Z0d2FyZS9saWJjLw==&#34;&gt;https://www.gnu.org/software/libc/&lt;/span&gt; , 可在该网站中下载源代码来学习.&lt;/p&gt;
-&lt;h2 id=&#34;gcc编译过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gcc编译过程&#34;&gt;#&lt;/a&gt; GCC 编译过程&lt;/h2&gt;
-&lt;h3 id=&#34;基本语法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本语法&#34;&gt;#&lt;/a&gt; 基本语法&lt;/h3&gt;
-&lt;p&gt;GCC 基本命令如下:&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;-option&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; fileName&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;常用 option:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;-o&lt;/code&gt; : 小写字母  &lt;code&gt;o&lt;/code&gt; , 指定生成可执行文件的名字，不指定的化生成的可执行文件名为  &lt;code&gt;a.out&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-E&lt;/code&gt; : 只进行预处理，不进行编译，也不进行汇编。简单来说就是去除头文件，替代宏定义。生成  &lt;code&gt;.i&lt;/code&gt;  文件&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-S&lt;/code&gt; : 只编译，不汇编。生成的是  &lt;code&gt;.s&lt;/code&gt;  汇编文件&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-c&lt;/code&gt; : 编译并进行汇编，不进行连接。生成  &lt;code&gt;.o&lt;/code&gt;  文件&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-g&lt;/code&gt; : 生成可执行文件待调试信息，便于  &lt;code&gt;gdb&lt;/code&gt;  调试&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-Ox&lt;/code&gt; : 大写字母  &lt;code&gt;O&lt;/code&gt;  加数字，设置程序优化等级，例如  &lt;code&gt;-O1&lt;/code&gt; ,  &lt;code&gt;-O2&lt;/code&gt; ,  &lt;code&gt;-O3&lt;/code&gt; , 数字越大的代码优化等级越高，编译出来的程序一般会越小，但是越小的程序约有可能执行异常. ( &lt;code&gt;i++&lt;/code&gt;  优化的你都不认识)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;编译过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译过程&#34;&gt;#&lt;/a&gt; 编译过程&lt;/h3&gt;
-&lt;p&gt;一般来说我们使用  &lt;code&gt;gcc&lt;/code&gt;  编译单个文件基本上像这样  &lt;code&gt;gcc hello.c -o hello&lt;/code&gt; , 就可以获得到可执行文件  &lt;code&gt;hello.out&lt;/code&gt; , 事实上编译是可以分步的。特别是编译多文件的时候，我们会把文件先编译为  &lt;code&gt;.o&lt;/code&gt;  文件用于链接，最后才去生成可执行文件.&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 一般来说:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc hello.c &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; hello&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 等价于以下步骤&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 预处理&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc &lt;span class=&#34;token parameter variable&#34;&gt;-E&lt;/span&gt; hello.c &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; hello.i&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 编译&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc &lt;span class=&#34;token parameter variable&#34;&gt;-S&lt;/span&gt; hello.i &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; hello.s&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 汇编&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc &lt;span class=&#34;token parameter variable&#34;&gt;-c&lt;/span&gt; hello.s &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; hello.o&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 链接&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;gcc hello.o &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; Hello&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;GCC 编译工具链在编译一个 C 源文件时需要经过以下 4 步:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;预处理，在预处理过程中，对源代码文件中的文件包含 (include)、预编译语句 (如宏定义 define 等) 进行&lt;br /&gt;
-展开，生成.i 文件。可理解为把头文件的代码、宏之类的内容转换成更纯粹的 C 代码，不过生成的文件&lt;br /&gt;
-以.i 为后缀.&lt;/li&gt;
-&lt;li&gt;编译，把预处理后的.i 文件通过编译成为汇编语言，生成.s 文件，即把代码从 C 语言转换成汇编语言，&lt;br /&gt;
- 这是 GCC 编译器完成的工作.&lt;/li&gt;
-&lt;li&gt;汇编，将汇编语言文件经过汇编，生成目标文件.o 文件，每一个源文件都对应一个目标文件。即把汇编&lt;br /&gt;
-语言的代码转换成机器码，这是 as 汇编器完成的工作.&lt;/li&gt;
-&lt;li&gt;链接，最后将每个源文件对应的.o 文件链接起来，就生成一个可执行程序文件，这是链接器 ld 完成的&lt;br /&gt;
-工作&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;交叉编译工具链&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#交叉编译工具链&#34;&gt;#&lt;/a&gt; 交叉编译工具链&lt;/h3&gt;
-&lt;p&gt;先来看两个概念:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;本地编译：编译器和目标程序都是相同架构的编译过程&lt;/li&gt;
-&lt;li&gt;交叉编译：编译器和目标程程序运行在不同架构下的编译过程&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;疑惑吗？交叉编译存在的意义是什么？&lt;br /&gt;
- 我们来设想一下，我们在 i.MX6ull 上编译 一个庞大的工程，那么我们就需要一个编译器，还需还对应的工程文件的存储空间，调试空间... 更致命的是，C/C++ 这种项目，随随便便一编译都是好几 s, 这还是在我们性能超强的多核 CPU 上.&lt;br /&gt;
- 咱的 ARM 架构的处理器资源和性能都无法和 x86 平台相比。尤其是对于 MCU 连 OS 都不配拥有，和谈编译器。有了交叉编译，我们就可以在 其他平台上使劲霍霍 CPU 了.&lt;/p&gt;
-&lt;p&gt;其实 MCU 开发的过程就是交编译，无论是 IAR, CCS 还是 keil 都是在 x86 上开发后下载到板子里然后执行.&lt;br /&gt;
-&lt;strong&gt;PS: 能进行架构 &amp;quot;交叉&amp;quot; 编译的编译器被称为交叉编译器 (Corss Compiler)&lt;/strong&gt;&lt;/p&gt;
-&lt;h4 id=&#34;编译链安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译链安装&#34;&gt;#&lt;/a&gt; 编译链安装&lt;/h4&gt;
-&lt;p&gt;Linux 下:&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; gcc-arm-linux-gnueabihf &lt;span class=&#34;token parameter variable&#34;&gt;-y&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;查看一下版本 和 相关编译链&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211008213347.png&#34; alt=&#34;arm&#34; /&gt;&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211008213509.png&#34; alt=&#34;version&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;使用  &lt;code&gt;readelf -a hello&lt;/code&gt;  查看 可执行文件信息&lt;br /&gt;
- x86 架构&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211008214155.png&#34; alt=&#34;x86_64&#34; /&gt;&lt;br /&gt;
-ARM 架构&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211008214030.png&#34; alt=&#34;ARM&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;编译器选择&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编译器选择&#34;&gt;#&lt;/a&gt; 编译器选择&lt;/h3&gt;
-&lt;p&gt;除了我们安装的版本之外，编译器还有很多版本。目前来说大部分 ARM 开发者使用的都是由 Linaro 组织提供的交叉编译器，包括前面 APT 安装的 ARM-GCC 工具链也是来源于 Linaero.&lt;br /&gt;
-Linaro 是由 ARM 公司发起，与其他 ARM SOC 公司共同投资的非盈利组织.&lt;br /&gt;
-ARM 交叉编译链可以在这里找到:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yZWxlYXNlcy5saW5hcm8ub3JnL2NvbXBvbmVudHMvdG9vbGNoYWluL2JpbmFyaWVzLw==&#34;&gt; 传送门&lt;/span&gt;&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211009092521.png&#34; alt=&#34;version&#34; /&gt; &lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211009092751.png&#34; alt=&#34;os&#34; /&gt;&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/before2022/20211009093104.png&#34; alt=&#34;platform&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;虽然编译器的命名没有严格的规则，但他们的名字中一般包含我们最为关心的内容，可以根据名字来选择要使用的编译器:&lt;br /&gt;
- &lt;code&gt;arch [-os] [-(gun)eabi(hf)] -gcc&lt;/code&gt; &lt;br /&gt;
- 其中各段文字意义如下表所示.&lt;br /&gt;
-GCC 命名格式:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;字段&lt;/th&gt;
-&lt;th&gt;含义&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;arch&lt;/td&gt;
-&lt;td&gt;目标芯片&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;gnu&lt;/td&gt;
-&lt;td&gt;C 标准库类型&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;eabi&lt;/td&gt;
-&lt;td&gt;应用二进制接口&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;hf&lt;/td&gt;
-&lt;td&gt;浮点模式&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;以  &lt;code&gt;arm-linux-gnueabihf-gcc&lt;/code&gt;  编译器为例来分析一下.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;arm:    芯片架构为 ARM&lt;/li&gt;
-&lt;li&gt;linux:  目标操作系统为 Linux&lt;/li&gt;
-&lt;li&gt;gnu:    使用 GNU 的 C 语言标准库即 glibc&lt;/li&gt;
-&lt;li&gt;eabi:   使用嵌入式应用二进制接口 (eabi)&lt;/li&gt;
-&lt;li&gt;hf:     编译器浮点模式为硬浮点 hard-float.&lt;br /&gt;
- 相对于  &lt;code&gt;arm-linux-gnueabi-gcc&lt;/code&gt;  查遍仅仅在于是否使携带  &lt;code&gt;hf&lt;/code&gt; , 像 M3 内核的处理器就不能使用  &lt;code&gt;hf&lt;/code&gt; , 其本身不带  &lt;code&gt;fpu&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;相关字段详细说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关字段详细说明&#34;&gt;#&lt;/a&gt; 相关字段详细说明&lt;/h4&gt;
-&lt;h5 id=&#34;目标芯片架构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目标芯片架构&#34;&gt;#&lt;/a&gt; 目标芯片架构&lt;/h5&gt;
-&lt;p&gt;目标芯片架构就是指交叉编译生成的程序运行的平台，如 ARM、MIPS, 其中 ARM 交叉编译又分为 ARMv7、ARMv8 以及 aarch64 架构.&lt;br /&gt;
-i.MX6ull 的内核为 Cortex-A7, 使用的是 ARMv7 架构.&lt;/p&gt;
-&lt;h5 id=&#34;大小端&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#大小端&#34;&gt;#&lt;/a&gt; 大小端&lt;/h5&gt;
-&lt;p&gt;指目标芯片的大小端模式，i.MX6ull 使用的是小端模式，若是大端模式 (big edian), 编译器名字中会带  &lt;code&gt;be&lt;/code&gt;  或  &lt;code&gt;eb&lt;/code&gt;  字段进行标注&lt;/p&gt;
-&lt;h5 id=&#34;目标操作系统&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目标操作系统&#34;&gt;#&lt;/a&gt; 目标操作系统&lt;/h5&gt;
-&lt;p&gt;目标操作系统表示编译后程序运行的系统，主要由 Linux 或 bare-metal (裸机) 两种， &lt;code&gt;arm-linux-guneabigcc&lt;/code&gt;  表示它的进程目标运行环境为 linux, 程序可以使用 linux 下的 C 标准库或 Linux 内核提供的 API, 例如 fork 等进程函数。而  &lt;code&gt;arm-eabi-gcc&lt;/code&gt;  或  &lt;code&gt;arm-none-eabi-gcc&lt;/code&gt;  表示它们的目标程序运行在无操作系统的环境中.&lt;br /&gt;
- 严格来说，编译 Linux 应用程序时应该使用带  &lt;code&gt;linux&lt;/code&gt;  的编译器，而编译  &lt;code&gt;uboot&lt;/code&gt; 、裸机程序时，应该使用  &lt;code&gt;bare-metal&lt;/code&gt;  类型的裸机编译器.&lt;/p&gt;
-&lt;h5 id=&#34;c-标准库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c-标准库&#34;&gt;#&lt;/a&gt; C 标准库&lt;/h5&gt;
-&lt;p&gt;C 标准库一般 gnu、uglibc 等，分别表示 GNU 的 glibc 和 uclibc 库. C 库取决于系统，不过二者是相互兼容的，基本不需要特别注意。除了裸机开发之外不带 c 库，其他编译器 c 库都是 glibc 的库.&lt;/p&gt;
-&lt;h5 id=&#34;应用二进制接口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#应用二进制接口&#34;&gt;#&lt;/a&gt; 应用二进制接口&lt;/h5&gt;
-&lt;p&gt;应用二进制接口 (Application Binary Interface), 描述了应用程序和操作系统之间或其他应用程序的低级接口.&lt;br /&gt;
- 在编译器中主要有  &lt;code&gt;abi&lt;/code&gt;  和  &lt;code&gt;eabi&lt;/code&gt;  两种类型， &lt;code&gt;abi&lt;/code&gt;  通常应用在 x86 架构上，而  &lt;code&gt;eabi&lt;/code&gt;  表示  &lt;code&gt;emabi abi&lt;/code&gt; , 即嵌入式架构，如 ARM、MIPS 等&lt;/p&gt;
-&lt;h5 id=&#34;浮点模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#浮点模式&#34;&gt;#&lt;/a&gt; 浮点模式&lt;/h5&gt;
-&lt;p&gt;部分 ARM 处理器带浮点运算单元，代码需要进行浮点运算时若交给  &lt;code&gt;fpu&lt;/code&gt;  处理，可以加快运算速度。编译器针对浮点运算的不同处理情况提供了以下几种模式:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;hard: 硬件浮点类型 (hard-float), 采用  &lt;code&gt;fpu&lt;/code&gt;  参与浮点运算.&lt;/li&gt;
-&lt;li&gt;soft: 软浮点类型 (soft-float), 即使有  &lt;code&gt;fpu&lt;/code&gt;  运算单元也不使用，使用软件模拟&lt;/li&gt;
-&lt;li&gt;softfp: 允许使用浮点指令，但是保持与软浮点 ABI 的兼容性&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;PS: ABI 即  &lt;code&gt;application binary interface&lt;/code&gt; , 即编译器将 c 代码编译成汇编代码时使用的一种规则&lt;/p&gt;
-&lt;h3 id=&#34;不同编译器对程序的影响&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#不同编译器对程序的影响&#34;&gt;#&lt;/a&gt; 不同编译器对程序的影响&lt;/h3&gt;
-&lt;p&gt;这里主要测试一下软浮点编译的动态编译和静态编译&lt;br /&gt;
-先来理解一下两个概念：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;静态链接：在编译阶段就会把所有用到的库打包到自己的可执行程序中，其优点是具有较好的兼容性，不依赖外部环境，但是生成的程序比较大.&lt;/li&gt;
-&lt;li&gt;动态链接：在应用程序运行时，链接器去加载外部的共享库，并完成共享库和动态编译程序之间的链接。不同的程序可以共用代码库，节省内存空间.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
-</content>
-        <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
-        <category term="Linux" scheme="https://to-ywz.github.io/categories/Embedded/Linux/" />
-        <category term="学习笔记" scheme="https://to-ywz.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="Linux" scheme="https://to-ywz.github.io/tags/Linux/" />
-        <updated>2021-10-07T07:47:58.000Z</updated>
     </entry>
 </feed>
