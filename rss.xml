@@ -10,8 +10,8 @@
         </author>
         <description>笔记&amp;分享</description>
         <language>zh-CN</language>
-        <pubDate>Fri, 23 Jun 2023 22:20:07 +0800</pubDate>
-        <lastBuildDate>Fri, 23 Jun 2023 22:20:07 +0800</lastBuildDate>
+        <pubDate>Tue, 27 Jun 2023 22:20:07 +0800</pubDate>
+        <lastBuildDate>Tue, 27 Jun 2023 22:20:07 +0800</lastBuildDate>
         <category term="IT" />
         <category term="嵌入式" />
         <category term="C语言" />
@@ -23,7 +23,7 @@
             <category term="嵌入式" scheme="https://to-ywz.github.io/categories/Embedded/" />
             <category term="ARM" scheme="https://to-ywz.github.io/categories/Embedded/ARM/" />
             <category term="ARM" scheme="https://to-ywz.github.io/tags/ARM/" />
-            <pubDate>Fri, 23 Jun 2023 22:20:07 +0800</pubDate>
+            <pubDate>Tue, 27 Jun 2023 22:20:07 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;arm汇编基础知识&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#arm汇编基础知识&#34;&gt;#&lt;/a&gt; ARM 汇编基础知识&lt;/h1&gt;
 &lt;h2 id=&#34;汇编&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#汇编&#34;&gt;#&lt;/a&gt; 汇编&lt;/h2&gt;
 &lt;p&gt;大部分做嵌入式开发时候，使用的都是 C 语言，通过编译器生成二进制文件，然后烧录到 MCU 中.&lt;br /&gt;
@@ -38,11 +38,11 @@
 &lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.39ldlwmyo6a0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
  可以看到有着很大的差别，但是，毫无疑问二者都可以实现最终效果&lt;/p&gt;
 &lt;h2 id=&#34;二进制文件生成流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二进制文件生成流程&#34;&gt;#&lt;/a&gt; 二进制文件生成流程&lt;/h2&gt;
-&lt;p&gt;正常来说，一个 C 语言程序，会先经过预处理生成 &lt;code&gt;x.i&lt;/code&gt;  文件，这时候还是 C 语言文件，仅仅是完成了将头文件内容放入 &lt;code&gt;x.c&lt;/code&gt;  的文件夹中&lt;br /&gt;
-接下去就是编译，将 &lt;code&gt;x.i&lt;/code&gt;  文件编译为汇编文件 &lt;code&gt;x.s&lt;/code&gt; , 这时候得出来的文件就是汇编文件了&lt;br /&gt;
-再接下去就是将各个 &lt;code&gt;x.s&lt;/code&gt;  文件汇编为 &lt;code&gt;x.o&lt;/code&gt;  文件，这时候文件就是二进制格式了，无法打开查看了&lt;br /&gt;
-最后通过链接器将 &lt;code&gt;x.o&lt;/code&gt;  文件，合并成 &lt;code&gt;x.elf&lt;/code&gt;   文件用于下载&lt;br /&gt;
-这时候如果想看汇编的话就需要通过反汇编器来实现反汇编 &lt;code&gt;x.dis&lt;/code&gt; , 一般来说各种编译器自带了反汇编器&lt;br /&gt;
+&lt;p&gt;正常来说，一个 C 语言程序，会先经过预处理生成  &lt;code&gt;x.i&lt;/code&gt;  文件，这时候还是 C 语言文件，仅仅是完成了将头文件内容放入  &lt;code&gt;x.c&lt;/code&gt;  的文件夹中&lt;br /&gt;
+接下去就是编译，将  &lt;code&gt;x.i&lt;/code&gt;  文件编译为汇编文件  &lt;code&gt;x.s&lt;/code&gt; , 这时候得出来的文件就是汇编文件了&lt;br /&gt;
+再接下去就是将各个  &lt;code&gt;x.s&lt;/code&gt;  文件汇编为  &lt;code&gt;x.o&lt;/code&gt;  文件，这时候文件就是二进制格式了，无法打开查看了&lt;br /&gt;
+最后通过链接器将  &lt;code&gt;x.o&lt;/code&gt;  文件，合并成  &lt;code&gt;x.elf&lt;/code&gt;   文件用于下载&lt;br /&gt;
+这时候如果想看汇编的话就需要通过反汇编器来实现反汇编  &lt;code&gt;x.dis&lt;/code&gt; , 一般来说各种编译器自带了反汇编器&lt;br /&gt;
 &lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.12l1qmm1yd2o.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;keil下怎么反汇编&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#keil下怎么反汇编&#34;&gt;#&lt;/a&gt; KEIL 下怎么反汇编&lt;/h2&gt;
 &lt;p&gt;在 KEIL 的 User 选项中，如下图添加这两项 (filename 自行替换)&lt;/p&gt;
@@ -62,6 +62,141 @@ fromelf  --text  -a -c  --output=filename.dis  Objects\filename.axf
 &lt;p&gt;PC 寄存器默认指向当前指令的下一条指令位置&lt;br /&gt;
 但是，不同架构的处理步长会不同，Thumb 指令集中 PC 步长为 4, ARM 指令集中 PC 步长为 8, 而 Thumb2 指令集为了兼容 Thumb 指令集就使用了 4 作为步长&lt;br /&gt;
 &lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.275rfbthmavw.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;汇编如何调用c语言函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#汇编如何调用c语言函数&#34;&gt;#&lt;/a&gt; 汇编如何调用 C 语言函数&lt;/h2&gt;
+&lt;h3 id=&#34;直接调用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#直接调用&#34;&gt;#&lt;/a&gt; 直接调用&lt;/h3&gt;
+&lt;p&gt;如果函数调用不涉及参数传递，那么可以直接调用&lt;/p&gt;
+&lt;p&gt;例如，调用  &lt;code&gt;void SystemReset(void)&lt;/code&gt; , 那么就可以直接调用&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-arm&#34;&gt;bl SystemReset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果函数具有返回值，例如  &lt;code&gt;uint8_t is_empty(void);&lt;/code&gt; , 当调用的时候可以直接调用&lt;br /&gt;
+返回值会存入  &lt;code&gt;r0~r3&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bl is_empty
+and r0, #0xff
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;含有参数的函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#含有参数的函数&#34;&gt;#&lt;/a&gt; 含有参数的函数&lt;/h3&gt;
+&lt;p&gt;如果函数带有参数，那就涉及到了传参的问题，怎么传，用什么传？&lt;/p&gt;
+&lt;p&gt;其实 ARM 中有一个 ATPCS 规则 ARM-THUMB procedure call standard (ARM-Thumb 过程调用标准)&lt;br /&gt;
+ 这个标准的第 10 页约定 r0~r15 寄存器的用途&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;R0~r3: 用于参数传递和数值返回&lt;/li&gt;
+&lt;li&gt;r4~r11: 用于保存当前函数的局部变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/008_atpcs.76uqxz77nf40.jpg&#34; alt=&#34;008_atpcs&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;例如，调下面这个函数&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt; n&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;n&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;在汇编中的调用代码为&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-ASM&#34;&gt;ldr r0, =0x7fffff ; 传递参数, 存放到r0
+bl  delay
+cmp r0, #0 ; 校验返回值
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;思考一个问题当参数超级多的时候会怎么样？&lt;br /&gt;
+ 当函数参数过多的时候，会使用栈来保存&lt;/p&gt;
+&lt;p&gt;r4~r11 作为局部变量的保存点，可能在调用时会发生改变&lt;br /&gt;
+这是因为这些寄存器时共享的，CPU 的任何运算操作都需要借助寄存器来实现&lt;br /&gt;
+所以在调用函数时，需要将 r4~r15 以及 psr 寄存器都保存下来 (当然因地制宜，没用到就不存了，要不然浪费空间)&lt;/p&gt;
+&lt;h2 id=&#34;c函数的汇编代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c函数的汇编代码&#34;&gt;#&lt;/a&gt; C 函数的汇编代码&lt;/h2&gt;
+&lt;p&gt;这里是一段 STM32MP157 的 led 点亮代码，由于 &lt;code&gt;main&lt;/code&gt;  函数太长这里只分析一下 delay 的调用和执行&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;USE_A7&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;long&lt;/span&gt; ntime&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;ntime&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;unsigned&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;p_reg&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;/* 使能 PLL4 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    p_reg &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;unsigned&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x50000000&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x894&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;p_reg &lt;span class=&#34;token operator&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 等待时钟稳定&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;p_reg &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;/* 使能 GPIOA */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;ifdef&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;USE_A7&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    p_reg &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;unsigned&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x50000000&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0xA28&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;p_reg &lt;span class=&#34;token operator&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;ifdef&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;USE_M4&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    p_reg &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;unsigned&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x50000000&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0xAA8&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;p_reg &lt;span class=&#34;token operator&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;/* 设置 GPIO10 为输出模式 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    p_reg &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;unsigned&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x50002000&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x00&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;p_reg &lt;span class=&#34;token operator&#34;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;~&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;40&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;p_reg &lt;span class=&#34;token operator&#34;&gt;|=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;41&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;42&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 指向 (GPIOA_ODR)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;43&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    p_reg &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;volatile&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;unsigned&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x50002000&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x14&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;44&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;45&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;/* 执行任务 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;46&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;47&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;48&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;/* 设置 LED 电平变化 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;49&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;p_reg &lt;span class=&#34;token operator&#34;&gt;^=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;50&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token function&#34;&gt;delay&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1000000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;51&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;52&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;53&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;54&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;经过反汇编后，这里就只给出调用和 &lt;code&gt;delay&lt;/code&gt;  的代码，简单进行一下分析&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-asm&#34;&gt;
+c01000bc:	f244 2040 	movw	r0, #16960	; 0x4240 ; 将0x4240存入r0的低16位
+c01000c0:	f2c0 000f 	movt	r0, #15              ; 将0x0f存入r0 的搞16位
+; 上面的出来的就是100000
+c01000c4:	f7ff ffa2 	bl	c010000c &amp;lt;delay&amp;gt;       ; 调用 delay 函数
+
+c010000c &amp;lt;delay&amp;gt;:
+c010000c:	b480      	push	&amp;#123;r7&amp;#125;                 ; 保存共享过程寄存器的原有的值
+c010000e:	b083      	sub	sp, #12                ; sp向后偏移12Byte
+c0100010:	af00      	add	r7, sp, #0             ; 将sp的值读取如r7
+c0100012:	6078      	str	r0, [r7, #4]           ;  r0 存入到 sp+4 的地址
+c0100014:	bf00      	nop
+c0100016:	687b      	ldr	r3, [r7, #4]           ; 将sp+4 地址上的数据读入到r3
+c0100018:	1e5a      	subs	r2, r3, #1           ; 将 r3 的值-1 ntime-1
+c010001a:	607a      	str	r2, [r7, #4]           ; 更新SP+3的数值
+c010001c:	2b00      	cmp	r3, #0                 ; 比较是否减到0
+c010001e:	d1fa      	bne.n	c0100016 &amp;lt;delay+0xa&amp;gt; ; 是则返回
+c0100020:	bf00      	nop
+c0100022:	370c      	adds	r7, #12              ; 出栈
+c0100024:	46bd      	mov	sp, r7                 ; 回复 sp 数值
+c0100026:	f85d 7b04 	ldr.w	r7, [sp], #4         ; 回复 r7
+c010002a:	4770      	bx	lr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;图片简单讲解一下，更详细的可以参考韦东山的视频&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.nsum3h8ig40.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用汇编实现点灯&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用汇编实现点灯&#34;&gt;#&lt;/a&gt; 使用汇编实现点灯&lt;/h2&gt;
+&lt;p&gt;分析和了解了这么多，总得实战一下，其实本质上是一个 读 - 改 - 存 的过程&lt;br /&gt;
+一般来说，当出现清零，或者亦或之类的运算在 改 这个步骤上会多一些&lt;br /&gt;
+&lt;strong&gt; &lt;code&gt;;&lt;/code&gt;  不是注释，这里的注释符号和 C 语言一致&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.text
+.global  _start
+
+_start: 	
+
+    /* 1. 使能GPIO */
+
+    /* 使能 RCC */
+    ldr r0, =(0x50000000 + 0x894)
+    ldr r1, [r0]
+    orr r1, r1, #(1&amp;lt;&amp;lt;0)
+    str r1, [r0]
+ 
+NotReady:
+    ldr R1, [R0]
+    tst r1, #(1 &amp;lt;&amp;lt; 1)
+    beq NotReady   /* 不为0则等待 */
+
+   /* 使能 GPIOA 模块 */
+    ldr r0, =(0x50000000 + 0xA28)
+    ldr r1, [r0]
+    orr r1, r1, #(1&amp;lt;&amp;lt;0)
+    str r1, [r0]
+
+    /* 配置GPIO引脚 */
+
+    /* 设置GPIO10为输出模式 */
+    ldr r0, = (0x50002000 + 0x00)
+    ldr r1, [r0]
+    mov r2, #(3&amp;lt;&amp;lt;20)      /* 用于生成清除位 */
+    bic r1, r1, r2        /* r1 = r1&amp;amp;~(R2) */
+    orr r1, r1, #(1&amp;lt;&amp;lt;20)  /* 配置为 输出 */
+    str r1, [r0]
+
+    /* r0 指向 (GPIOA_ODR) */
+    ldr r2, = (0x50002000 + 0x14)
+
+Loop:
+
+    /* 设置引脚高电平 */
+    ldr r1, [r2]
+    orr r1, r1, #(1&amp;lt;&amp;lt;10)
+    str r1, [r2]
+    
+    ldr r0, =1000000
+    bl Delay
+
+    /* 设置引脚低电平 */
+    ldr r1, [r2]
+    bic r1, r1, #(1&amp;lt;&amp;lt;10)
+    str r1, [r2]
+    
+    ldr r0, =1000000
+    bl Delay
+    
+    b Loop
+
+
+Delay:
+    subs r0, r0, #1
+    bne Delay
+    mov pc, lr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;能明显的感觉到，咱们的代码要比反汇编的短，会更加高效一些&lt;br /&gt;
+这是因为编译器会在保证稳妥的情况下再选择高效的指令&lt;/p&gt;
+&lt;p&gt;当然，还会有更加高效的算法，但这是我能力内目前能想到的一个方案&lt;br /&gt;
+如果有更好的方法，望各位大佬斧正&lt;/p&gt;
+&lt;h2 id=&#34;参考文献&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考文献&#34;&gt;#&lt;/a&gt; 参考文献&lt;/h2&gt;
+&lt;p&gt;[1] ARM ArchitectureReference Manual ARMv7-A and ARMv7-R edition&lt;br /&gt;
+[2] DDI0403E_B_armv7m_arm&lt;br /&gt;
+[3] PM0056&lt;br /&gt;
+ [4] ATPCS (ATM-Thumb 指令调用标准)&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
  ]]></description>
@@ -1410,6 +1545,38 @@ else
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://to-ywz.github.io/tool/HAL%E5%BA%93%E5%87%BA%E7%8E%B0HAL_StatusTypeDef%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB/</guid>
+            <title>HAL库出现HAL_StatusTypeDef无法识别</title>
+            <link>https://to-ywz.github.io/tool/HAL%E5%BA%93%E5%87%BA%E7%8E%B0HAL_StatusTypeDef%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB/</link>
+            <category term="开发工具" scheme="https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" />
+            <category term="HAL库" scheme="https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/HAL%E5%BA%93/" />
+            <category term="HAL库" scheme="https://to-ywz.github.io/tags/HAL%E5%BA%93/" />
+            <pubDate>Tue, 22 Nov 2022 13:14:07 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题&#34;&gt;#&lt;/a&gt; 问题&lt;/h1&gt;
+&lt;p&gt;今天重新写了一个 gpio 的抽象层，结果编译的时候出现了一个 bug: &lt;code&gt;HAL_StatusTypeDef&lt;/code&gt;  无法识别&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.5wq5i5adpug0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+ 一看这种问题，涉及库文件不是头文件引用错就是，无意中改动了宏.&lt;/p&gt;
+&lt;h1 id=&#34;思考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思考&#34;&gt;#&lt;/a&gt; 思考&lt;/h1&gt;
+&lt;p&gt;由于我的工程是直接从 CubeMX 中生成的所以不存在什么宏改错的问题&lt;br /&gt;
+那就到了头文件的问题了，首先考虑自己编写的 &lt;code&gt;gpio&lt;/code&gt;  文件&lt;br /&gt;
+我的源码中只有一个头文件与 HAL 相关&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.6wfazdj3i5s0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+ 很显然有一半的可能是  &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  惹的祸.&lt;br /&gt;
+ 所以我将  &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  替换为  &lt;code&gt;main.h&lt;/code&gt; &lt;br /&gt;
+ 编译后  &lt;code&gt;0 error 0 wraning&lt;/code&gt; , 果然是找个的问题.&lt;br /&gt;
+ 但出现了新的问题，为啥 &lt;code&gt;main.h&lt;/code&gt;  可以 而 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  不可以&lt;br /&gt;
+经过多次转跳，在 &lt;code&gt;stm32f4xx_hal_conf&lt;/code&gt;  中，看到了了这部分 宏&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.3vtw1rk50o80.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.1vczkfxpj4v4.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
+ 我严重怀疑，是不是因为宏开关的问题，限制了 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  内部的一些定义&lt;br /&gt;
+但是进入 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  中查看找不到有宏的开关，所以我认为可能是单独的 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  文件不足以构成完整的文件，缺少部分文件依赖而导致的.&lt;br /&gt;
+ 虽然可以这么解释但是，还是觉得怪怪的。等以后捋清楚了再回来继续更.&lt;br /&gt;
+-------------------2023.2.8----------------------------&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://to-ywz.github.io/tool/VSCode%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
             <title>VSCode使用问题记录</title>
             <link>https://to-ywz.github.io/tool/VSCode%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</link>
@@ -1439,38 +1606,6 @@ else
 &lt;p&gt;在 setting.json 文件中添加以下代码&lt;/p&gt;
 &lt;figure class=&#34;highlight json&#34;&gt;&lt;figcaption data-lang=&#34;JSON&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;editor.bracketPairColorization.enabled&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;editor.guides.bracketPairs&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;active&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;当然，添加到全局的 setting 文件中肯定比较好一些&lt;br /&gt;
  ---------2022 年 11 月 -----------------&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://to-ywz.github.io/tool/HAL%E5%BA%93%E5%87%BA%E7%8E%B0HAL_StatusTypeDef%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB/</guid>
-            <title>HAL库出现HAL_StatusTypeDef无法识别</title>
-            <link>https://to-ywz.github.io/tool/HAL%E5%BA%93%E5%87%BA%E7%8E%B0HAL_StatusTypeDef%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB/</link>
-            <category term="开发工具" scheme="https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" />
-            <category term="HAL库" scheme="https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/HAL%E5%BA%93/" />
-            <category term="HAL库" scheme="https://to-ywz.github.io/tags/HAL%E5%BA%93/" />
-            <pubDate>Tue, 22 Nov 2022 13:14:07 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题&#34;&gt;#&lt;/a&gt; 问题&lt;/h1&gt;
-&lt;p&gt;今天重新写了一个 gpio 的抽象层，结果编译的时候出现了一个 bug: &lt;code&gt;HAL_StatusTypeDef&lt;/code&gt;  无法识别&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.5wq5i5adpug0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
- 一看这种问题，涉及库文件不是头文件引用错就是，无意中改动了宏.&lt;/p&gt;
-&lt;h1 id=&#34;思考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思考&#34;&gt;#&lt;/a&gt; 思考&lt;/h1&gt;
-&lt;p&gt;由于我的工程是直接从 CubeMX 中生成的所以不存在什么宏改错的问题&lt;br /&gt;
-那就到了头文件的问题了，首先考虑自己编写的 &lt;code&gt;gpio&lt;/code&gt;  文件&lt;br /&gt;
-我的源码中只有一个头文件与 HAL 相关&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.6wfazdj3i5s0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
- 很显然有一半的可能是  &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  惹的祸.&lt;br /&gt;
- 所以我将  &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  替换为  &lt;code&gt;main.h&lt;/code&gt; &lt;br /&gt;
- 编译后  &lt;code&gt;0 error 0 wraning&lt;/code&gt; , 果然是找个的问题.&lt;br /&gt;
- 但出现了新的问题，为啥 &lt;code&gt;main.h&lt;/code&gt;  可以 而 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  不可以&lt;br /&gt;
-经过多次转跳，在 &lt;code&gt;stm32f4xx_hal_conf&lt;/code&gt;  中，看到了了这部分 宏&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.3vtw1rk50o80.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.staticaly.com/gh/to-ywz/Image-Hosting@master/2023/image.1vczkfxpj4v4.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
- 我严重怀疑，是不是因为宏开关的问题，限制了 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  内部的一些定义&lt;br /&gt;
-但是进入 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  中查看找不到有宏的开关，所以我认为可能是单独的 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  文件不足以构成完整的文件，缺少部分文件依赖而导致的.&lt;br /&gt;
- 虽然可以这么解释但是，还是觉得怪怪的。等以后捋清楚了再回来继续更.&lt;br /&gt;
--------------------2023.2.8----------------------------&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
  ]]></description>
