@@ -197,7 +197,7 @@
 &lt;h3 id=&#34;语句3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#语句3&#34;&gt;#&lt;/a&gt; 语句 3&lt;/h3&gt;
 &lt;p&gt;People are absorbed into &amp;quot;a culture of consumption&amp;quot; launched by the 19th-century department stores that offered &amp;quot;vast arrays of goods in an elegant atmosphere.&lt;/p&gt;
 &lt;h4 id=&#34;语法-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#语法-3&#34;&gt;#&lt;/a&gt; 语法&lt;/h4&gt;
-&lt;p&gt;&lt;ins&gt;People&lt;/ins&gt; &lt;ins&gt;are absorbed into&lt;/ins&gt;.{.dot .warning} &amp;quot;a culture of consumption&amp;quot; &lt;ins class=&#34;wavy&#34;&gt;launched by the 19th-century department stores&lt;/ins&gt; [that &lt;ins class=&#34;dot warning&#34;&gt;offered&lt;/ins&gt; &lt;mark&gt;vast arrays of&lt;/mark&gt; goods in &lt;ins class=&#34;wavy&#34;&gt;an elegant atmosphere&lt;/ins&gt;].{aqua}.&lt;/p&gt;
+&lt;p&gt;&lt;ins&gt;People&lt;/ins&gt; &lt;ins class=&#34;dot warning&#34;&gt;are absorbed into&lt;/ins&gt; &amp;quot;a culture of consumption&amp;quot; &lt;ins class=&#34;wavy&#34;&gt;launched by the 19th-century department stores&lt;/ins&gt; [that &lt;ins class=&#34;dot warning&#34;&gt;offered&lt;/ins&gt; &lt;mark&gt;vast arrays of&lt;/mark&gt; goods in &lt;ins class=&#34;wavy&#34;&gt;an elegant atmosphere&lt;/ins&gt;].{aqua}.&lt;/p&gt;
 &lt;p&gt;主语: People&lt;br /&gt;
  谓语: are absorbed into&lt;br /&gt;
  宾语: culture&lt;/p&gt;
