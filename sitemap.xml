@@ -704,14 +704,14 @@
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/tags/VScode/</loc>
+    <loc>https://to-ywz.github.io/tags/%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/tags/%E7%AC%94%E8%AF%95/</loc>
+    <loc>https://to-ywz.github.io/tags/VScode/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -739,14 +739,14 @@
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/tags/Ubuntu/</loc>
+    <loc>https://to-ywz.github.io/tags/Makefile/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/tags/Makefile/</loc>
+    <loc>https://to-ywz.github.io/tags/Ubuntu/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -986,14 +986,14 @@
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/categories/%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD/2006/</loc>
+    <loc>https://to-ywz.github.io/categories/Makefile/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/categories/Makefile/</loc>
+    <loc>https://to-ywz.github.io/categories/%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD/2006/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1028,13 +1028,6 @@
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/categories/computer-science/C/</loc>
-    <lastmod>2023-07-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://to-ywz.github.io/categories/Embedded/communication-protocol/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -1042,7 +1035,7 @@
   </url>
   
   <url>
-    <loc>https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/</loc>
+    <loc>https://to-ywz.github.io/categories/computer-science/C/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1050,6 +1043,13 @@
   
   <url>
     <loc>https://to-ywz.github.io/categories/work/%E7%AC%94%E8%AF%95/</loc>
+    <lastmod>2023-07-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VSCode/</loc>
     <lastmod>2023-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
