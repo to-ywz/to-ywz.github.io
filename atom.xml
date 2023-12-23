@@ -8,11 +8,76 @@
     <author>
       <name>黑羊</name>
     </author>
-    <updated>2023-12-17T00:59:07.000Z</updated>
+    <updated>2023-12-28T06:52:35.000Z</updated>
     <category term="IT" />
     <category term="嵌入式" />
     <category term="C语言" />
     <category term="STM32" />
+    <entry>
+        <id>https://to-ywz.github.io/computer-science/C/%E7%BB%93%E6%9E%84%E4%BD%93%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/</id>
+        <title>结构体字节对齐</title>
+        <link rel="alternate" href="https://to-ywz.github.io/computer-science/C/%E7%BB%93%E6%9E%84%E4%BD%93%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/"/>
+        <content type="html">&lt;p&gt;&lt;strong&gt;PS: 写在前面&lt;/strong&gt;&lt;br /&gt;
+字节对齐这玩意我一直没明白到底是，怎么对齐，今天在牛客上的一道题目，让我大概了解了，字节对齐&lt;/p&gt;
+&lt;p&gt;这文章拖了好久都没完善，最近整理文章才发现&lt;/p&gt;
+&lt;h1 id=&#34;理论&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#理论&#34;&gt;#&lt;/a&gt; 理论&lt;/h1&gt;
+&lt;p&gt;先来补充一些理论.&lt;/p&gt;
+&lt;h2 id=&#34;什么是字节对齐&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#什么是字节对齐&#34;&gt;#&lt;/a&gt; 什么是字节对齐？&lt;/h2&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;理论上计算机对于任何变量的访问都可以从任意位置开始，&lt;br /&gt;
+ 然而实际上系统会对这些变量的存放地址有限制，&lt;br /&gt;
+ 通常将变量首地址设为某个数 N 的倍数，这就是字节对齐&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;简单来说呢就是，变量理论上可以从任何地址开始，但是因为某种原因，事实上变量的地址只能是 某个数 的 n 倍&lt;br /&gt;
+至于什么原因这就涉及到 为什么要字节对齐&lt;/p&gt;
+&lt;h2 id=&#34;为什么要字节对齐&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么要字节对齐&#34;&gt;#&lt;/a&gt; 为什么要字节对齐&lt;/h2&gt;
+&lt;p&gt;官话就是:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;为了保证数据存取正常。由于硬件平台限制，并不是所有平台都是支持任何地址的内存存储数据&lt;/li&gt;
+&lt;li&gt;提高 CPU 对内存的访问速度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第一点我就不加细说了.&lt;br /&gt;
+ 第二点，大概解释一下，CPU 对于 内存的操作粒度 一般是 N 的整数倍。对于大部分 ARM 架构的 CPU 都是不支持 非字节对齐的数据存储.&lt;/p&gt;
+&lt;p&gt;凡事都会有例外，所以对应的  &lt;code&gt;x86&lt;/code&gt;  架构的 CPU, 是可以支持，非字节对齐的数据存储，但是对于非字节对齐的数据也不是一次读出 4 字节，而是采取多次读取对齐的内存，然后进行拼接&lt;br /&gt;
+例如，每一次读取 4byte. 如果地址任意存储，存在一个变量  &lt;code&gt;a&lt;/code&gt; , 大小为 2 byte, 位于 0x03~0x04 的上.&lt;/p&gt;
+&lt;p&gt;当 CPU 需要操作这个变量时，CPU 就要先从 0x00 处读一次数据，取最后一部分，再从 0x04 读取一次数据取出第一个字节，然后合并在一起组成变量  &lt;code&gt;a&lt;/code&gt; &lt;br /&gt;
+ 这样就会大大降低 CPU 访存的效率.&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.statically.io/gh/to-ywz/Image-Hosting@master/20231217/image.128ch7zywys0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;字节对齐的规则&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字节对齐的规则&#34;&gt;#&lt;/a&gt; 字节对齐的规则&lt;/h2&gt;
+&lt;p&gt;下面的结论均为系统默认对齐规则下进行的：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;stu1&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; a&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;double&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; c&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; d&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;short&lt;/span&gt; e&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.statically.io/gh/to-ywz/Image-Hosting@master/20231217/image.52l9yopocnk0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;结构体中间&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结构体中间&#34;&gt;#&lt;/a&gt; 结构体中间&lt;/h3&gt;
+&lt;p&gt;各结构体的起始地址按照各个类型变量&lt;strong&gt;默认规则&lt;/strong&gt;进行摆放&lt;/p&gt;
+&lt;p&gt;char 类型变量除外，char 类型变量一般遵循 2 的倍数地址开始存储.&lt;/p&gt;
+&lt;h3 id=&#34;结构体最后&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结构体最后&#34;&gt;#&lt;/a&gt; &lt;ins&gt;结构体最后&lt;/ins&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;以结构体内最大的变量类型为准.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果是像 int 类型是 4 个字节的，并且结构体的&lt;strong&gt;结尾地址&lt;/strong&gt;不满足 4 的倍数，则需向离最近的 4 的倍数地址进行补齐；&lt;/p&gt;
+&lt;p&gt;如果是像 double 类型是 8 个字节，并且结构体的&lt;strong&gt;结尾地址&lt;/strong&gt;不满足 8 的倍数，则需向离最近的 8 的倍数地址补齐；&lt;/p&gt;
+&lt;p&gt;以此类推……&lt;/p&gt;
+&lt;h3 id=&#34;结构体嵌套&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#结构体嵌套&#34;&gt;#&lt;/a&gt; 结构体嵌套&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;子结构体的成员变量起始地址要视子结构体中最大变量类型决定&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;比如  &lt;code&gt;struct a&lt;/code&gt;  含有  &lt;code&gt;struct b&lt;/code&gt; ， &lt;code&gt;b&lt;/code&gt;  里有  &lt;code&gt;char，int，double&lt;/code&gt;  等元素，那  &lt;code&gt;b&lt;/code&gt;  应该从 8 的整数倍开始存储&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;stu2&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; x&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; y&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;double&lt;/span&gt; z&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; v&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;stu1&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;union&lt;/span&gt; u1 &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; a1&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; a2&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;a&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;stu2&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; c&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.statically.io/gh/to-ywz/Image-Hosting@master/20231217/image.2i3bm3ijbyy0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;数组成员&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#数组成员&#34;&gt;#&lt;/a&gt; 数组成员&lt;/h3&gt;
+&lt;p&gt;比如  &lt;code&gt;char a[5]&lt;/code&gt; ，它的对齐方式和连续写 5 个  &lt;code&gt;char&lt;/code&gt;  类型变量是一样的，也就是说它还是按一个字节对齐.&lt;/p&gt;
+&lt;h3 id=&#34;含联合体union成员&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#含联合体union成员&#34;&gt;#&lt;/a&gt; 含联合体（union）成员&lt;/h3&gt;
+&lt;p&gt;取联合体中最大类型的整数倍地址开始存储&lt;/p&gt;
+&lt;h2 id=&#34;思考-为什么-cpu-不从-3~4-直接读取变量-a&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思考-为什么-cpu-不从-3~4-直接读取变量-a&#34;&gt;#&lt;/a&gt; 思考：为什么 CPU 不从 3~4 直接读取变量  &lt;code&gt;a&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;当我看到网上的 对字节对齐的解释的时候，说到上面第二点就不说了。我相信肯定不止我一个人想过这样的问题&lt;br /&gt;
+为什么不从 x 开始 往后读 N 个字节？&lt;/p&gt;
+&lt;p&gt;其实这取决于 CPU 是否支持非对齐存储，如果处理可以支持不对齐读取，那么对不对齐并不会影响到数据的正确性。但是，还是会影响到处理器将数据读入内粗的速度&lt;/p&gt;
+&lt;p&gt;对齐访问允许处理器高效地使用其数据总线，对齐访问使得内存子系统可以更有效地工作，减少缓存行的分裂和合并.&lt;/p&gt;
+&lt;p&gt;不支持非对齐访问可以简化 CPU 的设计，减少硬件复杂性和制造成本。尤其是对微处理器来说&lt;/p&gt;
+&lt;h2 id=&#34;参考文献&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考文献&#34;&gt;#&lt;/a&gt; 参考文献&lt;/h2&gt;
+&lt;p&gt;[1] &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80ODg5NjYxMy9hcnRpY2xlL2RldGFpbHMvMTI3MzcxMDQ1P3NwbT0xMDAxLjIxMDEuMzAwMS42NjUwLjYmYW1wO3V0bV9tZWRpdW09ZGlzdHJpYnV0ZS5wY19yZWxldmFudC5ub25lLXRhc2stYmxvZy0yJTdFZGVmYXVsdCU3RUJsb2dDb21tZW5kRnJvbUJhaWR1JTdFUmF0ZS02LTEyNzM3MTA0NS1ibG9nLTEyNzE4MzY3Ni4yMzUlNUV2MzklNUVwY19yZWxldmFudF9hbnRpX3QzJmFtcDtkZXB0aF8xLXV0bV9zb3VyY2U9ZGlzdHJpYnV0ZS5wY19yZWxldmFudC5ub25lLXRhc2stYmxvZy0yJTdFZGVmYXVsdCU3RUJsb2dDb21tZW5kRnJvbUJhaWR1JTdFUmF0ZS02LTEyNzM3MTA0NS1ibG9nLTEyNzE4MzY3Ni4yMzUlNUV2MzklNUVwY19yZWxldmFudF9hbnRpX3QzJmFtcDt1dG1fcmVsZXZhbnRfaW5kZXg9MTM=&#34;&gt;【C/C++】内存对齐&lt;/span&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
+</content>
+        <category term="计算机科学与技术" scheme="https://to-ywz.github.io/categories/computer-science/" />
+        <category term="C语言" scheme="https://to-ywz.github.io/categories/computer-science/C/" />
+        <category term="C,学习笔记" scheme="https://to-ywz.github.io/tags/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <updated>2023-12-28T06:52:35.000Z</updated>
+    </entry>
     <entry>
         <id>https://to-ywz.github.io/tool/Keil%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
         <title>VSCode使用问题记录</title>
@@ -4318,37 +4383,5 @@ else
         <category term="Raspberry Pi" scheme="https://to-ywz.github.io/categories/Raspberry-Pi/" />
         <category term="树莓派" scheme="https://to-ywz.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" />
         <updated>2022-12-04T14:58:49.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://to-ywz.github.io/tool/HAL%E5%BA%93%E5%87%BA%E7%8E%B0HAL_StatusTypeDef%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB/</id>
-        <title>HAL库出现HAL_StatusTypeDef无法识别</title>
-        <link rel="alternate" href="https://to-ywz.github.io/tool/HAL%E5%BA%93%E5%87%BA%E7%8E%B0HAL_StatusTypeDef%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB/"/>
-        <content type="html">&lt;h1 id=&#34;问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题&#34;&gt;#&lt;/a&gt; 问题&lt;/h1&gt;
-&lt;p&gt;今天重新写了一个 gpio 的抽象层，结果编译的时候出现了一个 bug: &lt;code&gt;HAL_StatusTypeDef&lt;/code&gt;  无法识别&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.statically.io/gh/to-ywz/Image-Hosting@master/2023/image.5wq5i5adpug0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
- 一看这种问题，涉及库文件不是头文件引用错就是，无意中改动了宏.&lt;/p&gt;
-&lt;h1 id=&#34;思考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#思考&#34;&gt;#&lt;/a&gt; 思考&lt;/h1&gt;
-&lt;p&gt;由于我的工程是直接从 CubeMX 中生成的所以不存在什么宏改错的问题&lt;br /&gt;
-那就到了头文件的问题了，首先考虑自己编写的 &lt;code&gt;gpio&lt;/code&gt;  文件&lt;br /&gt;
-我的源码中只有一个头文件与 HAL 相关&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.statically.io/gh/to-ywz/Image-Hosting@master/2023/image.6wfazdj3i5s0.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
- 很显然有一半的可能是  &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  惹的祸.&lt;br /&gt;
- 所以我将  &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  替换为  &lt;code&gt;main.h&lt;/code&gt; &lt;br /&gt;
- 编译后  &lt;code&gt;0 error 0 wraning&lt;/code&gt; , 果然是找个的问题.&lt;br /&gt;
- 但出现了新的问题，为啥 &lt;code&gt;main.h&lt;/code&gt;  可以 而 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  不可以&lt;br /&gt;
-经过多次转跳，在 &lt;code&gt;stm32f4xx_hal_conf&lt;/code&gt;  中，看到了了这部分 宏&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.statically.io/gh/to-ywz/Image-Hosting@master/2023/image.3vtw1rk50o80.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
-&lt;img data-src=&#34;https://cdn.statically.io/gh/to-ywz/Image-Hosting@master/2023/image.1vczkfxpj4v4.jpg&#34; alt=&#34;image&#34; /&gt;&lt;br /&gt;
- 我严重怀疑，是不是因为宏开关的问题，限制了 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  内部的一些定义&lt;br /&gt;
-但是进入 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  中查看找不到有宏的开关，所以我认为可能是单独的 &lt;code&gt;stm32f4xx_hal_gpio.h&lt;/code&gt;  文件不足以构成完整的文件，缺少部分文件依赖而导致的.&lt;br /&gt;
- 虽然可以这么解释但是，还是觉得怪怪的。等以后捋清楚了再回来继续更.&lt;br /&gt;
--------------------2023.2.8----------------------------&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;大道五十，天衍四十九，人遁其一！&lt;/p&gt;
-</content>
-        <category term="开发工具" scheme="https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" />
-        <category term="HAL库" scheme="https://to-ywz.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/HAL%E5%BA%93/" />
-        <category term="HAL库" scheme="https://to-ywz.github.io/tags/HAL%E5%BA%93/" />
-        <updated>2022-11-22T05:14:07.000Z</updated>
     </entry>
 </feed>
